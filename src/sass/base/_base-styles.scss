@@ -1,0 +1,66 @@
+body {
+background-color: $light-color-white;
+  color: $dark-color-black;
+
+  font-family: $main-font;
+  font-size: 12px;
+
+  &.modal-open {
+    overflow: hidden;
+  }
+}
+
+a {
+  text-decoration: none;
+  display: block;
+}
+
+p {
+  margin: 0;
+  padding: 0;
+}
+
+img {
+  display: block;
+  width: 100%;
+  height: auto;
+}
+
+ul {
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+section {
+  padding-top: 0;
+  padding-bottom: 60px;
+}
+
+/* общие классы для общего пользования */
+.container {
+  padding: 0 15px;
+  margin: 0 auto;
+
+  @media screen and (min-width: $mobile) {
+    max-width: $mobile;
+  }
+
+  @media screen and (min-width: $tablet) {
+    max-width: $tablet;
+  }
+  @media screen and (min-width: $desktop) {
+    max-width: $desktop;
+  }
+}
+
+.visually-hidden {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  margin: -1px;
+  border: 0;
+  padding: 0;
+  clip: rect(0000);
+  overflow: hidden;
+}
