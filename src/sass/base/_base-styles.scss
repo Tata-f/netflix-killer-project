@@ -4,6 +4,7 @@ background-color: $light-color-white;
 
   font-family: $main-font;
   font-size: 12px;
+  font-weight: 500;
 
   &.modal-open {
     overflow: hidden;
@@ -15,6 +16,11 @@ a {
   display: block;
 }
 
+h1,
+h2,
+h3,
+h4,
+h5,
 p {
   margin: 0;
   padding: 0;
