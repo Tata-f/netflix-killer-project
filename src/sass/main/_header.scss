@@ -1,8 +1,8 @@
 a,
-svg,
 p,
 input,
 button {
+  color: $light-color-white;
   margin: 0;
   padding: 0;
 }
@@ -11,71 +11,79 @@ button {
   text-transform: uppercase;
   border: 0;
   background: none;
+  font-family: Roboto;
+  font-style: normal;
+  font-weight: 500;
+  font-size: 12px;
+  line-height: 16px;
 }
 
-// header {
-//   padding: 41px 71px 0px;	
+header {	
+  margin-right: auto;
+	margin-left: auto;
+	background-position: center, center;
+	background-size: cover;
+	background-repeat: no-repeat;
+  height: 230px;
+  
+  max-width: $mobile;
+  padding: 46px 20px 0px;
 
-//   @media screen and (max-width: 767px) {
-// 		max-width: 420px;
-// 		height: auto;
+  background-image: url("../images/mobile/main-header-bg.jpg");
 
-// 		background-image: url("../images/mobile/main-header-bg.jpg");
+  @media screen and (min-device-pixel-ratio: 2),
+    screen and (-webkit-min-device-pixel-ratio: 2),
+    screen and (-o-min-device-pixel-ratio: 2/1),
+    screen and (min-resolution: 192dpi),
+    screen and (min-resolution: 2dppx) {
+    background-image: url("../images/mobile/main-header-bg@2x.jpg");
+  }
 
-// 		@media screen and (min-device-pixel-ratio: 2),
-// 			screen and (-webkit-min-device-pixel-ratio: 2),
-// 			screen and (-o-min-device-pixel-ratio: 2/1),
-// 			screen and (min-resolution: 192dpi),
-// 			screen and (min-resolution: 2dppx) {
-// 			background-image: url("../images/mobile/main-header-bg@2x.jpg");
-// 		}
-// 	}
+	@media screen and (min-width: $tablet) {
+    padding: 41px 76px 0px 71px;
+		max-width: $tablet;
+		
+		background-image: url("../images/tablet/main-header-bg.jpg");
 
-// 	@media screen and (min-width: 768px) and (max-width: 1199px) {
-// 		width: 768px;
-// 		// height: 400px;
+		@media screen and (min-device-pixel-ratio: 2),
+			screen and (-webkit-min-device-pixel-ratio: 2),
+			screen and (-o-min-device-pixel-ratio: 2/1),
+			screen and (min-resolution: 192dpi),
+			screen and (min-resolution: 2dppx) {
+			background-image: url("../images/tablet/main-header-bg@2x.jpg");
+		}
+  }
 
-
-// 		background-image: url("../images/tablet/main-header-bg.jpg");
-
-// 		@media screen and (min-device-pixel-ratio: 2),
-// 			screen and (-webkit-min-device-pixel-ratio: 2),
-// 			screen and (-o-min-device-pixel-ratio: 2/1),
-// 			screen and (min-resolution: 192dpi),
-// 			screen and (min-resolution: 2dppx) {
-// 			background-image: url("../images/tablet/main-header-bg@2x.jpg");
-// 		}
-// 	}
-
-// 	@media screen and (min-width: 1200px) {
+	@media screen and (min-width: $desktop) {
+    min-width: 100%;
     
+		background-image: url("../images/desktop/main-header-bg.jpg");
 
-// 		background-image: url("../images/desktop/main-header-bg.jpg");
+		@media screen and (min-device-pixel-ratio: 2),
+			screen and (-webkit-min-device-pixel-ratio: 2),
+			screen and (-o-min-device-pixel-ratio: 2/1),
+			screen and (min-resolution: 192dpi),
+			screen and (min-resolution: 2dppx) {
+			background-image: url("../images/desktop/main-header-bg@2x.jpg");
+		}
+	}
+}
 
-// 		@media screen and (min-device-pixel-ratio: 2),
-// 			screen and (-webkit-min-device-pixel-ratio: 2),
-// 			screen and (-o-min-device-pixel-ratio: 2/1),
-// 			screen and (min-resolution: 192dpi),
-// 			screen and (min-resolution: 2dppx) {
-// 			background-image: url("../images/desktop/main-header-bg@2x.jpg");
-// 		}
-// 	}
-// }
-
-header {
-	
+header {	
 
   .header-container {
     display: flex;	
-    justify-content: space-between;		
+    justify-content: space-between;	
+    align-items: baseline;	
   }
 
   .header-form {
     display: flex;
     justify-content: center;
     align-items: center;
-    padding-bottom: 91px;
     margin-top: 38px;
+
+    display: none;
   }
 
   .header-form.not-active {
@@ -86,9 +94,8 @@ header {
     display: flex;
     justify-content: center;
     align-items: center;
-    padding-bottom: 65px;
     margin-top: 46px;
-    display: none;
+    // display: none;
   }
 
   .librari-nav.active {
@@ -98,31 +105,79 @@ header {
 
 .logo-header {
 	display: flex;
+  align-items: baseline;
 
   .logo-header__svg {
-    width: 24px;
-    height: 24px;
-    padding-right: 10px;
+    margin-right: 10px;
+  }
+
+  .logo-header__text {
+    display: none;
+
+    @media screen and (min-width: $tablet) {
+      display: block;
+      font-family: Roboto;
+      font-style: normal;
+      font-weight: 500;
+      font-size: 30px;
+      line-height: 35px;
+      color: $light-color-white;
+    }
+    
   }
 }
 
 .nav-header {
+ 
+  button:hover,
+  button:focus {
+    border-bottom: 3px solid $bright-color-orange;
+  }
+
   .nav-header__home {
     margin-right: 39px;
   }
 
   .nav-header__home.active, 
   .nav-header__library.active {
-    border-bottom: 3px solid #FF6B08;
+    border-bottom: 3px solid $bright-color-orange;
   }
 }
 
 .header-form {
-  .header-form__input {
+  position: relative;
+  max-width: 420px;
+
+  @media screen and (min-width: $tablet) {
     width: 336px;
+    margin-right: auto;
+    margin-left: auto;
+  }
+
+  .header-form__btn {
+    position: absolute;
+    right: 0;
+  }
+
+  .header-form__btn:hover,
+  .header-form__btn:focus {
+    fill: $bright-color-orange;
+  }
+    
+  .header-form__input::-webkit-input-placeholder {color:$light-color-white}
+
+  .header-form__input {
+    font-family: Roboto;
+    font-style: normal;
+    font-weight: normal;
+    font-size: 14px;
+    line-height: 16px;
+    color: $light-color-white;
+    background: none;
+    width: 100%;
     height: 20px;
     border: 0;
-    border-bottom: 2px solid #000;
+    border-bottom: 2px solid $light-color-white;
   }
 
   .header-form__svg {
@@ -134,18 +189,24 @@ header {
 .librari-nav {
 
   button {
-    // color: #fff;
     width: 136px;
     height: 44px;
-    border: 2px solid #fff;
+    border: 2px solid $light-color-white;
     border-radius: 5px;
     
   }
 
   button.active {    
     border: 0;
-    background: #FF6B01;
+    background: $bright-color-orange;
   }
+
+  button:hover,
+  button:focus {
+    color: $bright-color-orange;
+    border-color: $bright-color-orange;
+  }
+
 
   .librari-nav__wach {
     margin-right: 15px;
