@@ -55,15 +55,3 @@ font-size: 12px;
   color: $bright-color-orange;
 }
 
-.pagination {
-  margin: auto;
-  width: 280px;
-  height: 40px;
-  border: solid black 1px;
-  margin-top: 40px;
-
-  @media screen and (min-width: $tablet) {
-    margin-top: 50px;
-  }
-
-}

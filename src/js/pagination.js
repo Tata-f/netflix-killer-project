@@ -1,6 +1,5 @@
-//!const KEY = 'bb99cf0123948bcb57616045b789da85';
-//? пример запроса
-//? https://api.themoviedb.org/3/movie/550?api_key=bb99cf0123948bcb57616045b789da85
+import API from './fetch-popular.js';
+
 
 //=======Логика отображения страниц=============
 
