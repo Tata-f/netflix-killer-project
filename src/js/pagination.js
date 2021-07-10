@@ -1,9 +1,15 @@
+//!const KEY = 'bb99cf0123948bcb57616045b789da85';
+//? пример запроса
+//? https://api.themoviedb.org/3/movie/550?api_key=bb99cf0123948bcb57616045b789da85
+
+//=======Логика отображения страниц=============
+
 const paginationEl = document.querySelector('.pagination-list');
 
 let totalPages = 176;
 
 
-function onPagesSwitcher(totalPages, page) {
+function onRenderPagesSwitcher(totalPages, page) {
     let paginationItem = '';
     let activePage;
     let backPage = page - 1;
@@ -14,9 +20,9 @@ function onPagesSwitcher(totalPages, page) {
     }
 
     if (page > 2) { //если значение страницы больше 2, добавьте новый тег li
-        paginationItem += `<li class="pagination-item pagination-numb onclick="onPagesSwitcher(totalPages, 1)""><span>1</span></li>`;
+        paginationItem += `<li class="mobile-hidden pagination-item pagination-numb onclick="onPagesSwitcher(totalPages, 1)""><span>1</span></li>`;
         if (page > 3) { //если значение страницы больше 3, добавьте новый тег ...
-            paginationItem += `<li class="pagination-item pagination-dots"><span><sup>...</sup></span></li>`;
+            paginationItem += `<li class="mobile-hidden pagination-item pagination-dots"><span><sup>...</sup></span></li>`;
         }
     }
     //сколько страниц или li показывают до текущего li
@@ -53,9 +59,9 @@ function onPagesSwitcher(totalPages, page) {
     if (page < totalPages-1) { //если значение страницы меньше totalpages на 1, то показать последний li или страницу, которая является 176 новым тегом li
        
         if (page < totalPages-2) {//если значение страницы меньше totalpages на 2, то показать последний (...) предпоследний
-             paginationItem += `<li class="pagination-item pagination-dots"><span><sup>...</sup></span></li>`;        
+             paginationItem += `<li class="mobile-hidden pagination-item pagination-dots"><span><sup>...</sup></span></li>`;        
         }
-        paginationItem += `<li class="pagination-item pagination-numb" onclick="onPagesSwitcher(totalPages, ${totalPages})"><span>${totalPages}</span></li>`;
+        paginationItem += `<li class="mobile-hidden pagination-item pagination-numb" onclick="onPagesSwitcher(totalPages, ${totalPages})"><span>${totalPages}</span></li>`;
     }
 
     if (page < totalPages) {//если значение страницы меньше, чем значение totalPages, тогда добавьте новый li, который будет следующей кнопкой
@@ -64,10 +70,9 @@ function onPagesSwitcher(totalPages, page) {
 
     paginationEl.innerHTML = paginationItem;
 }
+onRenderPagesSwitcher(totalPages, 25);//сюда подключить данные из API
 
-
-onPagesSwitcher(totalPages, 175);//сюда подключить данные из API
-
+//======= Черновики=============
 
 // const backBtnEl = document.querySelector('.pagination-back');
 // const nextBtnEl = document.querySelector('.pagination-next');

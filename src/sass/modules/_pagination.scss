@@ -1,3 +1,19 @@
+.movies {
+  display: block;
+}
+.movies-card {
+  display: flex;
+  align-items: center;
+  justify-content: space-evenly;
+  flex-wrap: wrap;
+}
+.movies-card li {
+  width: 274px;
+  height: 60px;
+  border: 1px solid red;
+}
+
+// ===================
 .pagination {
   display: flex;
   align-items: center;
@@ -8,10 +24,13 @@
   display: flex;
   align-items: center;
   justify-content: space-between;
-  width: 374px;
+  width: 280px;
   height: 40px;
   background-color: $light-color-white;
-  border: 1px solid red;
+
+  @media screen and (min-width: $tablet) {
+    width: 374px;
+  }
 }
 
 .pagination-item {
@@ -34,6 +53,7 @@
   cursor: default;
   width: 10px;
 }
+
 .pagination-back,
 .pagination-next {
   height: 40px;
@@ -52,4 +72,11 @@
   background: $bright-color-orange;
   border-radius: 5px;
   color: $light-color-white;
+}
+
+.mobile-hidden {
+  display: none;
+  @media screen and (min-width: $tablet) {
+    display: flex;
+  }
 }
