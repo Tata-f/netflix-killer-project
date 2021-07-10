@@ -1,43 +1,48 @@
 <div class="container">
-  <div class="modal-container">
-    <button class="modal-close-svg" type="button">
-      <svg width="30" height="30">
-        <use href="./images/svg/sprite.svg#icon-close"></use>
-      </svg>
-    </button>
-    <img class="modal-img" src="" alt="" />
-    <div>
-      <h2 class="modal-film-title">Example</h2>
-      <ul class="modal-items">
-        <li class="modal-item-name">
-          Example
-          <p class="modal-item-description">Example</p>
-        </li>
-        <li class="modal-item-name">
-          Example
-          <p class="modal-item-description">Example</p>
-        </li>
-        <li class="modal-item-name">
-          Example
-          <p class="modal-item-description">Example</p>
-        </li>
-        <li class="modal-item-name">
-          Example
-          <p class="modal-item-description">Example</p>
-        </li>
-      </ul>
-      <h3 class="modal-description-title">About</h3>
-      <p class="modal-description">
-        Four of the West’s most infamous outlaws assemble to steal a huge stash of gold from the
-        most corrupt settlement of the gold rush towns. But not all goes to plan one is killed and
-        the other three escapes with bags of gold hide out in the abandoned gold mine where they
-        happen across another gang of three – who themselves were planning to hit the very same
-        bank! As tensions rise, things go from bad to worse as they realise the bags of gold are
-        filled with lead... they’ve been double crossed – but by who and how?
-      </p>
-      <div class="modal-button-container">
-        <button class="modal-button modal-button-color" type="button">Add to watched</button>
-        <button class="modal-button" type="button">Add to queue</button>
+  <!-- Временная кнопка -->
+  <button class="modal-button" type="button" data-action="open-modal">Open</button>
+
+  <div class="modal-container backdrop js-backdrop">
+    <div class="modal">
+      <button class="modal-close-svg" type="button" data-action="close-modal">
+        <svg width="30" height="30">
+          <use href="./images/svg/sprite.svg#icon-close"></use>
+        </svg>
+      </button>
+      <img class="modal-img" src="" alt="" />
+      <div>
+        <h2 class="modal-film-title">Example</h2>
+        <ul class="modal-items">
+          <li class="modal-item-name">
+            Example
+            <p class="modal-item-description">Example</p>
+          </li>
+          <li class="modal-item-name">
+            Example
+            <p class="modal-item-description">Example</p>
+          </li>
+          <li class="modal-item-name">
+            Example
+            <p class="modal-item-description">Example</p>
+          </li>
+          <li class="modal-item-name">
+            Example
+            <p class="modal-item-description">Example</p>
+          </li>
+        </ul>
+        <h3 class="modal-description-title">About</h3>
+        <p class="modal-description">
+          Four of the West’s most infamous outlaws assemble to steal a huge stash of gold from the
+          most corrupt settlement of the gold rush towns. But not all goes to plan one is killed and
+          the other three escapes with bags of gold hide out in the abandoned gold mine where they
+          happen across another gang of three – who themselves were planning to hit the very same
+          bank! As tensions rise, things go from bad to worse as they realise the bags of gold are
+          filled with lead... they’ve been double crossed – but by who and how?
+        </p>
+        <div class="modal-button-container">
+          <button class="modal-button modal-button-color" type="button">Add to watched</button>
+          <button class="modal-button" type="button">Add to queue</button>
+        </div>
       </div>
     </div>
   </div>

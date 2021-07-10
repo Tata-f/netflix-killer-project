@@ -6,7 +6,6 @@ import  './js/footer-slider';
 import './js/fetch-my-library';
 import './js/fetch-popular';
 import './js/render-card-movie';  // рендер карточек фильма, функция разметки общая
-
-
+import './js/modal-open';
 
 
