@@ -55,7 +55,7 @@ header {
   }
 
 	@media screen and (min-width: $desktop) {
-    min-width: 100%;
+    max-width: $desktop;
     
 		background-image: url("../images/desktop/main-header-bg.jpg");
 
@@ -65,6 +65,46 @@ header {
 			screen and (min-resolution: 192dpi),
 			screen and (min-resolution: 2dppx) {
 			background-image: url("../images/desktop/main-header-bg@2x.jpg");
+		}
+	}
+}
+
+header.active {	
+
+  background-image: url("../images/mobile/favorites-header-bg.jpg");
+ 
+
+  @media screen and (min-device-pixel-ratio: 2),
+    screen and (-webkit-min-device-pixel-ratio: 2),
+    screen and (-o-min-device-pixel-ratio: 2/1),
+    screen and (min-resolution: 192dpi),
+    screen and (min-resolution: 2dppx) {
+    background-image: url("../images/mobile/favorites-header-bg.jpg");
+  }
+
+	@media screen and (min-width: $tablet) {
+  	
+		background-image: url("../images/tablet/favorites-header-bg.jpg");
+
+		@media screen and (min-device-pixel-ratio: 2),
+			screen and (-webkit-min-device-pixel-ratio: 2),
+			screen and (-o-min-device-pixel-ratio: 2/1),
+			screen and (min-resolution: 192dpi),
+			screen and (min-resolution: 2dppx) {
+			background-image: url("../images/tablet/favorites-header-bg@2x.jpg");
+		}
+  }
+
+	@media screen and (min-width: $desktop) {
+      
+		background-image: url("../images/desktop/favorites-header-bg.jpg");
+
+		@media screen and (min-device-pixel-ratio: 2),
+			screen and (-webkit-min-device-pixel-ratio: 2),
+			screen and (-o-min-device-pixel-ratio: 2/1),
+			screen and (min-resolution: 192dpi),
+			screen and (min-resolution: 2dppx) {
+			background-image: url("../images/desktop/favorites-header-bg@2x.jpg");
 		}
 	}
 }
@@ -82,8 +122,6 @@ header {
     justify-content: center;
     align-items: center;
     margin-top: 38px;
-
-    display: none;
   }
 
   .header-form.not-active {
@@ -91,15 +129,15 @@ header {
   }
 
   .librari-nav {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    margin-top: 46px;
-    // display: none;
+    display: none;
   }
 
   .librari-nav.active {
     display: block;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-top: 46px;
   }
 }
 
@@ -132,6 +170,7 @@ header {
   button:hover,
   button:focus {
     border-bottom: 3px solid $bright-color-orange;
+    cursor: pointer;
   }
 
   .nav-header__home {
@@ -162,6 +201,7 @@ header {
   .header-form__btn:hover,
   .header-form__btn:focus {
     fill: $bright-color-orange;
+    cursor: pointer;
   }
     
   .header-form__input::-webkit-input-placeholder {color:$light-color-white}
@@ -175,14 +215,15 @@ header {
     color: $light-color-white;
     background: none;
     width: 100%;
-    height: 20px;
+    height: 30px;
     border: 0;
     border-bottom: 2px solid $light-color-white;
+    outline: none;
   }
 
   .header-form__svg {
-    width: 12px;
-    height: 12px;
+    width: 16px;
+    height: 16px;
   }
 }
 
@@ -196,17 +237,17 @@ header {
     
   }
 
-  button.active {    
+  .librari-nav__wach.active,
+  .librari-nav__queue.active {    
     border: 0;
     background: $bright-color-orange;
   }
 
   button:hover,
   button:focus {
-    color: $bright-color-orange;
     border-color: $bright-color-orange;
+    cursor: pointer;
   }
-
 
   .librari-nav__wach {
     margin-right: 15px;
