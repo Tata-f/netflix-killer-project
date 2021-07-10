@@ -13,3 +13,4 @@ function fetchPopularMovies() {
  .then(response => {return response.json()})   
 }
 
+export default { fetchPopularMovies };

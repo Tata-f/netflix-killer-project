@@ -14,10 +14,16 @@
 }
 
 // ===================
+
 .pagination {
   display: flex;
   align-items: center;
   justify-content: center;
+  margin-top: 40px;
+
+  @media screen and (min-width: $tablet) {
+    margin-top: 50px;
+  }
 }
 
 .pagination-list {
@@ -44,9 +50,6 @@
 }
 .pagination-item:not(:last-child) {
   margin-right: 16px;
-}
-
-.pagination-numb {
 }
 
 .pagination-dots {
