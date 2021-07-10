@@ -10,3 +10,4 @@ footerBtnEl.addEventListener('click', () =>
 footerBtnClose.addEventListener('click', () => 
   footerBackdropEl.classList.add('is-hidden')
 );
+
