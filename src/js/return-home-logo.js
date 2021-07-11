@@ -1,25 +1,19 @@
 import fetchCardMovie from './render-card-movie';
 
-const refs = {
-	headerLibrary: document.querySelector('header'),
-	logoHeader : document.querySelector('.logo-header'),
-	navHome : document.querySelector('.nav-header__home'),
-	navMyLibrary: document.querySelector('.nav-header__library'),
-	headerFormNotActive: document.querySelector('.header-form'),
-	myLibraryActive: document.querySelector('.librari-nav')
+const refs = {	
+	logoHeader : document.querySelector('.logo-header-library'),
+	btnNavHome : document.querySelector('.nav-header-library .nav-header__home'),
+	headerHome: document.querySelector('.header-home'),
+	headerLibrary: document.querySelector('.header-my-library'),	
 }
 
-
 refs.logoHeader.addEventListener('click', onReturnMainPage);
-refs.navHome.addEventListener('click', onReturnMainPage);
+refs.btnNavHome.addEventListener('click', onReturnMainPage);
 
 function onReturnMainPage() {
-
-	refs.headerLibrary.classList.remove('active')
-	refs.navHome.classList.add('active')
-	refs.navMyLibrary.classList.remove('active')
-	refs.headerFormNotActive.classList.remove('not-active')
-	refs.myLibraryActive.classList.remove('active')
+	refs.headerLibrary.classList.add('not-active')
+	refs.headerHome.classList.remove('not-active')	
+	
 
 	fetchCardMovie();
 }
