@@ -11,7 +11,6 @@ footerBtnClose.addEventListener('click', () =>
   footerBackdropEl.classList.add('is-hidden')
 );
 
-
 // =====================
 
 let slider = document.querySelector('#slideshow'),
@@ -199,3 +198,4 @@ arrows.addEventListener('click', function() {
 
   slide();
 });
+
