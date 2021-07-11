@@ -12,15 +12,6 @@ function onSearch(event) {
   const form = event.currentTarget;
   const searchQuery = form.elements.query.value;
 
-  fetchByQuery(searchQuery);
-}
-
-function onSearch(event) {
-  event.preventDefault();
-
-  const form = event.currentTarget;
-  const searchQuery = form.elements.query.value;
-
   fetchByQuery(searchQuery).then(renderCardByQuery);
 }
 
