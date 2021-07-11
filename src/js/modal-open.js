@@ -4,7 +4,6 @@ const refs = {
   backdrop: document.querySelector('.js-backdrop'),
 }
 
-refs.openModalBtn.addEventListener('click', onOpenModal);
 refs.closeModalBtn.addEventListener('click', onCloseModal);
 refs.backdrop.addEventListener('click', onBackdropClick);
 
