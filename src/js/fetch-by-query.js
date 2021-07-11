@@ -8,19 +8,9 @@ const options = {
   PAGE_NUM: 1,
 };
 
-refs.searchForm.addEventListener('submit', onSearch);
 
-function onSearch(event) {
-  event.preventDefault();
-
-  const form = event.currentTarget;
-  const searchQuery = form.elements.query.value;
-
-  fetchByQuery(searchQuery);
-}
-
-function fetchByQuery(query) {
-  fetch(
+export default function fetchByQuery(query) {
+  return fetch(
     `${options.BASE_URL}search/movie?api_key=${options.API_KEY}&language=en-US&page=${options.PAGE_NUM}&query=${query}`,
   )
     .then(response => response.json())
