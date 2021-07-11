@@ -1,18 +1,28 @@
-.movies {
-  display: block;
-}
-.movies-card {
+//? удалить
+.movies-card-test {
   display: flex;
   align-items: center;
   justify-content: space-evenly;
   flex-wrap: wrap;
 }
-.movies-card li {
-  width: 274px;
-  height: 60px;
+
+.pagination-test {
+  display: flex;
+  flex-wrap: wrap;
+}
+.movies-test {
+  background-color: aquamarine;
   border: 1px solid red;
+  margin-left: 10px;
+  margin-bottom: 10px;
+  width: 150px;
+  height: 70px;
+}
+.movies-test p {
+  color: black;
 }
 
+//? удалить
 // ===================
 
 .pagination {
@@ -45,11 +55,20 @@
   justify-content: center;
   text-align: center;
   cursor: pointer;
-
+  height: 40px;
+  width: 20px;
   line-height: 1.33;
 }
 .pagination-item:not(:last-child) {
   margin-right: 16px;
+}
+.pagination-item span {
+  display: contents;
+}
+
+.pagination-numb:hover:not(.pagination-active),
+.pagination-numb:focus:not(.pagination-active) {
+  color: $bright-color-orange;
 }
 
 .pagination-dots {
@@ -60,7 +79,7 @@
 .pagination-back,
 .pagination-next {
   height: 40px;
-  width: 40px;
+  min-width: 40px;
   background: $light-color-gray;
   border-radius: 5px;
 }
@@ -71,7 +90,7 @@
 .pagination-back:focus,
 .pagination-next:focus {
   height: 40px;
-  width: 40px;
+  min-width: 40px;
   background: $bright-color-orange;
   border-radius: 5px;
   color: $light-color-white;
