@@ -6,7 +6,7 @@ const refs = getRefs();
 
 fetchCardMovie(); // рендер карточек популярных фильмов до ввода запроса
 
-function fetchCardMovie() {
+export default function fetchCardMovie() {
     fetchPopularMovies().then(results => {
         // console.log(results);
 createCardMarkup(results);
