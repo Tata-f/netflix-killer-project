@@ -1,0 +1,19 @@
+<ul class='cards list gallery-js'>
+    {{#each this}}
+    <li class='list-item'>
+        {{!-- <a href='' class="test"> --}}
+            <img
+                srcset='https://image.tmdb.org/t/p/w300{{poster_path}} 1x, https://image.tmdb.org/t/p/w500{{poster_path}} 2x'
+                src='https://image.tmdb.org/t/p/w300{{poster_path}}' 
+                alt='{{title}}'
+                class="card-image-js"
+                data-id={{id}} />
+            <div class='card-title'>
+                <h2 class='title'>{{title}}</h2>
+                <p class='desc'>Жанр | <span class='release-date'>{{release_dates}}</span></p>
+                {{!-- добавить год и жанры --}}
+            </div>
+        {{!-- </a> --}}
+    </li>
+    {{/each}}
+</ul>

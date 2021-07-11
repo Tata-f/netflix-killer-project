@@ -1,17 +1,5 @@
 .modal-container {
   position: relative;
-  padding: 48px 20px 41px;
-  border: 1px solid blue; //Убрать при полноценной модалке
-
-  @media screen and (min-width: 767px) and (max-width: $desktop) {
-    padding: 42px 28px 40px;
-    display: flex;
-  }
-
-  @media screen and (min-width: $desktop) {
-    padding: 50px 30px 40px;
-    display: flex;
-  }
 }
 
 .modal-close-svg {
@@ -97,6 +85,7 @@
   margin-bottom: 20px;
 
   line-height: 20px;
+  color: $dark-color-black;
 }
 
 .modal-button-container {
@@ -116,6 +105,7 @@
   border: 1px solid $dark-color-black;
   border-radius: 5px;
   background-color: $light-color-white;
+  color: $dark-color-black;
 
   &:not(:last-child) {
     margin-right: 15px;
