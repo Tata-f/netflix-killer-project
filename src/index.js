@@ -9,5 +9,6 @@ import './js/fetch-popular';
 import './js/render-card-movie';  // рендер карточек фильма, функция разметки общая
 import './js/modal-open';
 import './js/fetch-by-query';
+import './js/fetch-on-click-movie'; // рендер карточки при нажатии на фильм
 
 
