@@ -12,7 +12,12 @@ function onSearch(event) {
   const form = event.currentTarget;
   const searchQuery = form.elements.query.value;
 
-  fetchByQuery(searchQuery).then(renderCardByQuery);
+  fetchByQuery(searchQuery)
+    .then(renderCardByQuery)
+    .catch(error => {
+      console.log(error);
+    })
+    .finally(() => form.reset());
 }
 
 function renderCardByQuery(results) {
