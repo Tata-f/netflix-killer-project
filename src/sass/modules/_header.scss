@@ -12,21 +12,52 @@ button {
   background: none;
 }
 
-header {	
-  margin-right: auto;
-	margin-left: auto;
-	background-position: center, center;
-	background-size: cover;
-	background-repeat: no-repeat;
+header {
   height: 230px;
+  position: relative;
+  background-color:rgba(0, 0, 0, 0.774);
   
-  width: 100%;
-  padding: 46px 20px 0px;
+}
 
-  
+.header-main {
+  top: 0;
+  position: absolute;
+  top: 0;
+	bottom: 0;
+	left: 0;
+	right: 0;
+	margin: auto;
+
+  width: 100%;
+  height: 100%;
+  background-position: center, center;
+	background-size: cover;
+	background-repeat: no-repeat;  
+
+  -webkit-transition: opacity 1s ease-in-out;
+  -moz-transition: opacity 1s ease-in-out;
+  -o-transition: opacity 1s ease-in-out;
+  transition: opacity 1s ease-in-out;
+
+
+  padding: 46px 20px 0px;
+	@media screen and (min-width: $tablet) {
+    padding: 41px 76px 0px 71px;	
+  }
+}
+.header-main.not-active {  
+  opacity: 0;
+  z-index: 10;
+
+}
+
+
+.header-home {  
+  z-index: 30; 
+     
   background-image: linear-gradient(
-					rgba(0, 0, 0, 0.56),
-					rgba(0, 0, 0, 0.56)
+					rgba(0, 0, 0, 0.36),
+					rgba(0, 0, 0, 0.36)
 				),
 				url("../images/mobile/main-header-bg.jpg");
 
@@ -36,18 +67,16 @@ header {
     screen and (min-resolution: 192dpi),
     screen and (min-resolution: 2dppx) {
     background-image:linear-gradient(
-      rgba(0, 0, 0, 0.56),
-      rgba(0, 0, 0, 0.56)
+      rgba(0, 0, 0, 0.36),
+      rgba(0, 0, 0, 0.36)
     ), url("../images/mobile/main-header-bg@2x.jpg");
   }
 
 	@media screen and (min-width: $tablet) {
-    padding: 41px 76px 0px 71px;
-		// max-width: $tablet;
-		
+   	
 		background-image:linear-gradient(
-      rgba(0, 0, 0, 0.56),
-      rgba(0, 0, 0, 0.56)
+      rgba(0, 0, 0, 0.36),
+      rgba(0, 0, 0, 0.36)
     ), url("../images/tablet/main-header-bg.jpg");
 
 		@media screen and (min-device-pixel-ratio: 2),
@@ -56,8 +85,8 @@ header {
 			screen and (min-resolution: 192dpi),
 			screen and (min-resolution: 2dppx) {
 			background-image:linear-gradient(
-        rgba(0, 0, 0, 0.56),
-        rgba(0, 0, 0, 0.56)
+        rgba(0, 0, 0, 0.36),
+        rgba(0, 0, 0, 0.36)
       ), url("../images/tablet/main-header-bg@2x.jpg");
 		}
   }
@@ -66,8 +95,8 @@ header {
     max-width: $desktop;
     
 		background-image:linear-gradient(
-      rgba(0, 0, 0, 0.56),
-      rgba(0, 0, 0, 0.56)
+      rgba(0, 0, 0, 0.36),
+      rgba(0, 0, 0, 0.36)
     ), url("../images/desktop/main-header-bg.jpg");
 
 		@media screen and (min-device-pixel-ratio: 2),
@@ -76,37 +105,36 @@ header {
 			screen and (min-resolution: 192dpi),
 			screen and (min-resolution: 2dppx) {
 			background-image:linear-gradient(
-        rgba(0, 0, 0, 0.56),
-        rgba(0, 0, 0, 0.56)
+        rgba(0, 0, 0, 0.36),
+        rgba(0, 0, 0, 0.36)
       ), url("../images/desktop/main-header-bg@2x.jpg");
 		}
 	}
 }
 
-header.active {	
-
+.header-my-library {	
+  z-index: 20;
+ 
   background-image:linear-gradient(
-    rgba(0, 0, 0, 0.56),
-    rgba(0, 0, 0, 0.56)
+    rgba(0, 0, 0, 0.36),
+    rgba(0, 0, 0, 0.36)
   ), url("../images/mobile/favorites-header-bg.jpg");
  
-
   @media screen and (min-device-pixel-ratio: 2),
     screen and (-webkit-min-device-pixel-ratio: 2),
     screen and (-o-min-device-pixel-ratio: 2/1),
     screen and (min-resolution: 192dpi),
     screen and (min-resolution: 2dppx) {
     background-image:linear-gradient(
-      rgba(0, 0, 0, 0.56),
-      rgba(0, 0, 0, 0.56)
+      rgba(0, 0, 0, 0.36),
+      rgba(0, 0, 0, 0.36)
     ), url("../images/mobile/favorites-header-bg.jpg");
   }
 
-	@media screen and (min-width: $tablet) {
-  	
+	@media screen and (min-width: $tablet) {  	
 		background-image:linear-gradient(
-      rgba(0, 0, 0, 0.56),
-      rgba(0, 0, 0, 0.56)
+      rgba(0, 0, 0, 0.36),
+      rgba(0, 0, 0, 0.36)
     ), url("../images/tablet/favorites-header-bg.jpg");
 
 		@media screen and (min-device-pixel-ratio: 2),
@@ -115,17 +143,18 @@ header.active {
 			screen and (min-resolution: 192dpi),
 			screen and (min-resolution: 2dppx) {
 			background-image:linear-gradient(
-        rgba(0, 0, 0, 0.56),
-        rgba(0, 0, 0, 0.56)
+        rgba(0, 0, 0, 0.36),
+        rgba(0, 0, 0, 0.36)
       ), url("../images/tablet/favorites-header-bg@2x.jpg");
 		}
   }
 
-	@media screen and (min-width: $desktop) {
-      
+	@media screen and (min-width: $desktop) {  
+    max-width: $desktop;
+
 		background-image:linear-gradient(
-      rgba(0, 0, 0, 0.56),
-      rgba(0, 0, 0, 0.56)
+      rgba(0, 0, 0, 0.36),
+      rgba(0, 0, 0, 0.36)
     ), url("../images/desktop/favorites-header-bg.jpg");
 
 		@media screen and (min-device-pixel-ratio: 2),
@@ -134,15 +163,14 @@ header.active {
 			screen and (min-resolution: 192dpi),
 			screen and (min-resolution: 2dppx) {
 			background-image:linear-gradient(
-        rgba(0, 0, 0, 0.56),
-        rgba(0, 0, 0, 0.56)
+        rgba(0, 0, 0, 0.36),
+        rgba(0, 0, 0, 0.36)
       ), url("../images/desktop/favorites-header-bg@2x.jpg");
 		}
 	}
 }
 
 header {	
-
   .header-container {
     display: flex;	
     justify-content: space-between;	
@@ -158,15 +186,7 @@ header {
     margin-left: auto;
   }
 
-  .header-form.not-active {
-    display: none;
-  }
-
   .librari-nav {
-    display: none;
-  }
-
-  .librari-nav.active {
     display: block;
     display: flex;
     justify-content: center;
@@ -175,7 +195,8 @@ header {
   }
 }
 
-.logo-header {
+.logo-header-home,
+.logo-header-library {
   cursor: pointer;
 	display: flex;
   align-items: baseline;
@@ -200,7 +221,9 @@ header {
   }
 }
 
-.nav-header {
+
+.nav-header-home,
+.nav-header-library {
   button {
     text-transform: uppercase;
     font-family: Roboto;
@@ -246,11 +269,14 @@ header {
     position: absolute;
     right: 0;
   }
-
+  
   .header-form__btn:hover,
   .header-form__btn:focus {
-    fill: $bright-color-orange;
     cursor: pointer;
+
+    .header-form__svg {
+      stroke: $bright-color-orange;
+    }
   }
     
   .header-form__input::-webkit-input-placeholder {color:$light-color-white}
@@ -271,6 +297,8 @@ header {
   }
 
   .header-form__svg {
+    stroke-width: 2.667;
+    stroke: $light-color-white;
     width: 16px;
     height: 16px;
   }

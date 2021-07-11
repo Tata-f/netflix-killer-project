@@ -2,31 +2,19 @@ import getRefs from './get-refs';
 const targetList = getRefs();
 
 const refs = {
-	headerLibrary: document.querySelector('header'),
-	navMyLibrary: document.querySelector('.nav-header__library'),
-	navHome: document.querySelector('.nav-header__home'),
-	headerFormNotActive: document.querySelector('.header-form'),
-	myLibraryActive: document.querySelector('.librari-nav'),
-	navWach: document.querySelector('.librari-nav__wach'),
-	navQueue: document.querySelector('.librari-nav__queue')	
+	headerHome: document.querySelector('.header-home'),
+	headerLibrary: document.querySelector('.header-my-library'),
+	btnNavMyLibrary: document.querySelector('.nav-header-home .nav-header__library'),
+		
 }
 
-
-refs.navMyLibrary.addEventListener('click', onRenderMyLibrary)
-
+refs.btnNavMyLibrary.addEventListener('click', onRenderMyLibrary)
 
 function onRenderMyLibrary () {
-	
-	refs.headerLibrary.classList.add('active')
-	refs.navHome.classList.remove('active')
-	refs.navMyLibrary.classList.add('active')
-	refs.headerFormNotActive.classList.add('not-active')
-	refs.myLibraryActive.classList.add('active')
-	
+
+	refs.headerHome.classList.toggle('not-active')	
+	refs.headerLibrary.classList.remove('not-active')	
 
 	targetList.moviesContainer.innerHTML = "";
-
-	
-	
 
 }
