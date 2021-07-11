@@ -7,6 +7,8 @@
   top: 0;
   right: 0;
 
+  fill: black;
+  color: black;
   margin-top: 10px;
   margin-right: 10px;
   background-color: transparent;
@@ -55,6 +57,7 @@
 }
 
 .modal-item-name {
+  position: relative;
   color: $light-gray-color;
 
   &:not(:last-child) {
@@ -64,11 +67,56 @@
 
 .modal-item-description {
   display: inline;
-  margin-left: 40px;
+  color: $dark-color-black;
+}
+
+.modal-item-average {
+  margin-left: 41px;
+  display: inline-block;
+  padding: 0 10px;
+  border-radius: 5px;
+  background-color: $bright-color-orange;
+  color: $light-color-white;
+
+  @media screen and (min-width: $desktop) {
+    margin-left: 85px;
+  }
+}
+
+.modal-item-count {
+  margin-left: 7px;
+  display: inline-block;
+  color: $dark-color-black;
+}
+
+.modal-item-popularity {
+  margin-left: 53px;
+
+  @media screen and (min-width: $desktop) {
+    margin-left: 97px;
+  }
+}
+
+.modal-item-title {
+  position: absolute;
+  margin-left: 42px;
+  text-transform: uppercase;
+
+  @media screen and (min-width: $desktop) {
+    margin-left: 86px;
+  }
+}
+
+.modal-item-genre {
+  display: inline-flex;
+}
+
+.modal-item-genre-container {
+  margin-left: 78px;
   color: $dark-color-black;
 
   @media screen and (min-width: $desktop) {
-    margin-left: 83px;
+    margin-left: 123px;
   }
 }
 
