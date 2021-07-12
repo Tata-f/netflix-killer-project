@@ -9,7 +9,7 @@ fetchCardMovie(); // рендер карточек популярных филь
 
 export default function fetchCardMovie() {
     fetchPopularMovies().then(results => {
-        console.log(results);
+        // console.log(results);
 createCardMarkup(results);
 });
 }
