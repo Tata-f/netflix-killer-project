@@ -1,4 +1,6 @@
 import getRefs from './get-refs';
+import {fetchGenresArray} from './fetch-popular';
+
 
 const refs = getRefs();
 
@@ -13,8 +15,14 @@ export default function fetchByQuery(query) {
   return fetch(
     `${options.BASE_URL}search/movie?api_key=${options.API_KEY}&language=en-US&page=${options.PAGE_NUM}&query=${query}`,
   )
-    .then(response => response.json())
-    .then(({ results }) => {
-      return results;
-    });
+    .then(response => response.json()).then(({ results }) => {
+            return fetchGenresArray().then(genresArray => {
+                return results.map(movie => ({
+                    ...movie,
+                    genres: genresArray.filter(genre => movie.genre_ids.includes(genre.id)).map(({ name }) => name).join(', '),
+                    releaseYear: movie.release_date ? movie.release_date.slice(0, 4) : 'n/a'
+                
+                }));
+            })
+        })
 }
