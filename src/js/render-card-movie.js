@@ -1,6 +1,7 @@
 import getRefs from './get-refs';
-import fetchPopularMovies from './fetch-popular';
+import { fetchPopularMovies, options } from './fetch-popular';
 import movieCardTpl from '../templates/movie-card.hbs';
+
 
 const refs = getRefs();
 
@@ -8,12 +9,12 @@ fetchCardMovie(); // рендер карточек популярных филь
 
 export default function fetchCardMovie() {
     fetchPopularMovies().then(results => {
-        // console.log(results);
+        console.log(results);
 createCardMarkup(results);
 });
 }
 
 // функция отображения разметки
 function createCardMarkup(results) {
-refs.moviesContainer.insertAdjacentHTML('beforeend', movieCardTpl(results));
+    refs.moviesContainer.insertAdjacentHTML('beforeend', movieCardTpl(results));
 }

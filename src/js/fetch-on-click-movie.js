@@ -2,7 +2,7 @@ import getRefs from "./get-refs";
 import movieModalCard from '../templates/movie-modal-card.hbs';
 
 const refs = getRefs();
-const modal = document.querySelector('.modal')
+const modal = document.querySelector('.js-modal')
 
 const options = {
   BASE_URL: 'https://api.themoviedb.org/3/',
@@ -22,7 +22,7 @@ async function getMovieById(e) {
         
         window.addEventListener('keydown', onEscKeyDown);
         document.body.classList.add('show-modal');
-        document.body.classList.add('scroll-hidden');
+      document.body.classList.add('scroll-hidden');
     }   catch {
         console.log('Oops!');
     }
@@ -35,5 +35,6 @@ async function renderOpenedMovie(res) {
 function onEscKeyDown(e) {
   if (e.code === 'Escape') {
     document.body.classList.remove('show-modal');
+    document.body.classList.remove('scroll-hidden');
   }
 }
