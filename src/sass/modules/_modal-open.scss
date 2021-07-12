@@ -24,6 +24,7 @@ body.show-modal .modal {
   height: 100vh;
   background-color: rgba(0, 0, 0, 0.3);
 
+  z-index: 999;
   overflow-y: scroll;
   pointer-events: none;
   opacity: 0;
@@ -47,14 +48,21 @@ body.show-modal .modal {
   transition: transform 200ms ease-in-out;
 
   @media screen and (min-width: 767px) and (max-width: $desktop) {
+    top: 60px;
     padding: 42px 28px 40px;
-    display: flex;
     max-width: 618px;
   }
 
   @media screen and (min-width: $desktop) {
+    top: 100px;
+    margin-left: 17px;
     padding: 50px 30px 40px;
-    display: flex;
     max-width: 882px;
+  }
+}
+
+.js-modal {
+  @media screen and (min-width: 767px) {
+    display: flex;
   }
 }
