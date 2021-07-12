@@ -31,10 +31,8 @@ function onRenderCards (results) {
     cardsEl.innerHTML = elements.join('');
 
 }
-
+//описывает логику отображения пагинации и ренедерит её
 function onRenderPagination(totalPages, pageNumber) {
-    const pagesTotal = totalPages;
-    console.log(pagesTotal)
     let paginationItem = '';
     let activePage;
     let backPage = pageNumber - 1;
@@ -95,7 +93,7 @@ function onRenderPagination(totalPages, pageNumber) {
 
     paginationEl.innerHTML = paginationItem;
 }
-
+//пересчитывает номер страницы в зависимости от нажатия на пагинацию.
 function onClickPagination(event) {
     if (event.target === event.currentTarget) return;
 
