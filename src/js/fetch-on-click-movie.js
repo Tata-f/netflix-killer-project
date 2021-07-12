@@ -19,7 +19,10 @@ async function getMovieById(e) {
         const response = await fetch(`${options.BASE_URL}movie/${filmId}?api_key=${options.API_KEY}`);
         const result = await response.json();
         const render = await renderOpenedMovie(result);
-        document.body.classList.add('show-modal')
+        
+        window.addEventListener('keydown', onEscKeyDown);
+        document.body.classList.add('show-modal');
+        document.body.classList.add('scroll-hidden');
     }   catch {
         console.log('Oops!');
     }
@@ -27,4 +30,10 @@ async function getMovieById(e) {
 
 async function renderOpenedMovie(res) {
    const result = await modal.insertAdjacentHTML('beforeend', movieModalCard(res))
+}
+
+function onEscKeyDown(e) {
+  if (e.code === 'Escape') {
+    document.body.classList.remove('show-modal');
+  }
 }

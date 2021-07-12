@@ -1,5 +1,5 @@
 const refs = {
-  openModalBtn: document.querySelector('[data-action="open-modal"]'),
+  //openModalBtn: document.querySelector('[data-action="open-modal"]'),
   closeModalBtn: document.querySelector('[data-action="close-modal"]'),
   backdrop: document.querySelector('.js-backdrop'),
 }
@@ -7,14 +7,15 @@ const refs = {
 refs.closeModalBtn.addEventListener('click', onCloseModal);
 refs.backdrop.addEventListener('click', onBackdropClick);
 
-function onOpenModal() {
+/*function onOpenModal() {
   window.addEventListener('keydown', onEscKeyDown);
   document.body.classList.add('show-modal');
-}
+}*/
 
 function onCloseModal() {
   window.removeEventListener('keydown', onEscKeyDown);
   document.body.classList.remove('show-modal');
+  document.body.classList.remove('scroll-hidden');
 }
 
 function onBackdropClick(e) {
