@@ -114,3 +114,4 @@ function onClickPagination(event) {
 function onResetPage(event) {
     pageNumber = 1;
 }
+
