@@ -1,8 +1,9 @@
 import getRefs from "./get-refs";
 import movieModalCard from '../templates/movie-modal-card.hbs';
+import onOpenModal from './modal-open';
+import { loader, loaderStyles } from './spinner';
 
 const refs = getRefs();
-const modal = document.querySelector('.js-modal')
 
 const options = {
   BASE_URL: 'https://api.themoviedb.org/3/',
@@ -11,30 +12,24 @@ const options = {
 
 refs.moviesContainer.addEventListener('click', getMovieById)
 
-async function getMovieById(e) {  
+async function getMovieById(e) {
+    loader.showLoading(loaderStyles);  
     try {
         if (e.target.className !== 'card-image-js') return
-        modal.innerHTML = '';
+        refs.modal.innerHTML = '';
         const filmId = e.target.dataset.id;
         const response = await fetch(`${options.BASE_URL}movie/${filmId}?api_key=${options.API_KEY}`);
         const result = await response.json();
         const render = await renderOpenedMovie(result);
         
-        window.addEventListener('keydown', onEscKeyDown);
-        document.body.classList.add('show-modal');
-      document.body.classList.add('scroll-hidden');
+        onOpenModal();
     }   catch {
         console.log('Oops!');
     }
+    loader.hideLoading();
 }
 
 async function renderOpenedMovie(res) {
-   const result = await modal.insertAdjacentHTML('beforeend', movieModalCard(res))
+   const result = await refs.modal.insertAdjacentHTML('beforeend', movieModalCard(res))
 }
 
-function onEscKeyDown(e) {
-  if (e.code === 'Escape') {
-    document.body.classList.remove('show-modal');
-    document.body.classList.remove('scroll-hidden');
-  }
-}
