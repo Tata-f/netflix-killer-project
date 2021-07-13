@@ -12,5 +12,6 @@ import './js/modal-open';
 import './js/fetch-by-query';
 import './js/fetch-on-click-movie'; // рендер карточки при нажатии на фильм
 import './js/render-by-query';
+import './js/scroll-up';
 
 
