@@ -3,6 +3,8 @@
   top: 0;
   right: 0;
 
+  cursor: pointer;
+
   fill: black;
   color: black;
   margin-top: 10px;
@@ -17,6 +19,7 @@
   margin-right: auto;
   max-width: 260px;
   height: 374px;
+  object-fit: cover;
 
   @media screen and (min-width: 767px) and (max-width: $desktop) {
     margin-bottom: 0;
@@ -31,7 +34,6 @@
     margin-right: 30px;
 
     height: 396px;
-    object-fit: contain;
   }
 }
 
@@ -146,6 +148,8 @@
   font-size: 12px;
   line-height: 16px;
   text-transform: uppercase;
+
+  cursor: pointer;
 
   width: 113px;
   height: 44px;
