@@ -12,7 +12,7 @@ refs.btnNavMyLibrary.addEventListener('click', onRenderMyLibrary)
 
 function onRenderMyLibrary () {
 
-	refs.headerHome.classList.toggle('not-active')	
+	refs.headerHome.classList.add('not-active')	
 	refs.headerLibrary.classList.remove('not-active')	
 
 	targetList.moviesContainer.innerHTML = "";

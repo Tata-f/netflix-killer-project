@@ -15,9 +15,11 @@ button {
 header {
   height: 230px;
   position: relative;
-  background-color:rgba(0, 0, 0, 0.774);
+  background-color:rgb(0, 0, 0);
   
 }
+
+
 
 .header-main {
   top: 0;
@@ -34,10 +36,10 @@ header {
 	background-size: cover;
 	background-repeat: no-repeat;  
 
-  -webkit-transition: opacity 1s ease-in-out;
-  -moz-transition: opacity 1s ease-in-out;
-  -o-transition: opacity 1s ease-in-out;
-  transition: opacity 1s ease-in-out;
+  -webkit-transition: opacity 1.2s ease-in-out;
+  -moz-transition: opacity 1.2s ease-in-out;
+  -o-transition: opacity 1.2s ease-in-out;
+  transition: opacity 1.2s ease-in-out;
 
 
   padding: 46px 20px 0px;
@@ -249,6 +251,7 @@ header {
   }
 }
 
+
 .header-form {
   position: relative;
   max-width: 420px;
@@ -270,8 +273,7 @@ header {
     right: 0;
   }
   
-  .header-form__btn:hover,
-  .header-form__btn:focus {
+  .header-form__btn:hover {
     cursor: pointer;
 
     .header-form__svg {
@@ -287,13 +289,27 @@ header {
     font-weight: normal;
     font-size: 14px;
     line-height: 16px;
-    color: $light-color-white;
+    caret-color: $light-color-white;
     background: none;
     width: 100%;
     height: 30px;
     border: 0;
     border-bottom: 2px solid $light-color-white;
     outline: none;
+
+    
+
+    &:-webkit-autofill {
+      border-bottom: 2px solid $bright-color-orange;
+      -webkit-text-fill-color: $light-color-white;
+      transition: background-color 5000s ease-in-out 0s;
+    } 
+
+    &:target,
+    &:focus {
+      // caret-color: $light-color-white;
+      border-bottom: 2px solid $bright-color-orange;
+    }
   }
 
   .header-form__svg {
