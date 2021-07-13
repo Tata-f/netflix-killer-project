@@ -19,5 +19,9 @@ loader.hideLoading();
 
 // функция отображения разметки
 function createCardMarkup(results) {
-    refs.moviesContainer.insertAdjacentHTML('beforeend', movieCardTpl(results));
+    // insertAdjacentHTML добавляет новые элменеты, а нам нужно их менять при переключении страницы
+    // refs.moviesContainer.insertAdjacentHTML('beforeend', movieCardTpl(results));
+    const elements = movieCardTpl(results);
+    refs.moviesContainer.innerHTML = elements;
 }
+
