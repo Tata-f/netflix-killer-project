@@ -1,4 +1,4 @@
-import getRefs from './get-refs';
+/*import getRefs from './get-refs';
 import fetchByQuery from './fetch-by-query';
 import movieCardTpl from '../templates/movie-card.hbs';
 
@@ -22,4 +22,4 @@ function onSearch(event) {
 
 function renderCardByQuery(results) {
   refs.moviesContainer.innerHTML = movieCardTpl(results);
-}
+}*/

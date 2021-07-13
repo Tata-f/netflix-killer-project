@@ -1,5 +1,5 @@
 import getRefs from './get-refs';
-import { fetchPopularMovies, options } from './fetch-popular';
+import { fetchPopularMovies} from './fetch-popular';
 import movieCardTpl from '../templates/movie-card.hbs';
 import { loader, loaderStyles } from "./spinner"
 

@@ -1,5 +1,5 @@
-import getRefs from './get-refs';
-import {fetchGenresArray} from './fetch-popular';
+/*import getRefs from './get-refs';
+import { fetchGenresArray } from './fetch-popular';
 
 
 const refs = getRefs();
@@ -25,4 +25,48 @@ export default function fetchByQuery(query) {
                 }));
             })
         })
+}*/
+
+//====================================================
+
+import getRefs from './get-refs';
+import FilmApiService from './class-api-service';
+import movieCardTpl from '../templates/movie-card.hbs';
+import { fetchGenresArray } from './fetch-popular';
+
+const refs = getRefs();
+
+const filmApiService = new FilmApiService();
+
+refs.searchForm.addEventListener('submit', onSearch);
+
+function fetchByQuery() {
+  return filmApiService.fetchByQuery().then(({ results }) => {
+    return fetchGenresArray().then(genresArray => {
+      return results.map(movie => ({
+        ...movie,
+        genres: genresArray.filter(genre => movie.genre_ids.includes(genre.id)).map(({ name }) => name).join(', '),
+        releaseYear: movie.release_date ? movie.release_date.slice(0, 4) : 'n/a'
+                
+      }));
+    })
+  })
+}
+
+function onSearch(event) {
+  event.preventDefault();
+
+  const form = event.currentTarget;
+  filmApiService.query = form.elements.query.value;
+
+  fetchByQuery()
+    .then(renderCardByQuery)
+    .catch(error => {
+      console.log(error);
+    })
+    .finally(() => form.reset());
+}
+
+function renderCardByQuery(results) {
+  refs.moviesContainer.innerHTML = movieCardTpl(results);
 }
