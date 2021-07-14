@@ -15,7 +15,7 @@ renderDefaultMovies();
 //Рендер карточек фильмов по запросу пользователя
 refs.searchForm.addEventListener('submit', onSearch);
 
-//Функция дефолтного рендера популярных фильмов
+//Функция дефолтного рендера популярных фильмов за день
 export default async function renderDefaultMovies() {
   let pageNumber = filmApiService.page;
   loader.showLoading(loaderStyles);
@@ -35,6 +35,29 @@ export default async function renderDefaultMovies() {
   }
   loader.hideLoading();
 }
+
+//Функция дефолтного рендера популярных фильмов за неделю
+export async function renderDefaultMoviesPopularOnWeek() {
+  let pageNumber = filmApiService.page;
+  loader.showLoading(loaderStyles);
+  try {
+    const movies = await filmApiService.fetchPopularMovieOnWeek();
+    const { results, total_pages } = movies;
+    const genresList = await filmApiService.fetchGenres();
+    const { genres } = genresList;
+
+    const moviesWithYearAndGenre = getUpdatedMovieInfo(results, genres);
+
+    createCardMarkup(moviesWithYearAndGenre);
+
+    onRenderPagination(total_pages, pageNumber);
+  } catch (error) {
+    console.log('Ошибка при дефолтном рендере');
+  }
+  loader.hideLoading();
+}
+
+
 refs.paginationEl.addEventListener('click', onClickPagination);
 
 //Функция рендера фильмов по запросу
@@ -91,14 +114,14 @@ export async function onPaginationWithQuery() {
 }
 
 //функция создания разметки сетки фильмов разметки
-function createCardMarkup(results) {
+export function createCardMarkup(results) {
   refs.moviesContainer.innerHTML='';
   const elements = movieCardTpl(results);
   refs.moviesContainer.innerHTML = elements;
 }
 
 //функция добавляет необходимую информацию о годе и жанрах в массив фильмов
-function getUpdatedMovieInfo(movies, info) {
+export function getUpdatedMovieInfo(movies, info) {
 
   return movies.map(movie => ({
     ...movie,
