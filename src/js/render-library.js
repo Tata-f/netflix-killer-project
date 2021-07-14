@@ -60,4 +60,4 @@ function createCardMarkup(results) {
   voteAverageRef.forEach(el => el.classList.add('is-visible'));
 }
 
-export {onClickWatched, onClickQueue}
+export { onClickWatched, onClickQueue, onClickLibrary }
