@@ -9,7 +9,7 @@ renderLibraryEl.addEventListener('click', onClickLibrary);
 renderWatchedEl.addEventListener('click', onClickWatched);
 renderQueueEl.addEventListener('click', onClickQueue);
 
-async function onClickLibrary() {
+export default async function onClickLibrary() {
   renderWatchedEl.classList.add('active');
   renderQueueEl.classList.remove('active');
 
@@ -31,8 +31,7 @@ function onClickWatched() {
 
   createCardMarkup(moviesWithYearAndGenre);
 }
-
-function onClickQueue() {
+ function onClickQueue() {
   renderWatchedEl.classList.remove('active');
   renderQueueEl.classList.add('active');
   renderContainer.innerHTML = '';
