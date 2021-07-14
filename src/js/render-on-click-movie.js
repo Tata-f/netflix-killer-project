@@ -1,6 +1,8 @@
 import getRefs from './get-refs';
 import movieModalCard from '../templates/movie-modal-card.hbs';
 import onOpenModal from './modal-open';
+import addToWatchedLockalS from './ls-add-to-watched';
+import addToQueueLockalS from './ls-add-to-queue';
 import FilmApiService from './class-api-service';
 import { loader, loaderStyles } from './spinner';
 
@@ -23,8 +25,10 @@ async function getMovieById(e) {
     filmApiService.query = e.target.dataset.id;
     const result = await filmApiService.fetchOnClickMovie();
     await renderOpenedMovie(result);
-
+    
     onOpenModal();
+    await addToWatchedLockalS(result);
+    await addToQueueLockalS(result);
   } catch {
     console.log('Oops!');
   }
