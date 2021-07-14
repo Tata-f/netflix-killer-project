@@ -24,6 +24,13 @@ export default class FilmApiService {
     return await response.json();
   }
 
+  async fetchPopularMovieOnWeek() {
+    const response = await fetch(
+      `${options.BASE_URL}trending/movie/week?api_key=${options.API_KEY}&page=${this.pageNumber}`,
+    );
+    return await response.json();
+  }
+
   async fetchGenres() {
     const response = await fetch(
       `${options.BASE_URL}genre/movie/list?api_key=${options.API_KEY}&page=${this.pageNumber}`,
