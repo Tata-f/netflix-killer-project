@@ -12,3 +12,4 @@ import './js/scroll-up';
 import './js/ls-add-to-queue';
 import './js/ls-add-to-watched';
 import './js/render-library';
+import './js/render-on-click-video';
