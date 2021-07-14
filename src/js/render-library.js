@@ -9,7 +9,7 @@ renderLibraryEl.addEventListener('click', onClickLibrary);
 renderWatchedEl.addEventListener('click', onClickWatched);
 renderQueueEl.addEventListener('click', onClickQueue);
 
-async function onClickLibrary() {
+ function onClickLibrary() {
   renderWatchedEl.classList.add('active');
   renderQueueEl.classList.remove('active');
 
@@ -59,6 +59,6 @@ function createCardMarkup(results) {
   renderContainer.innerHTML = elements;
   const voteAverageRef = document.querySelectorAll('.vote-average');
   voteAverageRef.forEach(el => el.classList.add('is-visible'));
-  console.log(elements);
-  // console.log(voteAverage  Ref);
 }
+
+export {onClickWatched, onClickQueue}
