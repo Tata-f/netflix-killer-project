@@ -60,3 +60,16 @@
 .desc {
   color: $bright-color-orange;
 }
+
+.vote-average {
+  display: none;
+  margin-left: 10px;
+  padding: 1px 10px;
+  color: $light-color-white;
+  background-color: $accent-rating-bgc;
+  border-radius: 5px;
+  line-height: 1.667;
+  &.is-visible {
+    display: inline;
+  }
+}
