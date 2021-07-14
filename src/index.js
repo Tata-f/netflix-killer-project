@@ -9,3 +9,6 @@ import './js/render-movies-grid'; // Базовый файл логики рен
 import './js/modal-open';
 import './js/render-on-click-movie'; // рендер карточки при нажатии на фильм
 import './js/scroll-up';
+import './js/ls-add-to-queue';
+import './js/ls-add-to-watched';
+import './js/render-library';

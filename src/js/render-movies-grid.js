@@ -54,6 +54,7 @@ async function onSearch(event) {
     const { results, total_pages } = movies;
     const genresList = await filmApiService.fetchGenres();
     const { genres } = genresList;
+    console.log("onSearch ~ genres", genres)
 
     const moviesWithYearAndGenre = getUpdatedMovieInfo(results, genres);
 
@@ -91,12 +92,14 @@ export async function onPaginationWithQuery() {
 
 //функция создания разметки сетки фильмов разметки
 function createCardMarkup(results) {
+  refs.moviesContainer.innerHTML='';
   const elements = movieCardTpl(results);
   refs.moviesContainer.innerHTML = elements;
 }
 
 //функция добавляет необходимую информацию о годе и жанрах в массив фильмов
 function getUpdatedMovieInfo(movies, info) {
+
   return movies.map(movie => ({
     ...movie,
     genres: info
