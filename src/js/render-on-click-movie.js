@@ -15,7 +15,6 @@ async function getMovieById(e) {
     loader.showLoading(loaderStyles)
   };
   
-  console.log(e)
   try {
     if (e.target.className !== 'card-image-js') return;
     refs.modal.innerHTML = '';
