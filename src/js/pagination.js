@@ -1,5 +1,8 @@
 const paginationEl = document.querySelector('.pagination-list');
+const btnHeaderEl = document.querySelector('.header-container');
 
+btnHeaderEl.addEventListener('click', onClickPagination) ;
+import onClickLibrary from './render-library';
 import { filmApiService, onPaginationWithQuery } from './render-movies-grid';
 import renderDefaultMovies from './render-movies-grid';
 
@@ -90,10 +93,23 @@ export function onClickPagination(event) {
   if (arrow.includes('pagination-arrow-back') || arrow.includes('pagination-back')) {
     filmApiService.decrementPage();
   }
+  console.log(event.target.classList.value)
+  const btnHeader = event.target.classList.value;
 
-  if (filmApiService.query !== '') {
+  if (filmApiService.query !== '' && btnHeader.includes('render-library-js') === true ) {
     onPaginationWithQuery();
-  } else {
+  }
+  if (btnHeader.includes('render-library-js') === true) {
+    onClickLibrary();
+  }
+   else {
     renderDefaultMovies();
   }
+
+  if (btnHeader.includes('logo-header__text') || btnHeader.includes('logo-header__svg') || btnHeader.includes('nav-header__home')) {
+    filmApiService.resetPage();
+    renderDefaultMovies();
+    onRenderPagination();
+  }
+
 }

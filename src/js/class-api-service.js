@@ -7,6 +7,7 @@ export default class FilmApiService {
   constructor() {
     this.searchQuery = '';
     this.pageNumber = 1;
+    this.movieID = '';
   }
 
   async fetchOnClickMovie() {
@@ -43,6 +44,12 @@ export default class FilmApiService {
     );
     return response.json();
   }
+  async fetchVideoMovie() {
+    const response = await fetch(
+      `${options.BASE_URL}movie/${this.movieID}/videos?api_key=${options.API_KEY}&language=en-US`,
+    );
+    return response.json();
+  }
 
   incrementPage() {
     this.pageNumber += 1;
@@ -70,5 +77,13 @@ export default class FilmApiService {
 
   set query(newQuery) {
     this.searchQuery = newQuery;
+  }
+
+  get movie() {
+    return this.movieID;
+  }
+
+  set movie(newMovie) {
+    this.movieID = newMovie;
   }
 }

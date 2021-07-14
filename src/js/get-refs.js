@@ -5,5 +5,7 @@ export default function getRefs() {
     modal: document.querySelector('.js-modal'),
     topArrowBtn: document.querySelector('.top-arrow'),
     paginationEl: document.querySelector('.pagination-list'),
+    movieID: document.querySelector('.modal-img-js')
   };
 }
+

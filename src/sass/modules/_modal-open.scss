@@ -64,5 +64,6 @@ body.show-modal .modal {
 .js-modal {
   @media screen and (min-width: 767px) {
     display: flex;
+    justify-content: start;
   }
 }
