@@ -2,7 +2,7 @@ const paginationEl = document.querySelector('.pagination-list');
 const btnHeaderEl = document.querySelector('.header-container');
 
 btnHeaderEl.addEventListener('click', onClickPagination) ;
-import onClickLibrary from './render-library';
+import {onClickLibrary} from './render-library';
 import { filmApiService, onPaginationWithQuery } from './render-movies-grid';
 import renderDefaultMovies from './render-movies-grid';
 
