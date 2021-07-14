@@ -54,7 +54,7 @@ async function onSearch(event) {
     const { results, total_pages } = movies;
     const genresList = await filmApiService.fetchGenres();
     const { genres } = genresList;
-    console.log("onSearch ~ genres", genres)
+    console.log('onSearch ~ genres', genres);
 
     const moviesWithYearAndGenre = getUpdatedMovieInfo(results, genres);
 
@@ -92,14 +92,13 @@ export async function onPaginationWithQuery() {
 
 //функция создания разметки сетки фильмов разметки
 function createCardMarkup(results) {
-  refs.moviesContainer.innerHTML='';
+  refs.moviesContainer.innerHTML = '';
   const elements = movieCardTpl(results);
   refs.moviesContainer.innerHTML = elements;
 }
 
 //функция добавляет необходимую информацию о годе и жанрах в массив фильмов
 function getUpdatedMovieInfo(movies, info) {
-
   return movies.map(movie => ({
     ...movie,
     genres: info
@@ -107,5 +106,6 @@ function getUpdatedMovieInfo(movies, info) {
       .map(({ name }) => name)
       .join(', '),
     releaseYear: movie.release_date ? movie.release_date.slice(0, 4) : 'n/a',
+    voteAverage: movie.vote_average.toFixed(1),
   }));
 }

@@ -7,3 +7,4 @@ export default function getRefs() {
     paginationEl: document.querySelector('.pagination-list'),
   };
 }
+
