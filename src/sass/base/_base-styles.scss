@@ -1,5 +1,5 @@
 body {
-background-color: $light-color-white;
+  background-color: $light-color-white;
   color: $dark-color-black;
 
   font-family: $main-font;
@@ -9,6 +9,10 @@ background-color: $light-color-white;
   &.modal-open {
     overflow: hidden;
   }
+}
+
+button {
+  pointer-events: initial;
 }
 
 a {
@@ -45,6 +49,7 @@ section {
 
 /* общие классы для общего пользования */
 .container {
+  width: 100%;
   padding: 0 20px;
   margin: 0 auto;
 

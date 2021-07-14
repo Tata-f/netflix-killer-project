@@ -1,0 +1,63 @@
+.top-arrow {
+  position: fixed;
+  z-index: 10;
+
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+
+  width: auto;
+  height: auto;
+  right: 10px;
+  bottom: 10px;
+  border-radius: 50%;
+  background-color: $light-color-white;
+  box-shadow: 0px 0px 29px 3px rgba(69, 39, 0, 0.47);
+  animation: bounceright 0.3s alternate ease infinite;
+
+  opacity: 0;
+  visibility: hidden;
+
+  transition: opacity 250ms, visibility 250ms;
+
+  @media screen and (min-width: $desktop) {
+    right: 30px;
+    bottom: 50px;
+  }
+}
+
+.icon-upwards {
+  fill: $bright-color-orange;
+  background-color: transparent;
+  width: 50px;
+  height: 50px;
+  @media screen and (min-width: $desktop) {
+    width: 60px;
+    height: 60px;
+  }
+}
+
+.top-arrow.show {
+  visibility: visible;
+  opacity: 0.7;
+}
+
+.top-arrow:hover,
+.top-arrow:focus {
+  opacity: 1;
+  cursor: pointer;
+  box-shadow: 0px 0px 29px 3px rgba(69, 39, 0, 0.57);
+}
+
+.top-arrow:active .icon-upwards {
+  fill: darken($bright-color-orange, 5%);
+}
+
+@keyframes bounceright {
+  from {
+    transform: translateY(0);
+  }
+  to {
+    transform: translateY(-3px);
+  }
+}

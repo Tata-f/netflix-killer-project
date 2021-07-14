@@ -1,0 +1,104 @@
+//? удалить
+.movies-card-test {
+  display: flex;
+  align-items: center;
+  justify-content: space-evenly;
+  flex-wrap: wrap;
+}
+
+.pagination-test {
+  display: flex;
+  flex-wrap: wrap;
+}
+.movies-test {
+  background-color: aquamarine;
+  border: 1px solid red;
+  margin-left: 10px;
+  margin-bottom: 10px;
+  width: 150px;
+  height: 70px;
+}
+.movies-test p {
+  color: black;
+}
+
+//? удалить
+// ===================
+
+.pagination {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-top: 40px;
+
+  @media screen and (min-width: $tablet) {
+    margin-top: 50px;
+  }
+}
+
+.pagination-list {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  width: 280px;
+  height: 40px;
+  background-color: $light-color-white;
+
+  @media screen and (min-width: $tablet) {
+    width: 374px;
+  }
+}
+
+.pagination-item {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  cursor: pointer;
+  height: 40px;
+  width: 20px;
+  line-height: 1.33;
+}
+.pagination-item:not(:last-child) {
+  margin-right: 16px;
+}
+.pagination-item span {
+  display: contents;
+}
+
+.pagination-numb:hover:not(.pagination-active),
+.pagination-numb:focus:not(.pagination-active) {
+  color: $bright-color-orange;
+}
+
+.pagination-dots {
+  cursor: default;
+  width: 10px;
+}
+
+.pagination-back,
+.pagination-next {
+  height: 40px;
+  min-width: 40px;
+  background: $light-color-gray;
+  border-radius: 5px;
+}
+
+.pagination-active,
+.pagination-back:hover,
+.pagination-next:hover,
+.pagination-back:focus,
+.pagination-next:focus {
+  height: 40px;
+  min-width: 40px;
+  background: $bright-color-orange;
+  border-radius: 5px;
+  color: $light-color-white;
+}
+
+.mobile-hidden {
+  display: none;
+  @media screen and (min-width: $tablet) {
+    display: flex;
+  }
+}

@@ -1,0 +1,306 @@
+@media screen and (max-width: 1023px) {
+ 
+  // #slideshow {
+  //   position: relative;
+  //   width: 300px;
+  //   height: 330px;
+  //   margin: 50px auto 0;
+  //   user-select: none;
+  //   touch-action: pan-y;
+    
+    
+  // }
+  
+  // #slideshow img {
+  //   poiner-events: none;
+  // }
+  
+  // .slideshow__entire-content {
+  //   width: 300px;
+  //   height: 330px;
+  //   overflow: hidden;
+  // }
+  
+  // .slideshow__entire-content.grab {
+  //   cursor: grab;
+  // }
+  
+  // .slideshow__entire-content.grabbing{
+  //   cursor: grabbing;
+  // }
+  
+  // .slideshow__content-carrousel {
+  //   display: flex;
+  // }
+
+  // .slideshow__front {
+  //   width: 300px;
+  //   height: 330px;
+
+  // }
+
+  // .slideshow__shadow:hover .slideshow__front {
+  //   transform: rotateY(180deg);
+  // }
+
+  // .slideshow__content-carrousel{
+  //   position: absolute;
+    
+  // }
+  // .slideshow__shadow {
+  //   width: 300px;
+  //   height: 300px;
+  //   position: relative;
+    
+  // }
+  // .slideshow__front, .slideshow__back {
+  //   position: absolute;
+   
+  //   transition: 1s;
+  //   backface-visibility: hidden;
+  
+  //  }
+
+  // .slideshow__back {
+  //   transform: rotateY(180deg);
+  // }
+  // .slideshow__shadow:hover .slideshow__front {
+  //   transform: rotateY(180deg);}
+  // .slideshow__shadow:hover .slideshow__back {
+  //   transform: rotateY(360deg);}
+  
+  
+
+  #slideshow {
+    position: relative;
+    width: 300px;
+    height: 330px;
+    margin: 50px auto 0;
+    user-select: none;
+    touch-action: pan-y;
+    perspective: 1200;
+    transform-style: preserve-3d;
+  }
+  
+  .slideshow img {
+    poiner-events: none;
+  }
+  
+  .slideshow__entire-content {
+    width: 300px;
+    height: 330px;
+    overflow: hidden;
+  }
+  
+  .slideshow__entire-content.grab {
+    cursor: grab;
+  }
+  
+  .slideshow__entire-content.grabbing{
+    cursor: grabbing;
+  }
+  
+  .slideshow__content-carrousel {
+    display: flex;
+  }
+  
+  .slideshow__front {
+    width: 300px;
+    height: 330px;
+    flex-shrink: 0;
+    font-size: 50px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border: 1px solid #000;
+  }
+  
+  .slider-arrows {
+    margin-top: 15px;
+    text-align: center;
+  }
+  
+  .next,
+  .prev {
+    background: none;
+    border: none;
+    margin: 0 10px;
+    font-size: 30px;
+    cursor: pointer;
+  }
+  
+  .next.disabled,
+  .prev.disabled {
+    opacity: .25;
+    pointer-events: none;
+  }
+}
+// =========================================
+.footer__btn-close {
+  position: absolute;
+  top: 0;
+  right: 0;
+  margin-right: 8px;
+  margin-top: 8px;
+
+  background-color: transparent;
+  border: 4px solid black;
+  border-radius: 50%;
+  cursor: pointer;
+  transition: all 300ms;
+  font-size: 15px;
+  font-weight: bold;
+
+  &:active,
+  &:focus,
+  &:hover {
+    background-color: rgb(129, 13, 13);
+  }
+}
+
+.footer__backdrop {
+  position: fixed;
+  top: 0;
+  left: 0;
+  z-index: 1;
+
+  width: 100%;
+  height: 100%;
+
+  background-color: rgba(80, 80, 80, 0.5);
+
+  opacity: 1;
+  transition-property: opacity;
+  transition-duration: 250ms;
+  transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
+
+  &.is-hidden {
+    opacity: 0;
+    pointer-events: none;
+
+    & .modal {
+      transform: translate(-50%, -50%) scale(1.1);
+    }
+  }
+}
+
+@media screen and (min-width: $desktop) {
+  
+  .slider-arrows{display: none;}
+
+  #slideshow {
+    margin: 0 auto;
+    padding-top: 50px;
+    height: 330px;
+    width: 100%;
+  }
+
+  .slideshow__entire-content {
+    margin: auto;
+    width: 190px;
+    perspective: 1500px;
+    position: relative;
+    padding-top: 80px;
+  }
+
+  .slideshow__content-carrousel {
+    width: 100%;
+    position: absolute;
+    float: right;
+    animation: rotar 30s infinite linear;
+    transform-style: preserve-3d;
+
+    height: 100%;
+    justify-content: center;
+    align-items: center;
+  }
+
+  .slideshow__content-carrousel:hover {
+    animation-play-state: paused;
+    cursor: pointer;
+    
+  }
+
+  .slideshow__content-carrousel .slideshow__shadow {
+    width: 300px;
+    height: 330px;
+    border: 1px solid #3b444b;
+    background-color: $light-gray-color;
+    overflow: hidden;
+    position: absolute;
+
+    text-align: center;
+  }
+
+  .slideshow__front, .slideshow__back {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    left: 0;
+    top: 0;
+    
+    justify-content: center;
+    align-items: center;
+    transition: 1s;
+    backface-visibility: hidden;
+  
+   }
+
+   .slideshow__back {
+    transform: rotateY(180deg);
+  }
+
+
+  .slideshow__team-info {
+     position: absolute;
+     top:50%;
+     left:50%;
+     transform: translate(-50%,-50%);
+  }
+
+  .slideshow__shadow:hover .slideshow__front {
+    transform: rotateY(180deg);}
+  .slideshow__shadow:hover .slideshow__back {
+    transform: rotateY(360deg);}
+  
+  .slideshow__content-carrousel .slideshow__shadow:nth-child(1) {
+    transform: rotateY(45deg) translateZ(400px);
+  }
+  .slideshow__content-carrousel .slideshow__shadow:nth-child(2) {
+    transform: rotateY(90deg) translateZ(400px);
+  }
+  .slideshow__content-carrousel .slideshow__shadow:nth-child(3) {
+    transform: rotateY(135deg) translateZ(400px);
+  }
+  .slideshow__content-carrousel .slideshow__shadow:nth-child(4) {
+    transform: rotateY(180deg) translateZ(400px);
+  }
+  .slideshow__content-carrousel .slideshow__shadow:nth-child(5) {
+    transform: rotateY(225deg) translateZ(400px);
+  }
+  .slideshow__content-carrousel .slideshow__shadow:nth-child(6) {
+    transform: rotateY(270deg) translateZ(400px);
+  }
+  .slideshow__content-carrousel .slideshow__shadow:nth-child(7) {
+    transform: rotateY(315deg) translateZ(400px);
+  }
+  .slideshow__content-carrousel .slideshow__shadow:nth-child(8) {
+    transform: rotateY(360deg) translateZ(400px);
+  }
+
+  .slideshow__shadow {
+    position: absolute;
+    box-shadow: 0px 0px 20px 0px #000;
+    border-radius: 1px;
+  }
+
+
+  @keyframes rotar {
+    from {
+      transform: rotateY(0deg);
+    }
+    to {
+      transform: rotateY(360deg);
+    }
+  }
+}
