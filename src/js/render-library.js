@@ -31,8 +31,7 @@ function onClickWatched() {
 
   createCardMarkup(moviesWithYearAndGenre);
 }
-
-function onClickQueue() {
+ function onClickQueue() {
   renderWatchedEl.classList.remove('active');
   renderQueueEl.classList.add('active');
   renderContainer.innerHTML = '';

@@ -1,3 +1,37 @@
+.modal-container {
+  @media screen and (min-width: 340px) and (max-width: 350px) {
+    padding: 0 2%;
+  }
+
+  @media screen and (min-width: 350px) and (max-width: 370px) {
+    padding: 0 3%;
+  }
+
+  @media screen and (min-width: 370px) and (max-width: 380px) {
+    padding: 0 5%;
+  }
+
+  @media screen and (min-width: 380px) and (max-width: 790px) {
+    padding: 0 6%;
+  }
+
+  @media screen and (min-width: 390px) and (max-width: 400px) {
+    padding: 0 8%;
+  }
+
+  @media screen and (min-width: 400px) and (max-width: 420px) {
+    padding: 0 10%;
+  }
+
+  @media screen and (min-width: 420px) and (max-width: 767px) {
+    padding: 0 14%;
+  }
+
+  @media screen and (min-width: 767px) {
+    padding: 0;
+  }
+}
+
 .modal-close-svg {
   position: absolute;
   top: 0;
@@ -33,6 +67,7 @@
     margin-bottom: 0;
     margin-right: 30px;
 
+    min-width: 260px;
     height: 396px;
   }
 }
