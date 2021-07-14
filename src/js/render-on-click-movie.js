@@ -11,7 +11,11 @@ const filmApiService = new FilmApiService();
 refs.moviesContainer.addEventListener('click', getMovieById);
 
 async function getMovieById(e) {
-  loader.showLoading(loaderStyles);
+  if (e.target.className === 'card-image-js') {
+    loader.showLoading(loaderStyles)
+  };
+  
+  console.log(e)
   try {
     if (e.target.className !== 'card-image-js') return;
     refs.modal.innerHTML = '';

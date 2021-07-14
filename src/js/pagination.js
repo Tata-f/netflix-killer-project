@@ -13,7 +13,7 @@ export function onRenderPagination(totalPages, pageNumber) {
 
   if (pageNumber > 1) {
     //если значение страницы больше 1, добавьте новый li, который является предыдущей кнопкой (onclick="onPagesSwitcher(totalPages, ${pageNumber - 1})")
-    paginationItem += `<li class="pagination-item pagination-back"><span class="pagination-arrow-back">&#129120</span></li>`;
+    paginationItem += `<li class="pagination-item pagination-back"><span class="pagination-arrow-back">&#8701</span></li>`;
   }
 
   if (pageNumber > 3) {
@@ -69,7 +69,7 @@ export function onRenderPagination(totalPages, pageNumber) {
 
   if (pageNumber < totalPages) {
     //(onclick="onPagesSwitcher(totalPages, ${pageNumber + 1})")если значение страницы меньше, чем значение totalPages, тогда добавьте новый li, который будет следующей кнопкой
-    paginationItem += `<li class="pagination-item pagination-next"><span class="pagination-arrow-next">&#129122</span></li>`;
+    paginationItem += `<li class="pagination-item pagination-next"><span class="pagination-arrow-next">&#8702</span></li>`;
   }
 
   paginationEl.innerHTML = paginationItem;
