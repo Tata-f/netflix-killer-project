@@ -8,3 +8,4 @@ export default function getRefs() {
     movieID: document.querySelector('.modal-img-js')
   };
 }
+
