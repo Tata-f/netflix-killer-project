@@ -7,6 +7,7 @@ export default class FilmApiService {
   constructor() {
     this.searchQuery = '';
     this.pageNumber = 1;
+    this.movieID = '';
   }
 
   async fetchOnClickMovie() {
@@ -33,6 +34,12 @@ export default class FilmApiService {
   async fetchByQuery() {
     const response = await fetch(
       `${options.BASE_URL}search/movie?api_key=${options.API_KEY}&language=en-US&page=${this.pageNumber}&query=${this.searchQuery}`,
+    );
+    return response.json();
+  }
+  async fetchVideoMovie() {
+    const response = await fetch(
+      `${options.BASE_URL}movie/${this.movieID}/videos?api_key=${options.API_KEY}&language=en-US`,
     );
     return response.json();
   }
@@ -63,5 +70,13 @@ export default class FilmApiService {
 
   set query(newQuery) {
     this.searchQuery = newQuery;
+  }
+
+  get movie() {
+    return this.movieID;
+  }
+
+  set movie(newMovie) {
+    this.movieID = newMovie;
   }
 }
