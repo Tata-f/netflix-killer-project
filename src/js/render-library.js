@@ -7,34 +7,88 @@ const renderWatchedEl = document.querySelector('.render-watched-js');
 const renderQueueEl = document.querySelector('.render-queue-js');
 const renderContainer = document.querySelector('.gallery-section > .container');
 
-
 renderLibraryEl.addEventListener('click', onClickLibrary);
 renderWatchedEl.addEventListener('click', onClickWatched);
 renderQueueEl.addEventListener('click', onClickQueue);
 
- async function onClickLibrary() {
+async function onClickLibrary() {
   let total_pages = 0;
-  let pageNumber = 1;
+  let pageNumber = 0;
   renderWatchedEl.classList.add('active');
   renderQueueEl.classList.remove('active');
   renderContainer.innerHTML = '';
+  let width = document.body.clientWidth;
+  console.log('onClickLibrary ~ width', width);
 
-
-
-  try {
-    filmApiService.query = '';
-    const filmsStr = await localStorage.getItem('watchedFilm');
-    const filmsArr = await JSON.parse(filmsStr);
-    total_pages = await Math.ceil(filmsArr.length/9);
-    const moviesWithYearAndGenre = await getUpdatedLibraryMovieInfo(filmsArr);
-    const result = await createCardMarkup(moviesWithYearAndGenre);
-    await createCardMarkup(moviesWithYearAndGenre);
-    await onRenderPagination(total_pages, pageNumber)
-    return result;
-  } catch {
-    console.log('Oops!');
+  if (width > 1023) {
+    try {
+      filmApiService.query = '';
+      const filmsStr = await localStorage.getItem('watchedFilm');
+      const filmsArr = await JSON.parse(filmsStr);
+      const pageArr = [];
+      total_pages = await Math.ceil(filmsArr.length / 9);
+      console.log("onClickLibrary ~  total_pages ",  total_pages )
+      
+      for (let i = 0; i < total_pages - 1; i++) {
+        pageArr.push(filmsArr.splice(0, 9));
+      }
+      pageArr.push(filmsArr);
+      console.log(pageArr);
+      const moviesWithYearAndGenre = await getUpdatedLibraryMovieInfo(pageArr[pageNumber]);
+      const result = await createCardMarkup(moviesWithYearAndGenre);
+      await createCardMarkup(moviesWithYearAndGenre);
+      await onRenderPagination(total_pages, pageNumber);
+      return result;
+    } catch {
+      console.log('Oops!');
+    }
   }
-  
+
+  if (width > 767 && width < 1024) {
+    try {
+      filmApiService.query = '';
+      const filmsStr = await localStorage.getItem('watchedFilm');
+      const filmsArr = await JSON.parse(filmsStr);
+      total_pages = await Math.ceil(filmsArr.length / 6);
+      console.log("onClickLibrary ~ total_pages", total_pages)
+      const pageArr = [];
+      for (let i = 0; i < total_pages - 1; i++) {
+        pageArr.push(filmsArr.splice(0, 6));
+      }
+      pageArr.push(filmsArr);
+      console.log(pageArr);
+      const moviesWithYearAndGenre = await getUpdatedLibraryMovieInfo(pageArr[pageNumber]);
+      const result = await createCardMarkup(moviesWithYearAndGenre);
+      await createCardMarkup(moviesWithYearAndGenre);
+      await onRenderPagination(total_pages, pageNumber);
+      return result;
+    } catch {
+      console.log('Oops!');
+    }
+  }
+
+  if (width > 320 && width < 768) {
+    try {
+      filmApiService.query = '';
+      const filmsStr = await localStorage.getItem('watchedFilm');
+      const filmsArr = await JSON.parse(filmsStr);
+      total_pages = await Math.ceil(filmsArr.length / 4);
+      console.log("onClickLibrary ~ total_pages", total_pages)
+      const pageArr = [];
+      for (let i = 0; i < total_pages - 1; i++) {
+        pageArr.push(filmsArr.splice(0, 4));
+      }
+      pageArr.push(filmsArr);
+      console.log(pageArr);
+      const moviesWithYearAndGenre = await getUpdatedLibraryMovieInfo(pageArr[pageNumber]);
+      const result = await createCardMarkup(moviesWithYearAndGenre);
+      await createCardMarkup(moviesWithYearAndGenre);
+      await onRenderPagination(total_pages, pageNumber);
+      return result;
+    } catch {
+      console.log('Oops!');
+    }
+  }
 }
 
 function onClickWatched() {
@@ -48,7 +102,7 @@ function onClickWatched() {
 
   createCardMarkup(moviesWithYearAndGenre);
 }
- function onClickQueue() {
+function onClickQueue() {
   renderWatchedEl.classList.remove('active');
   renderQueueEl.classList.add('active');
   renderContainer.innerHTML = '';
@@ -77,4 +131,4 @@ function createCardMarkup(results) {
   voteAverageRef.forEach(el => el.classList.add('is-visible'));
 }
 
-export { onClickWatched, onClickQueue, onClickLibrary }
+export { onClickWatched, onClickQueue, onClickLibrary };
