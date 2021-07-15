@@ -96,10 +96,11 @@ export function onClickPagination(event) {
   // console.log(event.target.classList.value)
   const btnHeader = event.target.classList.value;
 
-  if (filmApiService.query !== '' && btnHeader.includes('render-library-js') === true ) {
+  if (filmApiService.query !== '') {
+    // console.log('Все окей, выполняю пагинацию по поиску');
     onPaginationWithQuery();
   }
-  if (btnHeader.includes('render-library-js') === true) {
+  if (btnHeader.includes('render-library-js') === true && btnHeader.includes('render-library-js') === true) {
     onClickLibrary();
   }
    else {
