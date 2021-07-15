@@ -30,6 +30,9 @@
   font-weight: 500;
   cursor: pointer;
   text-decoration: underline;
+  &:hover {
+    color: rgba(255, 107, 8);
+  }
 }
 
 .footer__svg {

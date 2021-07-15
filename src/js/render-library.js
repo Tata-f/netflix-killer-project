@@ -6,6 +6,7 @@ const renderLibraryEl = document.querySelector('.render-library-js');
 const renderWatchedEl = document.querySelector('.render-watched-js');
 const renderQueueEl = document.querySelector('.render-queue-js');
 const renderContainer = document.querySelector('.gallery-section > .container');
+let libraryPage = 1;
 
 renderLibraryEl.addEventListener('click', onClickLibrary);
 renderWatchedEl.addEventListener('click', onClickWatched);
@@ -13,7 +14,6 @@ renderQueueEl.addEventListener('click', onClickQueue);
 
 async function onClickLibrary() {
   let total_pages = 0;
-  let pageNumber = 0;
   renderWatchedEl.classList.add('active');
   renderQueueEl.classList.remove('active');
   renderContainer.innerHTML = '';
@@ -34,10 +34,10 @@ async function onClickLibrary() {
       }
       pageArr.push(filmsArr);
       console.log(pageArr);
-      const moviesWithYearAndGenre = await getUpdatedLibraryMovieInfo(pageArr[pageNumber]);
+      const moviesWithYearAndGenre = await getUpdatedLibraryMovieInfo(pageArr[libraryPage-1]);
       const result = await createCardMarkup(moviesWithYearAndGenre);
       await createCardMarkup(moviesWithYearAndGenre);
-      await onRenderPagination(total_pages, pageNumber);
+      await onRenderPagination(total_pages, libraryPage);
       return result;
     } catch {
       console.log('Oops!');
@@ -57,10 +57,10 @@ async function onClickLibrary() {
       }
       pageArr.push(filmsArr);
       console.log(pageArr);
-      const moviesWithYearAndGenre = await getUpdatedLibraryMovieInfo(pageArr[pageNumber]);
+      const moviesWithYearAndGenre = await getUpdatedLibraryMovieInfo(pageArr[libraryPage-1]);
       const result = await createCardMarkup(moviesWithYearAndGenre);
       await createCardMarkup(moviesWithYearAndGenre);
-      await onRenderPagination(total_pages, pageNumber);
+      await onRenderPagination(total_pages, libraryPage);
       return result;
     } catch {
       console.log('Oops!');
@@ -80,10 +80,10 @@ async function onClickLibrary() {
       }
       pageArr.push(filmsArr);
       console.log(pageArr);
-      const moviesWithYearAndGenre = await getUpdatedLibraryMovieInfo(pageArr[pageNumber]);
+      const moviesWithYearAndGenre = await getUpdatedLibraryMovieInfo(pageArr[libraryPage-1]);
       const result = await createCardMarkup(moviesWithYearAndGenre);
       await createCardMarkup(moviesWithYearAndGenre);
-      await onRenderPagination(total_pages, pageNumber);
+      await onRenderPagination(total_pages, libraryPage);
       return result;
     } catch {
       console.log('Oops!');
