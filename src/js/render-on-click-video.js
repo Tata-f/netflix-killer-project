@@ -6,8 +6,6 @@ const refs = getRefs();
 const filmApiService = new FilmApiService();
 const openModalEl = document.querySelector('.js-lightbox');
 const windowModal = document.querySelector('.lightbox__content');
-// const modalContaier = document.querySelector('.modal-container')
-const btnWatchTeaser = document.querySelector('.btn-teaser-js');
 const overlayEl = document.querySelector('.lightbox__overlay');
 const closeModalBtnEl = document.querySelector('[data-action = "close-lightbox"]');
 
@@ -35,11 +33,12 @@ async function fetchVideoMovieID(event) {
     firstVideo = results[0];
     // console.log(firstVideo)
     console.log(lengthArr)
-    renderOpenedVideo(firstVideo); 
+       
+    renderOpenedVideo(firstVideo);
+    const btnWatchTeaser = document.querySelector('.btn-teaser-js');
     if (lengthArr === 0) {
     console.log(lengthArr === 0)
       btnWatchTeaser.classList.add('is-hidden')
-    // onRenderBtnWatchTeaser(lengthArr);
   } 
       
   } catch {
@@ -48,15 +47,6 @@ async function fetchVideoMovieID(event) {
 }
 
 fetchVideoMovieID()
-
-//функция рендера кнопки, не работает
-// function onRenderBtnWatchTeaser(lengthArr) {
-//   console.log(lengthAr)
-//   if (lengthArr === 0) {
-//     console.log(lengthArr > 0)
-//       btnWatchTeaser.classList.add('is-hidden')
-//   } 
-// }
 
 //рендер карточки с видео
 function renderOpenedVideo(firstVideo) {
