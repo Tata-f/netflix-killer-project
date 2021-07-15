@@ -12,32 +12,20 @@
             <div class="modal-container">
 
                 <h2 class="modal-film-title">{{title}}</h2>
-
                 <div class="modal-items-container">
                     <ul class="modal-items">
-                        <li class="modal-item-name">
-                        Vote / Votes
-                        {{#if vote_average}}
-                        <p class="modal-item-average">{{vote_average}}</p>
-                        {{else}}
-                        <p class="modal-item-average">&#8212;</p>
-                        {{/if}}
-                        /
-                        <p class="modal-item-count">{{vote_count}}</p>
-                    </li>
-                    <li class="modal-item-name">
-                        Popularity
-                        <p class="modal-item-description modal-item-popularity">{{popularity}}</p>
-                    </li>
-                    <li class="modal-item-name">
-                        Original Title
-                        <p class="modal-item-description modal-item-title">{{original_title}}</p>
-                    </li>
+                        <li class="modal-item-name">Vote / Votes</li>
+                        <li class="modal-item-name">Popularity</li>
+                        <li class="modal-item-name">Original Title</li>
                     </ul>
-                    
+                
                     <ul>
                         <li class="modal-item-common">
+                            {{#if vote_average}}
                             <p class="modal-item-average">{{vote_average}}</p>
+                            {{else}}
+                            <p class="modal-item-average">&#8212;</p>
+                            {{/if}}
                             /
                             <p class="modal-item-count">{{vote_count}}</p>
                         </li>
@@ -47,7 +35,6 @@
                 </div>
                 <ul class="modal-genre-container">
                     <li class="modal-item-name mogal-item-genre">
-
                         Genre
                         <ul class="modal-genre-name">
                             {{#each genres}}
