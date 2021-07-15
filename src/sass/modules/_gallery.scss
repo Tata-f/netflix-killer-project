@@ -24,9 +24,18 @@
   margin: auto;
   max-width: 280px;
 
+  .poster-wrapper {
+    position: relative;
+    transition: transform 0.2s;
+    &:hover {
+      transform: scale(1.02);
+    }
+  }
+
   img {
     height: 398px;
     object-fit: cover;
+    border-radius: 5px;
     cursor: pointer;
   }
 
@@ -64,13 +73,22 @@
 
 .vote-average {
   display: none;
-  margin-left: 10px;
+  text-align: center;
   padding: 1px 10px;
   color: $light-color-white;
   background-color: $accent-rating-bgc;
   border-radius: 5px;
   line-height: 1.667;
+  z-index: 5;
+  top: 5px;
+  left: -7px;
+  transition: transform 0.3s;
+
   &.is-visible {
-    display: inline;
+    display: inline-block;
+    position: absolute;
+  }
+  & .no-vote-average {
+    width: 15px;
   }
 }
