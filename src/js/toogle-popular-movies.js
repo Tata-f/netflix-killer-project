@@ -8,8 +8,6 @@ const refs = {
 
 refs.inputTogglePopular.addEventListener('click', onTogglePopularMovies);
 
-console.dir(refs.inputTogglePopular.checked)
-
 function onTogglePopularMovies() {
 	if (refs.inputTogglePopular.checked) {
 		renderDefaultMovies();

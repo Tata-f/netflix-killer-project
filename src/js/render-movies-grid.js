@@ -64,6 +64,8 @@ refs.paginationEl.addEventListener('click', onClickPagination);
 async function onSearch(event) {
   event.preventDefault();
 
+  refs.toggleRenderPopular.classList.add('active');
+  
   filmApiService.resetPage();
 
   let pageNumber = filmApiService.page;

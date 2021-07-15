@@ -17,5 +17,7 @@ function onReturnMainPage() {
 
   refs.toggleRenderPopular.classList.remove('active');
 
+  console.log(refs.toggleRenderPopular)
+
   renderDefaultMovies();
 }
