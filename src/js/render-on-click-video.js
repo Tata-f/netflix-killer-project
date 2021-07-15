@@ -80,6 +80,7 @@ function onOpenModalVideo(event) {
 //закрытие модалки
 function onCloseModalClick() {
   openModalEl.classList.remove('is-open')
+  windowModal.innerHTML = '';
 }
 //закрытие модалки на ESC
 function onEscCloseModalClick(event) {
