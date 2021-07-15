@@ -105,13 +105,13 @@ export function onClickPagination(event) {
     renderDefaultMovies();
   }
 
-  if (
-    btnHeader.includes('logo-header__text') ||
-    btnHeader.includes('logo-header__svg') ||
-    btnHeader.includes('nav-header__home')
-  ) {
-    filmApiService.resetPage();
-    renderDefaultMovies();
-    onRenderPagination();
-  }
+  // if (
+  //   btnHeader.includes('logo-header__text') ||
+  //   btnHeader.includes('logo-header__svg') ||
+  //   btnHeader.includes('nav-header__home')
+  // ) {
+  //   filmApiService.resetPage();
+  //   renderDefaultMovies();
+  //   onRenderPagination();
+  // }
 }
