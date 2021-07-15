@@ -1,29 +1,31 @@
+import movieCardTpl from '../templates/movie-card.hbs';
+import { filmApiService } from './render-movies-grid';
+
 const renderLibraryEl = document.querySelector('.render-library-js');
 const renderWatchedEl = document.querySelector('.render-watched-js');
 const renderQueueEl = document.querySelector('.render-queue-js');
 const renderContainer = document.querySelector('.gallery-section > .container');
 
-import movieCardTpl from '../templates/movie-card.hbs';
-import { onRenderPagination, onClickPagination } from './pagination';
 
 renderLibraryEl.addEventListener('click', onClickLibrary);
 renderWatchedEl.addEventListener('click', onClickWatched);
 renderQueueEl.addEventListener('click', onClickQueue);
 
- function onClickLibrary() {
-   let total_pages = 0;
-   let pageNumber = 1;
-   renderWatchedEl.classList.add('active');
-   renderQueueEl.classList.remove('active');
-   renderContainer.innerHTML = '';
-   
-   const filmsStr = localStorage.getItem('watchedFilm');
-   const filmsArr = JSON.parse(filmsStr);
-   total_pages = Math.ceil(filmsArr.length/9);
-   const moviesWithYearAndGenre = getUpdatedLibraryMovieInfo(filmsArr);
+ async function onClickLibrary() {
+  renderWatchedEl.classList.add('active');
+  renderQueueEl.classList.remove('active');
 
-   createCardMarkup(moviesWithYearAndGenre);
-   onRenderPagination(total_pages, pageNumber)
+  try {
+    filmApiService.query = '';
+    const filmsStr = await localStorage.getItem('watchedFilm');
+    const filmsArr = await JSON.parse(filmsStr);
+    const moviesWithYearAndGenre = await getUpdatedLibraryMovieInfo(filmsArr);
+    const result = await createCardMarkup(moviesWithYearAndGenre);
+    return result;
+  } catch {
+    console.log('Oops!');
+  }
+  
 }
 
 function onClickWatched() {
