@@ -1,5 +1,5 @@
 import {onClickQueue} from './render-library'
-const renderLibraryEl = document.querySelector('.header-main');
+const renderLibraryEl = document.querySelector('.render-queue-js');
 
 export default function addToLockalS(filmUser) {
   const btnQueueEl = document.querySelector('.btn-queue-js');
@@ -23,7 +23,7 @@ export default function addToLockalS(filmUser) {
       films.push(filmUser);
       localStorage.setItem(`queueFilm`, JSON.stringify(films));
       btnQueueEl.innerText = 'remove from queue';
-      if(renderLibraryEl.classList.contains('not-active')){
+      if(renderLibraryEl.classList.contains('active')){
         onClickQueue();
       }
     } else {
@@ -38,7 +38,7 @@ export default function addToLockalS(filmUser) {
         filmsArr.push(filmUser);
         localStorage.setItem(`queueFilm`, JSON.stringify(filmsArr));
         btnQueueEl.innerText = 'remove from queue';
-        if(renderLibraryEl.classList.contains('not-active')){
+        if(renderLibraryEl.classList.contains('active')){
           onClickQueue();
         }
       }
@@ -52,7 +52,7 @@ export default function addToLockalS(filmUser) {
     if (filmsArr.length === 1) {
       localStorage.removeItem('queueFilm');
       btnQueueEl.innerText = 'add to queue';
-      if(renderLibraryEl.classList.contains('not-active')){
+      if(renderLibraryEl.classList.contains('active')){
         onClickQueue();
       }
      
@@ -65,7 +65,7 @@ export default function addToLockalS(filmUser) {
             localStorage.setItem(`queueFilm`, JSON.stringify(filmsArr));
             btnQueueEl.innerText = 'add to queue';
             btnQueueEl.removeEventListener('click', onClickBtnRemoveToQueue);
-            if(renderLibraryEl.classList.contains('not-active')){
+            if(renderLibraryEl.classList.contains('active')){
               onClickQueue();
             }
           }
