@@ -99,10 +99,7 @@ export function onClickPagination(event) {
   if (filmApiService.query !== '') {
     // console.log('Все окей, выполняю пагинацию по поиску');
     onPaginationWithQuery();
-  } else if (
-    btnHeader.includes('render-library-js') === true &&
-    btnHeader.includes('render-library-js') === true
-  ) {
+  } else if (btnHeader.includes('render-library-js') === true) {
     onClickLibrary();
   } else {
     renderDefaultMovies();
