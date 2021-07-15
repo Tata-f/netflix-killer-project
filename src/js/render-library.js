@@ -1,5 +1,6 @@
 import movieCardTpl from '../templates/movie-card.hbs';
 import { filmApiService } from './render-movies-grid';
+import { onRenderPagination, onClickPagination } from './pagination';
 
 const renderLibraryEl = document.querySelector('.render-library-js');
 const renderWatchedEl = document.querySelector('.render-watched-js');
@@ -12,15 +13,23 @@ renderWatchedEl.addEventListener('click', onClickWatched);
 renderQueueEl.addEventListener('click', onClickQueue);
 
  async function onClickLibrary() {
+  let total_pages = 0;
+  let pageNumber = 1;
   renderWatchedEl.classList.add('active');
   renderQueueEl.classList.remove('active');
+  renderContainer.innerHTML = '';
+
+
 
   try {
     filmApiService.query = '';
     const filmsStr = await localStorage.getItem('watchedFilm');
     const filmsArr = await JSON.parse(filmsStr);
+    total_pages = await Math.ceil(filmsArr.length/9);
     const moviesWithYearAndGenre = await getUpdatedLibraryMovieInfo(filmsArr);
     const result = await createCardMarkup(moviesWithYearAndGenre);
+    await createCardMarkup(moviesWithYearAndGenre);
+    await onRenderPagination(total_pages, pageNumber)
     return result;
   } catch {
     console.log('Oops!');
