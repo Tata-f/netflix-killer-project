@@ -18,14 +18,12 @@ overlayEl.addEventListener('click', onOverlayCloseModalClick);
 closeModalBtnEl.addEventListener('click', onCloseModalClick);
 
 let lengthArr = 0;
-let firstVideo ='';
+let firstVideo = '';
+let newMovie = '';
 // функция вызывает фетч с фильмом по id
 
 
 async function fetchVideoMovieID(event) {
-  
-  let newMovie = '';
-  
   try {
     if (event.target.className !== 'card-image-js') return;
     newMovie = event.target.dataset.id
@@ -74,8 +72,8 @@ function onOpenModalVideo(event) {
   if (watchBtn.includes('btn-teaser-js')) {
     // console.log(watchBtn.includes('btn-teaser-js'))
     openModalEl.classList.add('is-open')
-    
-  }  
+  }
+  renderOpenedVideo(firstVideo)
 }
 //закрытие модалки
 function onCloseModalClick() {
