@@ -12,8 +12,10 @@
             <div class="modal-container">
 
                 <h2 class="modal-film-title">{{title}}</h2>
-                <ul class="modal-items">
-                    <li class="modal-item-name">
+
+                <div class="modal-items-container">
+                    <ul class="modal-items">
+                        <li class="modal-item-name">
                         Vote / Votes
                         {{#if vote_average}}
                         <p class="modal-item-average">{{vote_average}}</p>
@@ -31,12 +33,26 @@
                         Original Title
                         <p class="modal-item-description modal-item-title">{{original_title}}</p>
                     </li>
-                    <li class="modal-item-name modal-item-genre">
+                    </ul>
+                    
+                    <ul>
+                        <li class="modal-item-common">
+                            <p class="modal-item-average">{{vote_average}}</p>
+                            /
+                            <p class="modal-item-count">{{vote_count}}</p>
+                        </li>
+                        <li class="modal-item-common">{{popularity}}</li>
+                        <li class="modal-item-common">{{original_title}}</li>
+                    </ul>
+                </div>
+                <ul class="modal-genre-container">
+                    <li class="modal-item-name mogal-item-genre">
+
                         Genre
-                        <ul class="modal-item-genre-container">
-                        {{#each genres}}
-                          <li>{{this.name}}</li>
-                        {{/each}}
+                        <ul class="modal-genre-name">
+                            {{#each genres}}
+                            <li>{{this.name}}</li>
+                            {{/each}}
                         </ul>
                     </li>
                 </ul>
