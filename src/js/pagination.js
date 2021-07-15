@@ -93,7 +93,7 @@ export function onClickPagination(event) {
   if (arrow.includes('pagination-arrow-back') || arrow.includes('pagination-back')) {
     filmApiService.decrementPage();
   }
-  console.log(event.target.classList.value)
+  // console.log(event.target.classList.value)
   const btnHeader = event.target.classList.value;
 
   if (filmApiService.query !== '' && btnHeader.includes('render-library-js') === true ) {
