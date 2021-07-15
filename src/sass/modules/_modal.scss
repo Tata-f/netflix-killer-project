@@ -86,14 +86,24 @@
   }
 }
 
-.modal-items {
-  margin-bottom: 20px;
+.modal-items-container {
+  display: flex;
+  margin-bottom: 10px;
 
   line-height: 16px;
 }
 
+.modal-items {
+  margin-right: 41px;
+  width: 70px;
+
+  @media screen and (min-width: $desktop) {
+    margin-right: 85px;
+  }
+}
+
 .modal-item-name {
-  position: relative;
+  width: 70px;
   color: $light-gray-color;
 
   &:not(:last-child) {
@@ -101,22 +111,18 @@
   }
 }
 
-.modal-item-description {
-  display: inline;
-  color: $dark-color-black;
+.modal-item-common {
+  &:not(:last-child) {
+    margin-bottom: 10px;
+  }
 }
 
 .modal-item-average {
-  margin-left: 41px;
   display: inline-block;
   padding: 0 10px;
   border-radius: 5px;
   background-color: $bright-color-orange;
   color: $light-color-white;
-
-  @media screen and (min-width: $desktop) {
-    margin-left: 85px;
-  }
 }
 
 .modal-item-count {
@@ -125,30 +131,16 @@
   color: $dark-color-black;
 }
 
-.modal-item-popularity {
-  margin-left: 53px;
-
-  @media screen and (min-width: $desktop) {
-    margin-left: 97px;
-  }
+.modal-genre-container {
+  margin-bottom: 20px;
 }
 
-.modal-item-title {
-  position: absolute;
-  margin-left: 42px;
-  text-transform: uppercase;
-
-  @media screen and (min-width: $desktop) {
-    margin-left: 86px;
-  }
+.mogal-item-genre {
+  display: flex;
 }
 
-.modal-item-genre {
-  display: inline-flex;
-}
-
-.modal-item-genre-container {
-  margin-left: 78px;
+.modal-genre-name {
+  margin-left: 79px;
   color: $dark-color-black;
 
   @media screen and (min-width: $desktop) {
