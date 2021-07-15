@@ -37,12 +37,23 @@
   top: 0;
   right: 0;
 
+  width: 30px;
+  height: 30px;
+
   cursor: pointer;
 
   margin-top: 10px;
   margin-right: 10px;
   background-color: transparent;
+  background-image: url('../images/svg/icon-close-black.svg');
+  background-position: center;
   border: 1px solid transparent;
+  border-radius: 50%;
+  transition: background-color var(--animation-duration) var(--timing-function);
+
+  &:hover {
+    background-color: $light-color-gray;
+  }
 }
 
 .modal-img {
