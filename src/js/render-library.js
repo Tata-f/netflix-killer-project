@@ -4,20 +4,26 @@ const renderQueueEl = document.querySelector('.render-queue-js');
 const renderContainer = document.querySelector('.gallery-section > .container');
 
 import movieCardTpl from '../templates/movie-card.hbs';
+import { onRenderPagination, onClickPagination } from './pagination';
 
 renderLibraryEl.addEventListener('click', onClickLibrary);
 renderWatchedEl.addEventListener('click', onClickWatched);
 renderQueueEl.addEventListener('click', onClickQueue);
 
  function onClickLibrary() {
-  renderWatchedEl.classList.add('active');
-  renderQueueEl.classList.remove('active');
+   let total_pages = 0;
+   let pageNumber = 1;
+   renderWatchedEl.classList.add('active');
+   renderQueueEl.classList.remove('active');
+   renderContainer.innerHTML = '';
+   
+   const filmsStr = localStorage.getItem('watchedFilm');
+   const filmsArr = JSON.parse(filmsStr);
+   total_pages = Math.ceil(filmsArr.length/9);
+   const moviesWithYearAndGenre = getUpdatedLibraryMovieInfo(filmsArr);
 
-  const filmsStr = localStorage.getItem('watchedFilm');
-  const filmsArr = JSON.parse(filmsStr);
-  const moviesWithYearAndGenre = getUpdatedLibraryMovieInfo(filmsArr);
-
-  createCardMarkup(moviesWithYearAndGenre);
+   createCardMarkup(moviesWithYearAndGenre);
+   onRenderPagination(total_pages, pageNumber)
 }
 
 function onClickWatched() {

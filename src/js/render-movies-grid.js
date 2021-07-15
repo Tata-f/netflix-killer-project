@@ -77,7 +77,6 @@ async function onSearch(event) {
     const { results, total_pages } = movies;
     const genresList = await filmApiService.fetchGenres();
     const { genres } = genresList;
-    console.log('onSearch ~ genres', genres);
 
     const moviesWithYearAndGenre = getUpdatedMovieInfo(results, genres);
 

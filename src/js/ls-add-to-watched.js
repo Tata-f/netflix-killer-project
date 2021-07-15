@@ -1,5 +1,7 @@
 import {onClickWatched} from './render-library'
+
 const renderLibraryEl = document.querySelector('.render-watched-js');
+const headerEl = document.querySelector('.header-main')
 
 export default function addToLockalS(filmUser) {
   const btnWatchedEl = document.querySelector('.btn-watched-js');
@@ -23,7 +25,7 @@ export default function addToLockalS(filmUser) {
       films.push(filmUser);
       localStorage.setItem(`watchedFilm`, JSON.stringify(films));
       btnWatchedEl.innerText = 'remove from watched';
-      if(renderLibraryEl.classList.contains('active')){
+      if(renderLibraryEl.classList.contains('active')&& headerEl.classList.contains('not-active')){
         onClickWatched();
       }
     } else {
@@ -38,7 +40,7 @@ export default function addToLockalS(filmUser) {
         filmsArr.push(filmUser);
         localStorage.setItem(`watchedFilm`, JSON.stringify(filmsArr));
         btnWatchedEl.innerText = 'remove from watched';
-        if(renderLibraryEl.classList.contains('active')){
+        if(renderLibraryEl.classList.contains('active')&& headerEl.classList.contains('not-active')){
           onClickWatched();
         }
       }
@@ -52,7 +54,7 @@ export default function addToLockalS(filmUser) {
     if (filmsArr.length === 1) {
       localStorage.removeItem('watchedFilm');
       btnWatchedEl.innerText = 'add to watched';
-      if(renderLibraryEl.classList.contains('active')){
+      if(renderLibraryEl.classList.contains('active')&& headerEl.classList.contains('not-active')){
         onClickWatched();
       }
       
@@ -63,7 +65,7 @@ export default function addToLockalS(filmUser) {
           if (filmsArr[i].id === filmUser.id) {
             filmsArr.splice(i, 1);
             localStorage.setItem(`watchedFilm`, JSON.stringify(filmsArr));
-            if(renderLibraryEl.classList.contains('active')){
+            if(renderLibraryEl.classList.contains('active')&& headerEl.classList.contains('not-active')){
               onClickWatched();
             }
             btnWatchedEl.innerText = 'add to watched';
