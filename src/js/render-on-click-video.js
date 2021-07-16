@@ -18,22 +18,20 @@ closeModalBtnEl.addEventListener('click', onCloseModalClick);
 let lengthArr = 0;
 let firstVideo = '';
 let newMovie = '';
-// функция вызывает фетч с фильмом по id
 
+// функция вызывает фетч с фильмом по id
 
 async function fetchVideoMovieID(event) {
   try {
     if (event.target.className !== 'card-image-js') return;
     newMovie = event.target.dataset.id
-    // console.log(newMovie)
+    
     filmApiService.movie = newMovie;
     const movies = await filmApiService.fetchVideoMovie();
     const { results } = movies;
     lengthArr = results.length;
     firstVideo = results[0];
-    // console.log(firstVideo)
-    console.log(lengthArr)
-       
+
     renderOpenedVideo(firstVideo);
     const btnWatchTeaser = document.querySelector('.btn-teaser-js');
     if (lengthArr === 0) {
@@ -46,21 +44,19 @@ async function fetchVideoMovieID(event) {
     }
 }
 
-fetchVideoMovieID()
+// fetchVideoMovieID()
 
 //рендер карточки с видео
 function renderOpenedVideo(firstVideo) {
   const elements = movieVideoTpl(firstVideo);
   windowModal.innerHTML = elements;
-  // console.log(elements)
-  // console.log(firstVideo)
 }
 //открытие модалки на клик
 function onOpenModalVideo(event) {
   let watchBtn = event.target.className
   window.addEventListener('keydown', onEscCloseModalClick);
-  if (watchBtn.includes('btn-teaser-js')) {
-    // console.log(watchBtn.includes('btn-teaser-js'))
+  if (watchBtn === 'modal-button btn-teaser-js') {
+    
     openModalEl.classList.add('is-open')
   }
   renderOpenedVideo(firstVideo)
