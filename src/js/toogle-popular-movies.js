@@ -1,4 +1,4 @@
-import renderDefaultMovies from './render-movies-grid';
+import {renderDefaultMovies }from './render-movies-grid';
 import { renderDefaultMoviesPopularOnWeek } from './render-movies-grid';
 
 const refs = {
