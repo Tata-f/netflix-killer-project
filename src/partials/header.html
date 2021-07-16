@@ -1,17 +1,19 @@
 <header>
+	<div class="header-container container">
+		<button type="button" class="logo-header-home">
+			<svg class="logo-header__svg" width="24" height="24">
+				<use href="./images/svg/sprite.svg#icon-logo"></use>
+			  </svg>
+			  <span class="logo-header__text">Filmoteka</span>
+		</button>
+		<nav class="nav-header-home">
+			<button class="nav-header__home active">Home</button>
+			<button class="nav-header__library render-library-js">My library</button>
+		</nav>
+	</div>
+
 	<div class="header-main header-home">
-		<div class="header-container">
-			<button type="button" class="logo-header-home">
-				<svg class="logo-header__svg" width="24" height="24">
-					<use href="./images/svg/sprite.svg#icon-logo"></use>
-				  </svg>
-				  <span class="logo-header__text">Filmoteka</span>
-			</button>
-			<nav class="nav-header-home">
-				<button class="nav-header__home active">Home</button>
-				<button class="nav-header__library render-library-js">My library</button>
-			</nav>
-		</div>
+		
 		<form class="header-form js-search-form">
 		 <input class="header-form__input" type="text" placeholder="Enter name the movie..." name="query">
 		 <button type="submit" class="header-form__btn">
@@ -22,18 +24,7 @@
 		</form>
 	</div>
 	<div class="header-main header-my-library not-active">
-		<div class="header-container">
-			<button type="button" class="logo-header-library">
-				<svg class="logo-header__svg" width="24" height="24">
-					<use href="./images/svg/sprite.svg#icon-logo"></use>
-				  </svg>
-				  <span class="logo-header__text">Filmoteka</span>
-			</button>
-			<nav class="nav-header-library">
-				<button class="nav-header__home">Home</button>
-				<button class="nav-header__library active render-library-js">My library</button>
-			</nav>
-		</div>
+		
 		<div class="librari-nav">
 			<button type="button" class="librari-nav__wach active render-watched-js">watched</button>
 			<button type="button" class="librari-nav__queue render-queue-js">queue</button>
@@ -41,3 +32,16 @@
 		
 	</div>	
 </header>
+
+<!-- <div class="header-container">
+	<button type="button" class="logo-header-library">
+		<svg class="logo-header__svg" width="24" height="24">
+			<use href="./images/svg/sprite.svg#icon-logo"></use>
+		  </svg>
+		  <span class="logo-header__text">Filmoteka</span>
+	</button>
+	<nav class="nav-header-library">
+		<button class="nav-header__home">Home</button>
+		<button class="nav-header__library active render-library-js">My library</button>
+	</nav>
+</div> -->
