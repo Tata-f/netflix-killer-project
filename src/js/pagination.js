@@ -101,18 +101,20 @@ function onClickPagination(event) {
 
   if (filmApiService.query !== '') {
     onPaginationWithQuery();
-    } else if (btnHeader.includes('render-library-js') === true) {
-      onClickLibrary();
-    } else if (btnToggle.includes('active-toggle') === true) {
-      renderDefaultMoviesPopularOnWeek();
-    } else if (btnToggle.includes('active-toggle') === false) {
-      renderDefaultMovies();
-    }
-    else if (NavHeader.includes('librari-nav__queue') === true) {
-      onClickQueue();
-    }  else if( NavHeader.includes('librari-nav__wach') === true) {
-      onClickWatched()
-    }else {
+  }
+  // else if (btnHeader.includes('render-library-js') === true) {
+  //     onClickLibrary();
+  //   } else if (btnToggle.includes('active-toggle') === true) {
+  //     renderDefaultMoviesPopularOnWeek();
+  //   } else if (btnToggle.includes('active-toggle') === false) {
+  //     renderDefaultMovies();
+  //   }
+  //   else if (NavHeader.includes('librari-nav__queue') === true) {
+  //     onClickQueue();
+  //   }  else if( NavHeader.includes('librari-nav__wach') === true) {
+  //     onClickWatched()
+  // }
+  else {
       renderDefaultMovies();
     }
 
