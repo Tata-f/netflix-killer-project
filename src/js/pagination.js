@@ -1,7 +1,16 @@
 const paginationEl = document.querySelector('.pagination-list');
 const btnHeaderEl = document.querySelector('.header-container');
+const headerHome = document.querySelector('.header-home');
+const headerMyLibrary = document.querySelector('.header-my-library ') 
+// const headerLibrary = document.querySelector('.nav-header__library'); 
+const toggleRenderPopular = document.querySelector('.toggle-reander'); 
+const moviesContainer = document.querySelector('.gallery-section > .container');
 
 btnHeaderEl.addEventListener('click', onClickPagination);
+paginationEl.addEventListener('click', onClickPagination);
+headerMyLibrary.addEventListener('click', onClickPagination)
+headerHome.addEventListener('click', onClickPagination)
+
 import { onClickLibrary } from './render-library';
 import { filmApiService, onPaginationWithQuery } from './render-movies-grid';
 import renderDefaultMovies from './render-movies-grid';
@@ -93,11 +102,10 @@ export function onClickPagination(event) {
   if (arrow.includes('pagination-arrow-back') || arrow.includes('pagination-back')) {
     filmApiService.decrementPage();
   }
-  // console.log(event.target.classList.value)
+
   const btnHeader = event.target.classList.value;
 
   if (filmApiService.query !== '') {
-    // console.log('Все окей, выполняю пагинацию по поиску');
     onPaginationWithQuery();
   } else if (btnHeader.includes('render-library-js') === true) {
     onClickLibrary();
@@ -105,13 +113,68 @@ export function onClickPagination(event) {
     renderDefaultMovies();
   }
 
-  // if (
-  //   btnHeader.includes('logo-header__text') ||
-  //   btnHeader.includes('logo-header__svg') ||
-  //   btnHeader.includes('nav-header__home')
-  // ) {
-  //   filmApiService.resetPage();
-  //   renderDefaultMovies();
-  //   onRenderPagination();
-  // }
+ if (event.target === event.currentTarget) return;
+  const btnLibrary = event.target.classList.value;
+  if (btnLibrary.includes('nav-header__library') === true || btnLibrary.includes('render-library-js') === true) {
+    console.log('Вход в библиотеку')
+    onRenderMyLibrary();
+    onClickLibrary();
+  }
+  
+  if (event.target === event.currentTarget) return;
+  const btnHomeLogo = event.target.classList.value;
+  if (btnHomeLogo.includes('nav-header__home') === true || btnHomeLogo.includes('logo-header__text') === true || btnHomeLogo.includes('logo-header__svg') === true) {
+    console.log('Вход на главную')
+    filmApiService.resetPage();
+    onReturnMainPage()
+    renderDefaultMovies();
+    onRenderPagination();
+  }
+
 }
+
+
+function onReturnMainPage() {
+  headerMyLibrary.classList.add('not-active');
+  headerHome.classList.remove('not-active');
+
+  toggleRenderPopular.classList.remove('active');
+}
+
+function onRenderMyLibrary () {
+  headerHome.classList.add('not-active')
+  headerHome.classList.remove('active')
+	headerMyLibrary.classList.remove('not-active')	
+	toggleRenderPopular.classList.add('active')
+  
+	moviesContainer.innerHTML = "";
+}
+
+
+
+// function onOpensLibrary(event) {
+//   console.log(event.target.classList.value)
+//   console.log('из он опен')
+//   if (event.target === event.currentTarget) return;
+//   const btnLibrary = event.target.classList.value;
+//   if (btnLibrary.includes('nav-header__library') === true || btnLibrary.includes('render-library-js') === true) {
+//     console.log('Вход в библиотеку')
+//     onRenderMyLibrary();
+//     onClickLibrary();
+   
+//   } 
+// }
+
+// function onResetToHomePage(event) {
+//   console.log(event.target.classList.value)
+//   console.log('из он резет')
+//   if (event.target === event.currentTarget) return;
+//   const btnHomeLogo = event.target.classList.value;
+//   if (btnHomeLogo.includes('nav-header__home') === true || btnHomeLogo.includes('logo-header__text') === true || btnHomeLogo.includes('logo-header__svg') === true) {
+//     console.log('Вход на главную')
+//     filmApiService.resetPage();
+//     onReturnMainPage()
+//     renderDefaultMovies();
+//     onRenderPagination();
+//   }
+// }
