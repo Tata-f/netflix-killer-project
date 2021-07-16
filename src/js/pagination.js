@@ -100,11 +100,13 @@ function onClickPagination(event) {
 
   if (filmApiService.query !== '') {
     onPaginationWithQuery();
-  } else if (refs.renderWatchedEl.classList.contains('active') === true) {
+  } else if (refs.renderWatchedEl.classList.contains('active') === true && refs.headerMyLibrary.classList.contains('not-active') === false) {
     onClickLibrary();
-  } else if (refs.renderQueueEl.classList.contains('active') === true) {
+  } else if (refs.renderQueueEl.classList.contains('active') === true && refs.headerMyLibrary.classList.contains('not-active') === false) {
     onClickQueue();
-  } else {
+  } else if (!refs.inputTogglePopular.checked)
+  { renderDefaultMoviesPopularOnWeek() }
+  else {
       renderDefaultMovies();
     }
 

@@ -62,7 +62,7 @@ function onRenderQueue() {
   renderWatchedEl.classList.remove('active');
   renderQueueEl.classList.add('active');
     renderContainer.innerHTML = '';
-    
+    filmApiService.resetPage();
     filmLibrary.resetPageLib();
     onClickQueue();
 }
@@ -71,7 +71,7 @@ function onRenderWatched() {
   renderWatchedEl.classList.add('active');
   renderQueueEl.classList.remove('active');
     renderContainer.innerHTML = '';
-    
+    filmApiService.resetPage();
     filmLibrary.resetPageLib();
     onClickLibrary();
 }
