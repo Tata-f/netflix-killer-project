@@ -7,7 +7,9 @@ export default function getRefs() {
     paginationEl: document.querySelector('.pagination-list'),
     movieID: document.querySelector('.modal-img-js'),
     toggleRenderPopular: document.querySelector('.toggle-reander'),
-    headerMyLibrary : document.querySelector('.header-my-library '),
+    headerMyLibrary: document.querySelector('.header-my-library '),
+ renderQueueEl : document.querySelector('.render-queue-js'),
+ renderWatchedEl : document.querySelector('.render-watched-js'),
   };
 }
 

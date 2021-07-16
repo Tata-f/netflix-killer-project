@@ -1,6 +1,6 @@
 export default class FilmLibrary { 
     constructor() {
-        this.pageLibrary = 1;
+      this.pageLibrary = 1;
     }
 
   incrementPageLib() {
@@ -21,4 +21,5 @@ export default class FilmLibrary {
   set pageLib(newPage) {
     this.pageLibrary = newPage;
   }
+
 }
