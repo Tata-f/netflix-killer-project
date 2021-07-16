@@ -3,11 +3,18 @@ import { filmApiService, onPaginationWithQuery } from './render-movies-grid';
 import { renderDefaultMovies }from './render-movies-grid';
 import { renderDefaultMoviesPopularOnWeek } from './render-movies-grid';
 import { filmLibrary } from './render-library';
+import getRefs from './get-refs';
+const refs = getRefs();
 
 // прослушивание Для Пагинации
-const paginationEl = document.querySelector('.pagination-list');
-paginationEl.addEventListener('click', onClickPagination);
+
+refs.paginationEl.addEventListener('click', onClickPagination);
 //Функция описывает логику отображения пагинации и ренедерит её
+
+
+
+
+
 
 function onRenderPagination(totalPages, pageNumber) {
   let paginationItem = '';
@@ -76,7 +83,7 @@ function onRenderPagination(totalPages, pageNumber) {
     paginationItem += `<li class="pagination-item pagination-next"><span class="pagination-arrow-next">&#8702</span></li>`;
   }
 
-  paginationEl.innerHTML = paginationItem;
+  refs.paginationEl.innerHTML = paginationItem;
 }
 //Функция пересчитывает номер страницы в зависимости от нажатия на пагинацию.
 function onClickPagination(event) {
@@ -96,25 +103,18 @@ function onClickPagination(event) {
     filmLibrary.decrementPageLib();
   }
 
+
+  
+
   if (filmApiService.query !== '') {
     onPaginationWithQuery();
+  } else if (refs.headerMyLibrary.classList.contains('not-active') === false) {
+    onClickLibrary();
   }
-  // else if (btnHeader.includes('render-library-js') === true) {
-  //     onClickLibrary();
-  //   } 
-  // // else if (btnToggle.includes('active-toggle') === true) {
-  // //     renderDefaultMoviesPopularOnWeek();
-  // //   } else if (btnToggle.includes('active-toggle') === false) {
-  // //     renderDefaultMovies();
-  // //   }
-  // //   else if (NavHeader.includes('librari-nav__queue') === true) {
-  // //     onClickQueue();
-  // //   }  else if( NavHeader.includes('librari-nav__wach') === true) {
-  // //     onClickWatched()
-  // // }
   else {
       renderDefaultMovies();
     }
+  console.log(headerMyLibrary.classList.contains('not-active'));
 
    window.scrollTo({
   top: 0,

@@ -6,7 +6,8 @@ export default function getRefs() {
     topArrowBtn: document.querySelector('.top-arrow'),
     paginationEl: document.querySelector('.pagination-list'),
     movieID: document.querySelector('.modal-img-js'),
-    toggleRenderPopular: document.querySelector('.toggle-reander')
+    toggleRenderPopular: document.querySelector('.toggle-reander'),
+    headerMyLibrary : document.querySelector('.header-my-library '),
   };
 }
 
