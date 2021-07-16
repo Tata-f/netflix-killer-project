@@ -11,11 +11,6 @@ const refs = getRefs();
 refs.paginationEl.addEventListener('click', onClickPagination);
 //Функция описывает логику отображения пагинации и ренедерит её
 
-
-
-
-
-
 function onRenderPagination(totalPages, pageNumber) {
   let paginationItem = '';
   let activePage;
@@ -104,17 +99,13 @@ function onClickPagination(event) {
   }
 
 
-  
-
   if (filmApiService.query !== '') {
     onPaginationWithQuery();
   } else if (refs.headerMyLibrary.classList.contains('not-active') === false) {
     onClickLibrary();
-  }
-  else {
+  } else {
       renderDefaultMovies();
     }
-  console.log(headerMyLibrary.classList.contains('not-active'));
 
    window.scrollTo({
   top: 0,
