@@ -20,6 +20,7 @@ function onReturnMainPage() {
   headerMyLibrary.classList.add('not-active');
   headerHome.classList.remove('not-active');
   btnHome.classList.add('active')
+  btnLibrary.classList.remove('active')
   toggleRenderPopular.classList.remove('active');
     
     filmApiService.resetPage();
@@ -38,6 +39,7 @@ const renderContainer = document.querySelector('.gallery-section > .container');
 function onRenderMyLibrary() {
   btnHome.classList.remove('active')
   headerHome.classList.add('not-active')
+  btnLibrary.classList.add('active')
   headerHome.classList.remove('active')
   headerMyLibrary.classList.remove('not-active')	
   toggleRenderPopular.classList.add('active')
