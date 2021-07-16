@@ -9,7 +9,8 @@ export default function getRefs() {
     toggleRenderPopular: document.querySelector('.toggle-reander'),
     headerMyLibrary: document.querySelector('.header-my-library '),
  renderQueueEl : document.querySelector('.render-queue-js'),
- renderWatchedEl : document.querySelector('.render-watched-js'),
+    renderWatchedEl: document.querySelector('.render-watched-js'),
+ inputTogglePopular: document.querySelector('#e')
   };
 }
 
