@@ -26,7 +26,7 @@ const renderQueueEl = document.querySelector('.render-queue-js');
 const renderContainer = document.querySelector('.gallery-section > .container');
 
 
-renderLibraryEl.addEventListener('click', oonRenderMyLibrary);
+renderLibraryEl.addEventListener('click', onRenderMyLibrary);
 renderWatchedEl.addEventListener('click', onClickWatched);
 renderQueueEl.addEventListener('click', onClickPagination);
 // ==================================================

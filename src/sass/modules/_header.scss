@@ -37,18 +37,20 @@ header {
   -o-transition: opacity 1.2s ease-in-out;
   transition: opacity 1.2s ease-in-out;
 
-  padding: 46px 20px 0px;
+  padding: 0 20px;
   @media screen and (min-width: $tablet) {
-    padding: 41px 76px 0px 71px;
+    padding: 0 76px 0 71px;
   }
 }
 .header-main.not-active {
   opacity: 0;
-  z-index: 10;
+  z-index: 0;
 }
 
 .header-home {
-  z-index: 30;
+  z-index: 2;
+
+  padding-top: 113px;
 
   background-image: linear-gradient(rgba(0, 0, 0, 0.36), rgba(0, 0, 0, 0.36)),
     url('../images/mobile/main-header-bg.jpg');
@@ -94,7 +96,9 @@ header {
 }
 
 .header-my-library {
-  z-index: 20;
+  z-index: 1;
+
+  padding-top: 121px;
 
   background-image: linear-gradient(rgba(0, 0, 0, 0.36), rgba(0, 0, 0, 0.36)),
     url('../images/mobile/favorites-header-bg.jpg');
@@ -144,13 +148,19 @@ header {
     display: flex;
     justify-content: space-between;
     align-items: baseline;
+
+    position: absolute;
+    top: 40px;
+    left: 0;
+    right: 0;
+    z-index: 3;
   }
 
   .header-form {
     display: flex;
     justify-content: center;
     align-items: center;
-    margin-top: 38px;
+    
     margin-right: auto;
     margin-left: auto;
   }
@@ -160,7 +170,7 @@ header {
     display: flex;
     justify-content: center;
     align-items: center;
-    margin-top: 46px;
+    
   }
 }
 
