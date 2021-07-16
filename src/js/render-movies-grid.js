@@ -2,6 +2,7 @@ import getRefs from './get-refs';
 import FilmApiService from './class-api-service';
 import movieCardTpl from '../templates/movie-card.hbs';
 import { loader, loaderStyles } from './spinner';
+import { errorMsg, errorMsgStyles } from './notification';
 import { async } from 'fast-glob';
 
 import { onRenderPagination, onClickPagination } from './pagination';
@@ -57,18 +58,17 @@ async function renderDefaultMoviesPopularOnWeek() {
   loader.hideLoading();
 }
 
-
 //Функция рендера фильмов по запросу
 async function onSearch(event) {
   event.preventDefault();
 
   refs.toggleRenderPopular.classList.add('active');
-  
+
   filmApiService.resetPage();
 
   let pageNumber = filmApiService.page;
   const form = event.currentTarget;
-  filmApiService.query = form.elements.query.value;
+  filmApiService.query = form.elements.query.value.trim();
 
   loader.showLoading(loaderStyles);
 
@@ -77,6 +77,15 @@ async function onSearch(event) {
     const { results, total_pages } = movies;
     const genresList = await filmApiService.fetchGenres();
     const { genres } = genresList;
+
+    if (filmApiService.query === '') {
+      errorMsg.showToast(errorMsgStyles);
+    }
+
+    if (movies.total_results === 0) {
+      errorMsg.showToast(errorMsgStyles);
+      console.log('Ошибка при запросе пользователя');
+    }
 
     const moviesWithYearAndGenre = getUpdatedMovieInfo(results, genres);
 
@@ -115,7 +124,7 @@ async function onPaginationWithQuery() {
 //функция создания разметки сетки фильмов разметки
 
 function createCardMarkup(results) {
-  refs.moviesContainer.innerHTML='';
+  refs.moviesContainer.innerHTML = '';
   const elements = movieCardTpl(results);
   refs.moviesContainer.innerHTML = elements;
 }
@@ -134,4 +143,4 @@ function getUpdatedMovieInfo(movies, info) {
   }));
 }
 
-export{ renderDefaultMovies, renderDefaultMoviesPopularOnWeek, onPaginationWithQuery}
+export { renderDefaultMovies, renderDefaultMoviesPopularOnWeek, onPaginationWithQuery };
