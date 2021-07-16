@@ -1,35 +1,12 @@
-const paginationEl = document.querySelector('.pagination-list');
-const btnHeaderEl = document.querySelector('.header-container');
-const headerHome = document.querySelector('.header-home');
-const headerMyLibrary = document.querySelector('.header-my-library ') 
-// const headerLibrary = document.querySelector('.nav-header__library'); 
-const toggleRenderPopular = document.querySelector('.toggle-reander'); 
-const moviesContainer = document.querySelector('.gallery-section > .container');
-const togglPopular = document.querySelector('.off-itm')
-
-btnHeaderEl.addEventListener('click', onClickPagination);
-paginationEl.addEventListener('click', onClickPagination);
-headerMyLibrary.addEventListener('click', onClickPagination)
-headerHome.addEventListener('click', onClickPagination)
-toggleRenderPopular.addEventListener('click', onClickPagination)
 import { onClickWatched, onClickQueue, onClickLibrary } from './render-library';
 import { filmApiService, onPaginationWithQuery } from './render-movies-grid';
 import renderDefaultMovies from './render-movies-grid';
-import {renderDefaultMoviesPopularOnWeek} from './render-movies-grid';
+import { renderDefaultMoviesPopularOnWeek } from './render-movies-grid';
+import { filmLibrary } from './render-library';
 
-
-
-// ===============================================
-const renderLibraryEl = document.querySelector('.render-library-js');
-const renderWatchedEl = document.querySelector('.render-watched-js');
-const renderQueueEl = document.querySelector('.render-queue-js');
-const renderContainer = document.querySelector('.gallery-section > .container');
-
-
-renderLibraryEl.addEventListener('click', onRenderMyLibrary);
-renderWatchedEl.addEventListener('click', onClickWatched);
-renderQueueEl.addEventListener('click', onClickPagination);
-// ==================================================
+// прослушивание Для Пагинации
+const paginationEl = document.querySelector('.pagination-list');
+paginationEl.addEventListener('click', onClickPagination);
 
 //Функция описывает логику отображения пагинации и ренедерит её
 
@@ -102,79 +79,40 @@ export function onRenderPagination(totalPages, pageNumber) {
 
   paginationEl.innerHTML = paginationItem;
 }
-
 //Функция пересчитывает номер страницы в зависимости от нажатия на пагинацию.
-//отвечает и за навигацию по приложению.
-
 export function onClickPagination(event) {
   if (event.target === event.currentTarget) return;
 
   if (Number(event.target.textContent)) {
     filmApiService.page = Number(event.target.textContent);
+    filmLibrary.pageLib = Number(event.target.textContent);
   }
   const arrow = event.target.classList.value;
   if (arrow.includes('pagination-arrow-next') || arrow.includes('pagination-next')) {
     filmApiService.incrementPage();
+    filmLibrary.incrementPageLib()
   }
   if (arrow.includes('pagination-arrow-back') || arrow.includes('pagination-back')) {
     filmApiService.decrementPage();
+    filmLibrary.decrementPageLib();
   }
 
-  const btnHeader = event.target.classList.value;
-  const NavHeader = event.target.classList.value;
- const btnToggle = event.target.classList.value;
-  if (filmApiService.query !== '') {
-    onPaginationWithQuery();
-  } else if (btnHeader.includes('render-library-js') === true) {
-    onClickLibrary();
-  }
-  // else if (btnToggle.includes('active-toggle') === true) {
+  //  if (filmApiService.query !== '') {
+  //   onPaginationWithQuery();
+  // } else if (btnHeader.includes('render-library-js') === true) {
+  //   onClickLibrary();
+  // } else if (btnToggle.includes('active-toggle') === true) {
   //   renderDefaultMoviesPopularOnWeek();
   // } else if (btnToggle.includes('active-toggle') === false) {
   //   renderDefaultMovies();
   // }
-  else if (NavHeader.includes('librari-nav__queue') === true) {
-    onClickQueue();
-  }  else if( NavHeader.includes('librari-nav__wach') === true) {
-    onClickWatched()
-  }else {
-    renderDefaultMovies();
-  }
-
- if (event.target === event.currentTarget) return;
-  const btnLibrary = event.target.classList.value;
-  if (btnLibrary.includes('nav-header__library') === true || btnLibrary.includes('render-library-js') === true) {
-    console.log('Вход в библиотеку')
-    onRenderMyLibrary();
-    onClickLibrary();
-  }
-  
-  if (event.target === event.currentTarget) return;
-  const btnHomeLogo = event.target.classList.value;
-  if (btnHomeLogo.includes('nav-header__home') === true || btnHomeLogo.includes('logo-header__text') === true || btnHomeLogo.includes('logo-header__svg') === true) {
-    console.log('Вход на главную')
-    filmApiService.resetPage();
-    onReturnMainPage()
-    renderDefaultMovies();
-    onRenderPagination();
-  }
-// if (event.target === event.currentTarget) return;
-  const btnQueue = event.target.classList.value;
-  console.log(btnQueue)
-  if (btnQueue.includes('librari-nav__queue') === true) {
-    onRenderQueue();
-    onClickQueue();
-  }
-  const btnWatched = event.target.classList.value;
-  if (btnWatched.includes('librari-nav__wach') === true) {
-    onRenderWatched();
-    onClickWatched();
-  }
-  const btnToggleIsActiv = event.target.classList.value;
-  console.log(btnToggle)
-  if (btnToggleIsActiv .includes('off-itm') === true) {
-    onActivToggle()
-  } 
+  // else if (NavHeader.includes('librari-nav__queue') === true) {
+  //   onClickQueue();
+  // }  else if( NavHeader.includes('librari-nav__wach') === true) {
+  //   onClickWatched()
+  // }else {
+  //   renderDefaultMovies();
+  // }
 
   btnHeaderEl.scrollIntoView({
                 behavior: "smooth",
@@ -183,46 +121,4 @@ export function onClickPagination(event) {
             })
 }
 
-// Меняет стили при нажатии на хоум или лого
-function onReturnMainPage() {
-  headerMyLibrary.classList.add('not-active');
-  headerHome.classList.remove('not-active');
 
-  toggleRenderPopular.classList.remove('active');
-}
-// Меняет стили при нажатии на библиотеку
-function onRenderMyLibrary () {
-  headerHome.classList.add('not-active')
-  headerHome.classList.remove('active')
-	headerMyLibrary.classList.remove('not-active')	
-	toggleRenderPopular.classList.add('active')
-  
-  moviesContainer.innerHTML = "";
-  // =================================
-  renderWatchedEl.classList.add('active');
-  renderQueueEl.classList.remove('active');
-renderContainer.innerHTML = '';
-}
-// Меняет стили при нажатии на кнопку кюе в библиотеке
-function onRenderQueue() {
-   renderWatchedEl.classList.remove('active');
-  renderQueueEl.classList.add('active');
-  renderContainer.innerHTML = '';
-}
-// Меняет стили при нажатии на кнопку вотч в библиотеке
-function onRenderWatched() {
-  renderWatchedEl.classList.add('active');
-  renderQueueEl.classList.remove('active');
-  renderContainer.innerHTML = '';
-  
-}
-
-function onActivToggle() {
-  togglPopular.classList.toggle('active-toggle');
-  // togglPopular.classList.toggle('active-toggle');
-}
-
-// function onOffToggle() {
-//   togglPopular.classList.remove('active-toggle');
-//   // togglPopular.classList.toggle('active-toggle');
-// }

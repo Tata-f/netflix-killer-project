@@ -1,18 +1,27 @@
 import movieCardTpl from '../templates/movie-card.hbs';
 import { filmApiService } from './render-movies-grid';
 import { onRenderPagination, onClickPagination } from './pagination';
+import FilmLibrary from './class-library';
+export const filmLibrary = new FilmLibrary();
+
+
+
+
+
 
 const renderLibraryEl = document.querySelector('.render-library-js');
 const renderWatchedEl = document.querySelector('.render-watched-js');
 const renderQueueEl = document.querySelector('.render-queue-js');
 const renderContainer = document.querySelector('.gallery-section > .container');
-let libraryPage = 1;
+
 
 // renderLibraryEl.addEventListener('click', onClickLibrary);
 renderWatchedEl.addEventListener('click', onClickWatched);
 renderQueueEl.addEventListener('click', onClickQueue);
 
 async function onClickLibrary() {
+  let libraryPage = filmLibrary.pageLibrary;
+  console.log('Это значение из рендера LEO', libraryPage);
   let total_pages = 0;
   // renderWatchedEl.classList.add('active');
   // renderQueueEl.classList.remove('active');
