@@ -7,9 +7,6 @@ import { filmLibrary } from './render-library';
 // прослушивание Для Пагинации
 const paginationEl = document.querySelector('.pagination-list');
 paginationEl.addEventListener('click', onClickPagination);
-const btnHeaderEl = document.querySelector('.header-container');
-btnHeaderEl.addEventListener('click', onClickPagination);
-
 //Функция описывает логику отображения пагинации и ренедерит её
 
 function onRenderPagination(totalPages, pageNumber) {
@@ -104,16 +101,17 @@ function onClickPagination(event) {
   }
   // else if (btnHeader.includes('render-library-js') === true) {
   //     onClickLibrary();
-  //   } else if (btnToggle.includes('active-toggle') === true) {
-  //     renderDefaultMoviesPopularOnWeek();
-  //   } else if (btnToggle.includes('active-toggle') === false) {
-  //     renderDefaultMovies();
-  //   }
-  //   else if (NavHeader.includes('librari-nav__queue') === true) {
-  //     onClickQueue();
-  //   }  else if( NavHeader.includes('librari-nav__wach') === true) {
-  //     onClickWatched()
-  // }
+  //   } 
+  // // else if (btnToggle.includes('active-toggle') === true) {
+  // //     renderDefaultMoviesPopularOnWeek();
+  // //   } else if (btnToggle.includes('active-toggle') === false) {
+  // //     renderDefaultMovies();
+  // //   }
+  // //   else if (NavHeader.includes('librari-nav__queue') === true) {
+  // //     onClickQueue();
+  // //   }  else if( NavHeader.includes('librari-nav__wach') === true) {
+  // //     onClickWatched()
+  // // }
   else {
       renderDefaultMovies();
     }
