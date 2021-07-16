@@ -130,7 +130,11 @@ export function onClickPagination(event) {
     renderDefaultMovies();
     onRenderPagination();
   }
-
+  btnHeaderEl.scrollIntoView({
+                behavior: "smooth",
+                block: "start",
+                inline: "nearest"
+            })
 }
 
 
