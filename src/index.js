@@ -16,5 +16,6 @@ import './js/render-library';
 import './js/render-on-click-video';
 
 import './js/toogle-popular-movies';
+import './js/navigation';
 
 
