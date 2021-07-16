@@ -18,10 +18,10 @@ const renderContainer = document.querySelector('.gallery-section > .container');
 // renderLibraryEl.addEventListener('click', onClickLibrary);
 renderWatchedEl.addEventListener('click', onClickWatched);
 renderQueueEl.addEventListener('click', onClickQueue);
-
+let libraryPage;
 async function onClickLibrary() {
-  let libraryPage = filmLibrary.pageLibrary;
-  console.log('Это значение из рендера LEO', libraryPage);
+  libraryPage = filmLibrary.pageLibrary;
+  // console.log('Это значение из рендера LEO', libraryPage);
   let total_pages = 0;
   // renderWatchedEl.classList.add('active');
   // renderQueueEl.classList.remove('active');
@@ -111,8 +111,8 @@ async function onClickWatched() {
 
   // createCardMarkup(moviesWithYearAndGenre);
 
-  let libraryPage = filmLibrary.pageLibrary;
-  console.log('Это значение из рендера LEO', libraryPage);
+  libraryPage = filmLibrary.pageLibrary;
+  // console.log('Это значение из рендера LEO', libraryPage);
   let total_pages = 0;
   let width = document.body.clientWidth;
   console.log('onClickLibrary ~ width', width);
@@ -199,7 +199,7 @@ async function onClickQueue() {
 
   // createCardMarkup(moviesWithYearAndGenre);
 
-  let libraryPage = filmLibrary.pageLibrary;
+  libraryPage = filmLibrary.pageLibrary;
   console.log('Это значение из рендера LEO', libraryPage);
   let total_pages = 0;
   let width = document.body.clientWidth;

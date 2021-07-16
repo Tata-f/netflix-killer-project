@@ -7,10 +7,8 @@ import getRefs from './get-refs';
 const refs = getRefs();
 
 // прослушивание Для Пагинации
-
 refs.paginationEl.addEventListener('click', onClickPagination);
 //Функция описывает логику отображения пагинации и ренедерит её
-
 function onRenderPagination(totalPages, pageNumber) {
   let paginationItem = '';
   let activePage;
@@ -80,6 +78,7 @@ function onRenderPagination(totalPages, pageNumber) {
 
   refs.paginationEl.innerHTML = paginationItem;
 }
+
 //Функция пересчитывает номер страницы в зависимости от нажатия на пагинацию.
 function onClickPagination(event) {
   if (event.target === event.currentTarget) return;
@@ -91,7 +90,7 @@ function onClickPagination(event) {
   const arrow = event.target.classList.value;
   if (arrow.includes('pagination-arrow-next') || arrow.includes('pagination-next')) {
     filmApiService.incrementPage();
-    filmLibrary.incrementPageLib()
+    filmLibrary.incrementPageLib();
   }
   if (arrow.includes('pagination-arrow-back') || arrow.includes('pagination-back')) {
     filmApiService.decrementPage();
@@ -101,8 +100,10 @@ function onClickPagination(event) {
 
   if (filmApiService.query !== '') {
     onPaginationWithQuery();
-  } else if (refs.headerMyLibrary.classList.contains('not-active') === false) {
+  } else if (refs.renderWatchedEl.classList.contains('active') === true) {
     onClickLibrary();
+  } else if (refs.renderQueueEl.classList.contains('active') === true) {
+    onClickQueue();
   } else {
       renderDefaultMovies();
     }
