@@ -16,7 +16,7 @@ renderDefaultMovies();
 refs.searchForm.addEventListener('submit', onSearch);
 
 //Функция дефолтного рендера популярных фильмов за день
-export default async function renderDefaultMovies() {
+async function renderDefaultMovies() {
   let pageNumber = filmApiService.page;
   loader.showLoading(loaderStyles);
   try {
@@ -37,7 +37,7 @@ export default async function renderDefaultMovies() {
 }
 
 //Функция дефолтного рендера популярных фильмов за неделю
-export async function renderDefaultMoviesPopularOnWeek() {
+async function renderDefaultMoviesPopularOnWeek() {
   let pageNumber = filmApiService.page;
   loader.showLoading(loaderStyles);
   try {
@@ -57,8 +57,6 @@ export async function renderDefaultMoviesPopularOnWeek() {
   loader.hideLoading();
 }
 
-
-refs.paginationEl.addEventListener('click', onClickPagination);
 
 //Функция рендера фильмов по запросу
 async function onSearch(event) {
@@ -93,7 +91,7 @@ async function onSearch(event) {
 }
 
 //Функция рендера при пагинации с запросом
-export async function onPaginationWithQuery() {
+async function onPaginationWithQuery() {
   let pageNumber = filmApiService.page;
   loader.showLoading(loaderStyles);
 
@@ -116,7 +114,7 @@ export async function onPaginationWithQuery() {
 
 //функция создания разметки сетки фильмов разметки
 
-export function createCardMarkup(results) {
+function createCardMarkup(results) {
   refs.moviesContainer.innerHTML='';
   const elements = movieCardTpl(results);
   refs.moviesContainer.innerHTML = elements;
@@ -124,7 +122,7 @@ export function createCardMarkup(results) {
 
 //функция добавляет необходимую информацию о годе и жанрах в массив фильмов
 
-export function getUpdatedMovieInfo(movies, info) {
+function getUpdatedMovieInfo(movies, info) {
   return movies.map(movie => ({
     ...movie,
     genres: info
@@ -135,3 +133,5 @@ export function getUpdatedMovieInfo(movies, info) {
     voteAverage: movie.vote_average.toFixed(1),
   }));
 }
+
+export{ renderDefaultMovies, renderDefaultMoviesPopularOnWeek, onPaginationWithQuery}

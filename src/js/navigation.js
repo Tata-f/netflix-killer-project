@@ -1,10 +1,12 @@
-import FilmApiService from './class-api-service';
-import FilmLibrary from './class-library';
+import { filmApiService } from './render-movies-grid';
+import { filmLibrary }from './render-library';
+import{ renderDefaultMovies, renderDefaultMoviesPopularOnWeek, onPaginationWithQuery} from './render-movies-grid'
+import { onClickWatched, onClickQueue, onClickLibrary } from './render-library';
+import{onClickPagination, onRenderPagination } from './pagination'
 
 
-
-const filmApiService = new FilmApiService();
-const filmLibrary = new FilmLibrary();
+// const filmApiService = new FilmApiService();
+// const filmLibrary = new FilmLibrary();
 
 
 //сброс стилей к главной странице
@@ -23,7 +25,10 @@ function onReturnMainPage() {
   btnHome.classList.add('active')
   toggleRenderPopular.classList.remove('active');
     
-  filmApiService.resetPage();
+    filmApiService.resetPage();
+    filmApiService.query = '';
+    renderDefaultMovies();
+    
 }
 // =================================================
 //прослушивание кнопки либрари смена классов при клике
@@ -43,7 +48,11 @@ function onRenderMyLibrary() {
   renderQueueEl.classList.remove('active');
   renderContainer.innerHTML = '';
     
-  filmApiService.resetPage();
+    filmApiService.resetPage();
+    filmLibrary.resetPageLib();
+    filmApiService.query = '';
+    onClickLibrary();
+    
 }
 // =================================================
 
@@ -57,7 +66,8 @@ function onRenderQueue() {
   renderQueueEl.classList.add('active');
     renderContainer.innerHTML = '';
     
-    filmLibrary.resetPageLib()
+    filmLibrary.resetPageLib();
+    onClickQueue();
 }
 
 function onRenderWatched() {
@@ -65,19 +75,32 @@ function onRenderWatched() {
   renderQueueEl.classList.remove('active');
     renderContainer.innerHTML = '';
     
-    filmLibrary.resetPageLib()
-  
+    filmLibrary.resetPageLib();
+    onClickWatched();
 }
 // ====================================================
 
 //добавляет тоглу активное и не активное состояние
 const togglPopular = document.querySelector('.off-itm')
 togglPopular.addEventListener('click', onActivToggle)
+togglPopular.addEventListener('click', onOffToggle)
 
 function onActivToggle() {
-    togglPopular.classList.toggle('active-toggle');
+    togglPopular.classList.add('active-toggle');
     
     filmApiService.resetPage();
+    filmApiService.query = '';
+    renderDefaultMoviesPopularOnWeek();
+    onRenderPagination();
+}
+
+function onOffToggle() {
+    togglPopular.classList.remove('active-toggle');
+    
+    filmApiService.resetPage();
+    filmApiService.query = '';
+    renderDefaultMovies();
+    onRenderPagination();
 }
 
 
