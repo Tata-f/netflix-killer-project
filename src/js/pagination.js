@@ -116,11 +116,11 @@ function onClickPagination(event) {
       renderDefaultMovies();
     }
 
-    btnHeaderEl.scrollIntoView({
-      behavior: "smooth",
-      block: "start",
-      inline: "nearest"
-    })
+   window.scrollTo({
+  top: 0,
+  left: 0,
+  behavior: 'smooth'
+});
   }
 
 export{onClickPagination, onRenderPagination }
