@@ -5,15 +5,31 @@ const headerMyLibrary = document.querySelector('.header-my-library ')
 // const headerLibrary = document.querySelector('.nav-header__library'); 
 const toggleRenderPopular = document.querySelector('.toggle-reander'); 
 const moviesContainer = document.querySelector('.gallery-section > .container');
+const togglPopular = document.querySelector('.off-itm')
 
 btnHeaderEl.addEventListener('click', onClickPagination);
 paginationEl.addEventListener('click', onClickPagination);
 headerMyLibrary.addEventListener('click', onClickPagination)
 headerHome.addEventListener('click', onClickPagination)
-
-import { onClickLibrary } from './render-library';
+toggleRenderPopular.addEventListener('click', onClickPagination)
+import { onClickWatched, onClickQueue, onClickLibrary } from './render-library';
 import { filmApiService, onPaginationWithQuery } from './render-movies-grid';
 import renderDefaultMovies from './render-movies-grid';
+import {renderDefaultMoviesPopularOnWeek} from './render-movies-grid';
+
+
+
+// ===============================================
+const renderLibraryEl = document.querySelector('.render-library-js');
+const renderWatchedEl = document.querySelector('.render-watched-js');
+const renderQueueEl = document.querySelector('.render-queue-js');
+const renderContainer = document.querySelector('.gallery-section > .container');
+
+
+renderLibraryEl.addEventListener('click', oonRenderMyLibrary);
+renderWatchedEl.addEventListener('click', onClickWatched);
+renderQueueEl.addEventListener('click', onClickPagination);
+// ==================================================
 
 //Функция описывает логику отображения пагинации и ренедерит её
 
@@ -88,6 +104,7 @@ export function onRenderPagination(totalPages, pageNumber) {
 }
 
 //Функция пересчитывает номер страницы в зависимости от нажатия на пагинацию.
+//отвечает и за навигацию по приложению.
 
 export function onClickPagination(event) {
   if (event.target === event.currentTarget) return;
@@ -104,12 +121,23 @@ export function onClickPagination(event) {
   }
 
   const btnHeader = event.target.classList.value;
-
+  const NavHeader = event.target.classList.value;
+ const btnToggle = event.target.classList.value;
   if (filmApiService.query !== '') {
     onPaginationWithQuery();
   } else if (btnHeader.includes('render-library-js') === true) {
     onClickLibrary();
-  } else {
+  }
+  // else if (btnToggle.includes('active-toggle') === true) {
+  //   renderDefaultMoviesPopularOnWeek();
+  // } else if (btnToggle.includes('active-toggle') === false) {
+  //   renderDefaultMovies();
+  // }
+  else if (NavHeader.includes('librari-nav__queue') === true) {
+    onClickQueue();
+  }  else if( NavHeader.includes('librari-nav__wach') === true) {
+    onClickWatched()
+  }else {
     renderDefaultMovies();
   }
 
@@ -130,6 +158,24 @@ export function onClickPagination(event) {
     renderDefaultMovies();
     onRenderPagination();
   }
+// if (event.target === event.currentTarget) return;
+  const btnQueue = event.target.classList.value;
+  console.log(btnQueue)
+  if (btnQueue.includes('librari-nav__queue') === true) {
+    onRenderQueue();
+    onClickQueue();
+  }
+  const btnWatched = event.target.classList.value;
+  if (btnWatched.includes('librari-nav__wach') === true) {
+    onRenderWatched();
+    onClickWatched();
+  }
+  const btnToggleIsActiv = event.target.classList.value;
+  console.log(btnToggle)
+  if (btnToggleIsActiv .includes('off-itm') === true) {
+    onActivToggle()
+  } 
+
   btnHeaderEl.scrollIntoView({
                 behavior: "smooth",
                 block: "start",
@@ -137,48 +183,46 @@ export function onClickPagination(event) {
             })
 }
 
-
+// Меняет стили при нажатии на хоум или лого
 function onReturnMainPage() {
   headerMyLibrary.classList.add('not-active');
   headerHome.classList.remove('not-active');
 
   toggleRenderPopular.classList.remove('active');
 }
-
+// Меняет стили при нажатии на библиотеку
 function onRenderMyLibrary () {
   headerHome.classList.add('not-active')
   headerHome.classList.remove('active')
 	headerMyLibrary.classList.remove('not-active')	
 	toggleRenderPopular.classList.add('active')
   
-	moviesContainer.innerHTML = "";
+  moviesContainer.innerHTML = "";
+  // =================================
+  renderWatchedEl.classList.add('active');
+  renderQueueEl.classList.remove('active');
+renderContainer.innerHTML = '';
+}
+// Меняет стили при нажатии на кнопку кюе в библиотеке
+function onRenderQueue() {
+   renderWatchedEl.classList.remove('active');
+  renderQueueEl.classList.add('active');
+  renderContainer.innerHTML = '';
+}
+// Меняет стили при нажатии на кнопку вотч в библиотеке
+function onRenderWatched() {
+  renderWatchedEl.classList.add('active');
+  renderQueueEl.classList.remove('active');
+  renderContainer.innerHTML = '';
+  
 }
 
+function onActivToggle() {
+  togglPopular.classList.toggle('active-toggle');
+  // togglPopular.classList.toggle('active-toggle');
+}
 
-
-// function onOpensLibrary(event) {
-//   console.log(event.target.classList.value)
-//   console.log('из он опен')
-//   if (event.target === event.currentTarget) return;
-//   const btnLibrary = event.target.classList.value;
-//   if (btnLibrary.includes('nav-header__library') === true || btnLibrary.includes('render-library-js') === true) {
-//     console.log('Вход в библиотеку')
-//     onRenderMyLibrary();
-//     onClickLibrary();
-   
-//   } 
-// }
-
-// function onResetToHomePage(event) {
-//   console.log(event.target.classList.value)
-//   console.log('из он резет')
-//   if (event.target === event.currentTarget) return;
-//   const btnHomeLogo = event.target.classList.value;
-//   if (btnHomeLogo.includes('nav-header__home') === true || btnHomeLogo.includes('logo-header__text') === true || btnHomeLogo.includes('logo-header__svg') === true) {
-//     console.log('Вход на главную')
-//     filmApiService.resetPage();
-//     onReturnMainPage()
-//     renderDefaultMovies();
-//     onRenderPagination();
-//   }
+// function onOffToggle() {
+//   togglPopular.classList.remove('active-toggle');
+//   // togglPopular.classList.toggle('active-toggle');
 // }

@@ -8,15 +8,15 @@ const renderQueueEl = document.querySelector('.render-queue-js');
 const renderContainer = document.querySelector('.gallery-section > .container');
 let libraryPage = 1;
 
-renderLibraryEl.addEventListener('click', onClickLibrary);
+// renderLibraryEl.addEventListener('click', onClickLibrary);
 renderWatchedEl.addEventListener('click', onClickWatched);
 renderQueueEl.addEventListener('click', onClickQueue);
 
 async function onClickLibrary() {
   let total_pages = 0;
-  renderWatchedEl.classList.add('active');
-  renderQueueEl.classList.remove('active');
-  renderContainer.innerHTML = '';
+  // renderWatchedEl.classList.add('active');
+  // renderQueueEl.classList.remove('active');
+  // renderContainer.innerHTML = '';
   let width = document.body.clientWidth;
   console.log('onClickLibrary ~ width', width);
 
@@ -92,9 +92,9 @@ async function onClickLibrary() {
 }
 
 function onClickWatched() {
-  renderWatchedEl.classList.add('active');
-  renderQueueEl.classList.remove('active');
-  renderContainer.innerHTML = '';
+  // renderWatchedEl.classList.add('active');
+  // renderQueueEl.classList.remove('active');
+  // renderContainer.innerHTML = '';
 
   const filmsStr = localStorage.getItem('watchedFilm');
   const filmsArr = JSON.parse(filmsStr);
@@ -103,9 +103,9 @@ function onClickWatched() {
   createCardMarkup(moviesWithYearAndGenre);
 }
 function onClickQueue() {
-  renderWatchedEl.classList.remove('active');
-  renderQueueEl.classList.add('active');
-  renderContainer.innerHTML = '';
+  // renderWatchedEl.classList.remove('active');
+  // renderQueueEl.classList.add('active');
+  // renderContainer.innerHTML = '';
 
   const filmsStr = localStorage.getItem('queueFilm');
   const filmsArr = JSON.parse(filmsStr);
