@@ -1,5 +1,5 @@
 .lightbox {
-  z-index: 9999;
+  z-index: -1;
   display: flex;
   align-items: center;
   justify-content: center;
@@ -16,6 +16,7 @@
 .lightbox.is-open {
   opacity: 1;
   pointer-events: initial;
+  z-index: 9999;
 }
 
 .lightbox__overlay {
