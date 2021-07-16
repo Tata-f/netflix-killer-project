@@ -29,3 +29,5 @@ function onEscKeyDown(e) {
     onCloseModal();
   }
 }
+
+export { onEscKeyDown }

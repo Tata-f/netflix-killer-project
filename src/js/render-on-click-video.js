@@ -1,6 +1,7 @@
 import movieVideoTpl from '../templates/movie-video-card.hbs';
 import FilmApiService from './class-api-service';
 import getRefs from './get-refs';
+import {onEscKeyDown} from './modal-open';
 
 const refs = getRefs();
 const filmApiService = new FilmApiService();
@@ -44,7 +45,6 @@ async function fetchVideoMovieID(event) {
     }
 }
 
-// fetchVideoMovieID()
 
 //рендер карточки с видео
 function renderOpenedVideo(firstVideo) {
@@ -54,12 +54,15 @@ function renderOpenedVideo(firstVideo) {
 //открытие модалки на клик
 function onOpenModalVideo(event) {
   let watchBtn = event.target.className
-  window.addEventListener('keydown', onEscCloseModalClick);
+  
   if (watchBtn === 'modal-button btn-teaser-js') {
     
     openModalEl.classList.add('is-open')
+
+    window.removeEventListener('keydown', onEscKeyDown);
+    window.addEventListener('keydown', onEscCloseModalClick);
+    renderOpenedVideo(firstVideo)
   }
-  renderOpenedVideo(firstVideo)
 }
 //закрытие модалки
 function onCloseModalClick() {
@@ -70,6 +73,7 @@ function onCloseModalClick() {
 function onEscCloseModalClick(event) {
     if (event.code === 'Escape') {
         onCloseModalClick();
+        window.addEventListener('keydown', onEscKeyDown);
     }  
 }
 //закрытие модалки на оверлей.
