@@ -5,9 +5,6 @@ import { onClickWatched, onClickQueue, onClickLibrary } from './render-library';
 import{onClickPagination, onRenderPagination } from './pagination'
 
 
-// const filmApiService = new FilmApiService();
-// const filmLibrary = new FilmLibrary();
-
 
 //сброс стилей к главной странице
 const btnHome = document.querySelector('.nav-header__home');
@@ -102,86 +99,3 @@ function onOffToggle() {
     renderDefaultMovies();
     onRenderPagination();
 }
-
-
-
-
-
-// // прослушивание для кнопкок Хедера
-// const btnHeaderEl = document.querySelector('.header-container');
-// btnHeaderEl.addEventListener('click', onClickPagination);
-// //прослушивание кнопки либрари
-
-// //Смена хедера
-// const headerHome = document.querySelector('.header-home');
-// headerHome.addEventListener('click', onClickPagination)
-// const headerMyLibrary = document.querySelector('.header-my-library ')
-// headerMyLibrary.addEventListener('click', onClickPagination)
-
-// const toggleRenderPopular = document.querySelector('.toggle-reander');
-// toggleRenderPopular.addEventListener('click', onClickPagination)
-// // Для тогла обновление фильмов
-
-
-// //====================кнопки внутри библиотеки===========================
-
-// const renderContainer = document.querySelector('.gallery-section > .container');
-// // ==================================================
-// renderWatchedEl.addEventListener('click', onClickPagination);
-
-
-// //что может понадобиться
-// // const btnHome = document.querySelector('.nav-header__home')
-
-
-// //отвечает и за навигацию по приложению.
-// function onClickHeader(event) {
-  
-//   const btnToggle = event.target.classList;
-  
- 
-
-//  if (event.target === event.currentTarget) return;
-//   const btnLibrary = event.target.classList.value;
-//   if (btnLibrary.includes('nav-header__library') === true || btnLibrary.includes('render-library-js') === true) {
-//     console.log('Вход в библиотеку')
-//     onRenderMyLibrary();
-//     onClickLibrary();
-//   }
-  
-//   if (event.target === event.currentTarget) return;
-//   const btnHomeLogo = event.target.classList.value;
-//   if (btnHomeLogo.includes('nav-header__home') === true || btnHomeLogo.includes('logo-header__text') === true || btnHomeLogo.includes('logo-header__svg') === true) {
-//     console.log('Вход на главную')
-//     filmApiService.resetPage();
-//     onReturnMainPage()
-//     renderDefaultMovies();
-//     onRenderPagination();
-//   }
-// // if (event.target === event.currentTarget) return;
-//   const btnQueue = event.target.classList.value;
-//   console.log(btnQueue)
-//   if (btnQueue.includes('librari-nav__queue') === true) {
-//     filmLibrary.resetPageLib()
-//     onRenderQueue();
-//     onClickQueue();
-//   }
-//   const btnWatched = event.target.classList.value;
-//   if (btnWatched.includes('librari-nav__wach') === true) {
-//     filmLibrary.resetPageLib()
-//     onRenderWatched();
-//     onClickWatched();
-//   }
-//   const btnToggleIsActiv = event.target.classList.value;
-//   console.log(btnToggle)
-//   if (btnToggleIsActiv .includes('off-itm') === true) {
-//     onActivToggle()
-//   } 
-
-// }
-
-
-
-
-
-// ========================================
