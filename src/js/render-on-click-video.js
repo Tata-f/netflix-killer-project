@@ -55,7 +55,7 @@ function renderOpenedVideo(firstVideo) {
 function onOpenModalVideo(event) {
   let watchBtn = event.target.className
   
-  if (watchBtn === 'modal-button btn-teaser-js') {
+  if (watchBtn === 'modal-button teaser-button btn-teaser-js') {
     
     openModalEl.classList.add('is-open')
 
