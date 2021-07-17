@@ -3,6 +3,7 @@ import './sass/main.scss';
 
 import './js/pagination.js';
 import './js/footer-slider';
+import './js/footer-swiper';
 
 import './js/render-movies-grid'; // Базовый файл логики рендера фильмов по дефолту и по запросу
 import './js/modal-open';
