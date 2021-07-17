@@ -189,6 +189,8 @@
   }
   
   @media screen and (max-width: 767px) {
+    line-height: 14px;
+
     &:not(:last-child) {
     margin-right: 12px;
   }

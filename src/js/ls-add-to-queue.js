@@ -12,12 +12,12 @@ export default function addToLockalS(filmUser) {
 
     if (filmsStr.indexOf(`${filmUser.id}`) && filmsStr.indexOf(`${filmUser.id}`) !== -1) {
       btnQueueEl.innerText = 'remove from queue';
+      btnQueueEl.classList.add('modal-button-color')
       btnQueueEl.addEventListener('click', onClickBtnAddToQueue);
     }
   }
 
   function onClickBtnAddToQueue() {
-    btnQueueEl.classList.add('modal-button-color')
 
     if (!localStorage.queueFilm) {
       const films = [];
@@ -25,6 +25,7 @@ export default function addToLockalS(filmUser) {
       films.push(filmUser);
       localStorage.setItem(`queueFilm`, JSON.stringify(films));
       btnQueueEl.innerText = 'remove from queue';
+      btnQueueEl.classList.add('modal-button-color')
       if(renderLibraryEl.classList.contains('active')){
         onClickQueue();
       }
@@ -40,6 +41,7 @@ export default function addToLockalS(filmUser) {
         filmsArr.push(filmUser);
         localStorage.setItem(`queueFilm`, JSON.stringify(filmsArr));
         btnQueueEl.innerText = 'remove from queue';
+        btnQueueEl.classList.add('modal-button-color')
         if(renderLibraryEl.classList.contains('active')){
           onClickQueue();
         }
@@ -48,7 +50,6 @@ export default function addToLockalS(filmUser) {
   }
 
   function onClickBtnRemoveToQueue() {
-    btnQueueEl.classList.remove('modal-button-color')
 
     const filmsStr = localStorage.getItem('queueFilm');
     const filmsArr = JSON.parse(filmsStr);
@@ -56,6 +57,7 @@ export default function addToLockalS(filmUser) {
     if (filmsArr.length === 1) {
       localStorage.removeItem('queueFilm');
       btnQueueEl.innerText = 'add to queue';
+      btnQueueEl.classList.remove('modal-button-color')
       if(renderLibraryEl.classList.contains('active')){
         onClickQueue();
       }
@@ -68,6 +70,7 @@ export default function addToLockalS(filmUser) {
             filmsArr.splice(i, 1);
             localStorage.setItem(`queueFilm`, JSON.stringify(filmsArr));
             btnQueueEl.innerText = 'add to queue';
+            btnQueueEl.classList.remove('modal-button-color')
             btnQueueEl.removeEventListener('click', onClickBtnRemoveToQueue);
             if(renderLibraryEl.classList.contains('active')){
               onClickQueue();
