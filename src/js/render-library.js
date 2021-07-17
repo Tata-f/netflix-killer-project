@@ -76,7 +76,7 @@ async function onClickLibrary() {
     }
   }
 
-  if (width > 320 && width < 768) {
+  if (width > 200 && width < 768) {
     try {
       filmApiService.query = '';
       const filmsStr = await localStorage.getItem('watchedFilm');
@@ -164,7 +164,7 @@ async function onClickWatched() {
     }
   }
 
-  if (width > 320 && width < 768) {
+  if (width > 200 && width < 768) {
     try {
       filmApiService.query = '';
       const filmsStr = await localStorage.getItem('watchedFilm');
@@ -252,7 +252,7 @@ async function onClickQueue() {
     }
   }
 
-  if (width > 320 && width < 768) {
+  if (width > 200 && width < 768) {
     try {
       filmApiService.query = '';
       const filmsStr = await localStorage.getItem('queueFilm');
