@@ -1,18 +1,3 @@
-const footerBtnEl = document.querySelector('.footer__btn-js');
-const footerBackdropEl = document.querySelector('.footer__backdrop');
-const footerBtnClose = document.querySelector('.footer__btn-close')
-
-
-footerBtnEl.addEventListener('click', () => 
-  footerBackdropEl.classList.remove('is-hidden')
-);
-
-footerBtnClose.addEventListener('click', () => 
-  footerBackdropEl.classList.add('is-hidden')
-);
-
-// =====================
-
 let slider = document.querySelector('#slideshow'),
   sliderList = slider.querySelector('.slideshow__entire-content'),
   sliderTrack = slider.querySelector('.slideshow__content-carrousel'),
