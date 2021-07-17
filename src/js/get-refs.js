@@ -8,9 +8,9 @@ export default function getRefs() {
     movieID: document.querySelector('.modal-img-js'),
     toggleRenderPopular: document.querySelector('.toggle-reander'),
     headerMyLibrary: document.querySelector('.header-my-library '),
- renderQueueEl : document.querySelector('.render-queue-js'),
+    renderQueueEl : document.querySelector('.render-queue-js'),
     renderWatchedEl: document.querySelector('.render-watched-js'),
- inputTogglePopular: document.querySelector('#e')
+    inputTogglePopular: document.querySelector('#toggle-input')
   };
 }
 
