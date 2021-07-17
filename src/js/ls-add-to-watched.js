@@ -14,12 +14,12 @@ export default function addToLockalS(filmUser) {
 
     if (filmsStr.indexOf(`${filmUser.id}`) && filmsStr.indexOf(`${filmUser.id}`) !== -1) {
       btnWatchedEl.innerText = 'remove from watched';
+      btnWatchedEl.classList.add('modal-button-color')
       btnWatchedEl.addEventListener('click', onClickBtnAddToWatched);
     }
   }
 
   function onClickBtnAddToWatched() {
-    btnWatchedEl.classList.add('modal-button-color')
 
     if (!localStorage.watchedFilm) {
       const films = [];
@@ -27,6 +27,7 @@ export default function addToLockalS(filmUser) {
       films.push(filmUser);
       localStorage.setItem(`watchedFilm`, JSON.stringify(films));
       btnWatchedEl.innerText = 'remove from watched';
+      btnWatchedEl.classList.add('modal-button-color')
       if(renderLibraryEl.classList.contains('active')&& headerEl.classList.contains('not-active')){
         onClickWatched();
       }
@@ -35,6 +36,7 @@ export default function addToLockalS(filmUser) {
 
       if (filmsStr.indexOf(`${filmUser.id}`) && filmsStr.indexOf(`${filmUser.id}`) !== -1) {
         btnWatchedEl.innerText = 'remove from watched';
+        btnWatchedEl.classList.add('modal-button-color')
         onClickBtnRemoveToWatched();
       } else {
         const filmsArr = JSON.parse(filmsStr);
@@ -42,6 +44,7 @@ export default function addToLockalS(filmUser) {
         filmsArr.push(filmUser);
         localStorage.setItem(`watchedFilm`, JSON.stringify(filmsArr));
         btnWatchedEl.innerText = 'remove from watched';
+        btnWatchedEl.classList.add('modal-button-color')
         if(renderLibraryEl.classList.contains('active')&& headerEl.classList.contains('not-active')){
           onClickWatched();
         }
@@ -58,6 +61,7 @@ export default function addToLockalS(filmUser) {
     if (filmsArr.length === 1) {
       localStorage.removeItem('watchedFilm');
       btnWatchedEl.innerText = 'add to watched';
+      btnWatchedEl.classList.remove('modal-button-color')
       if(renderLibraryEl.classList.contains('active')&& headerEl.classList.contains('not-active')){
         onClickWatched();
       }
@@ -73,6 +77,7 @@ export default function addToLockalS(filmUser) {
               onClickWatched();
             }
             btnWatchedEl.innerText = 'add to watched';
+            btnWatchedEl.classList.remove('modal-button-color')
             btnWatchedEl.removeEventListener('click', onClickBtnRemoveToWatched);
           }
         }
