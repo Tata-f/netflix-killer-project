@@ -198,4 +198,3 @@ arrows.addEventListener('click', function() {
 
   slide();
 });
-

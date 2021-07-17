@@ -32,6 +32,7 @@
     "sass": "^1.32.8"
   },
   "dependencies": {
-    "@ouduidui/notice": "^1.0.2"
+    "@ouduidui/notice": "^1.0.2",
+    "swiper": "^6.7.5"
   }
 }
