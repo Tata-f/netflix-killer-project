@@ -19,6 +19,8 @@ export default function addToLockalS(filmUser) {
   }
 
   function onClickBtnAddToWatched() {
+    btnWatchedEl.classList.add('modal-button-color')
+
     if (!localStorage.watchedFilm) {
       const films = [];
 
@@ -48,6 +50,8 @@ export default function addToLockalS(filmUser) {
   }
 
   function onClickBtnRemoveToWatched() {
+    btnWatchedEl.classList.remove('modal-button-color')
+
     const filmsStr = localStorage.getItem('watchedFilm');
     const filmsArr = JSON.parse(filmsStr);
 

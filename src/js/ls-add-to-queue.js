@@ -17,6 +17,8 @@ export default function addToLockalS(filmUser) {
   }
 
   function onClickBtnAddToQueue() {
+    btnQueueEl.classList.add('modal-button-color')
+
     if (!localStorage.queueFilm) {
       const films = [];
 
@@ -46,6 +48,8 @@ export default function addToLockalS(filmUser) {
   }
 
   function onClickBtnRemoveToQueue() {
+    btnQueueEl.classList.remove('modal-button-color')
+
     const filmsStr = localStorage.getItem('queueFilm');
     const filmsArr = JSON.parse(filmsStr);
 
