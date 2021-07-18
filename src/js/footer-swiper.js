@@ -50,18 +50,12 @@ function onClickOpen() {
 
     autoplay: {
       delay: 1000,
-      stopOnLastSlide: true,
-      disableOnInteraction: false,
+      disableOnInteraction: true,
     },
 
     speed: 800,
 
-    thumbs: {
-      swiper: {
-        el: '.image-mini-slider',
-        slidesPerView: 3,
-      }
-    }
+    loop: true,
  });
 }
 
