@@ -33,16 +33,12 @@ async function fetchVideoMovieID(event) {
     const { results } = movies;
     lengthArr = results.length;
     firstVideo = results[0];
-
-    renderOpenedVideo(firstVideo);
-    const btnWatchTeaser = document.querySelector('.btn-teaser-js');
-    if (lengthArr === 0) {
-      btnWatchTeaser.classList.add('is-hidden')
-  } 
       
+    renderOpenedVideo(firstVideo);
+        
   } catch {
      errorMsg.showToast(errorServerMsgStyles);
-    }
+  }
 }
 
 
