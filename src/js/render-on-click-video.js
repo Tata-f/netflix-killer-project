@@ -37,7 +37,6 @@ async function fetchVideoMovieID(event) {
     renderOpenedVideo(firstVideo);
     const btnWatchTeaser = document.querySelector('.btn-teaser-js');
     if (lengthArr === 0) {
-    console.log(lengthArr === 0)
       btnWatchTeaser.classList.add('is-hidden')
   } 
       

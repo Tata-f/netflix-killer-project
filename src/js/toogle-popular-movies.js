@@ -8,18 +8,15 @@ const refs = {
 
 refs.inputTogglePopular.addEventListener('click', onTogglePopularMovies);
 
-console.log(refs.inputTogglePopular)
 
 export function onTogglePopularMovies() {
 	if (refs.inputTogglePopular.checked) {
 		renderDefaultMovies();
-		console.log(refs.inputTogglePopular.checked)
 		return;
 	}
 
 	if (!refs.inputTogglePopular.checked) {
 		renderDefaultMoviesPopularOnWeek()
-		console.log(refs.inputTogglePopular.checked)
 		return;		
 	}
   

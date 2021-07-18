@@ -77,7 +77,6 @@ export default class FilmApiService {
 
   set query(newQuery) {
     this.searchQuery = newQuery;
-    // console.log(this.searchQuery);
   }
 
   get movie() {
