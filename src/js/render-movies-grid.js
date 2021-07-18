@@ -33,7 +33,6 @@ async function renderDefaultMovies() {
     onRenderPagination(total_pages, pageNumber);
   } catch (error) {
     errorMsg.showToast(errorServerMsgStyles);
-      console.log('Оops! Something went wrong, please try again later.');
   }
   loader.hideLoading();
 }
@@ -55,7 +54,6 @@ async function renderDefaultMoviesPopularOnWeek() {
     onRenderPagination(total_pages, pageNumber);
   } catch (error) {
     errorMsg.showToast(errorServerMsgStyles);
-      console.log('Оops! Something went wrong, please try again later.');
   }
   loader.hideLoading();
 }
@@ -86,7 +84,6 @@ async function onSearch(event) {
 
     if (movies.total_results === 0) {
       errorMsg.showToast(errorUserMsgStyles);
-      console.log('Search result not successful. Enter the correct movie name!');
     }
 
     const moviesWithYearAndGenre = getUpdatedMovieInfo(results, genres);
@@ -95,7 +92,6 @@ async function onSearch(event) {
 
     onRenderPagination(total_pages, pageNumber);
   } catch (error) {
-   console.log('Search result not successful. Enter the correct movie name!')
   }
   form.reset();
   loader.hideLoading();
@@ -119,7 +115,6 @@ async function onPaginationWithQuery() {
     onRenderPagination(total_pages, pageNumber);
   } catch (error) {
     errorMsg.showToast(errorServerMsgStyles);
-      console.log('Оops! Something went wrong, please try again later.');
   }
   loader.hideLoading();
 }
