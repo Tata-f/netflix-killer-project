@@ -2,10 +2,15 @@ import Notice from "@ouduidui/notice";
 
 const errorMsg = new Notice();
 
-const errorMsgStyles = {
-      text: 'Search result not successful. Enter the correct movie name',
+const errorUserMsgStyles = {
+      text: 'Search result not successful. Enter the correct movie name!',
     type: 'warning',
-  showClose: true,
+};
+  
+
+const errorServerMsgStyles = {
+      text: 'Оops! Something went wrong, please try again later.',
+    type: 'info',
   };
 
-  export { errorMsg, errorMsgStyles };
+  export { errorMsg, errorUserMsgStyles, errorServerMsgStyles};

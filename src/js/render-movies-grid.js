@@ -2,7 +2,7 @@ import getRefs from './get-refs';
 import FilmApiService from './class-api-service';
 import movieCardTpl from '../templates/movie-card.hbs';
 import { loader, loaderStyles } from './spinner';
-import { errorMsg, errorMsgStyles } from './notification';
+import { errorMsg, errorUserMsgStyles, errorServerMsgStyles } from './notification';
 import { async } from 'fast-glob';
 
 import { onRenderPagination, onClickPagination } from './pagination';
@@ -32,7 +32,8 @@ async function renderDefaultMovies() {
 
     onRenderPagination(total_pages, pageNumber);
   } catch (error) {
-    console.log('Ошибка при дефолтном рендере');
+    errorMsg.showToast(errorServerMsgStyles);
+      console.log('Оops! Something went wrong, please try again later.');
   }
   loader.hideLoading();
 }
@@ -53,7 +54,8 @@ async function renderDefaultMoviesPopularOnWeek() {
 
     onRenderPagination(total_pages, pageNumber);
   } catch (error) {
-    console.log('Ошибка при дефолтном рендере');
+    errorMsg.showToast(errorServerMsgStyles);
+      console.log('Оops! Something went wrong, please try again later.');
   }
   loader.hideLoading();
 }
@@ -79,12 +81,12 @@ async function onSearch(event) {
     const { genres } = genresList;
 
     if (filmApiService.query === '') {
-      errorMsg.showToast(errorMsgStyles);
+      errorMsg.showToast(errorUserMsgStyles);
     }
 
     if (movies.total_results === 0) {
-      errorMsg.showToast(errorMsgStyles);
-      console.log('Ошибка при запросе пользователя');
+      errorMsg.showToast(errorUserMsgStyles);
+      console.log('Search result not successful. Enter the correct movie name!');
     }
 
     const moviesWithYearAndGenre = getUpdatedMovieInfo(results, genres);
@@ -93,7 +95,7 @@ async function onSearch(event) {
 
     onRenderPagination(total_pages, pageNumber);
   } catch (error) {
-    console.log('Ошибка при запросе пользователя');
+   console.log('Search result not successful. Enter the correct movie name!')
   }
   form.reset();
   loader.hideLoading();
@@ -116,7 +118,8 @@ async function onPaginationWithQuery() {
 
     onRenderPagination(total_pages, pageNumber);
   } catch (error) {
-    console.log('Ошибка при запросе пользователя');
+    errorMsg.showToast(errorServerMsgStyles);
+      console.log('Оops! Something went wrong, please try again later.');
   }
   loader.hideLoading();
 }
@@ -138,7 +141,7 @@ function getUpdatedMovieInfo(movies, info) {
       .filter(genre => movie.genre_ids.includes(genre.id))
       .map(({ name }) => name)
       .join(', '),
-    releaseYear: movie.release_date ? movie.release_date.slice(0, 4) : 'n/a',
+    releaseYear: movie.release_date ? movie.release_date.slice(0, 4) : '',
     voteAverage: movie.vote_average.toFixed(1),
   }));
 }
