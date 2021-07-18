@@ -1,4 +1,4 @@
-import {onClickWatched} from './render-library'
+import {onClickLibrary} from './render-library'
 import { filmLibrary } from './render-library';
 
 const renderLibraryEl = document.querySelector('.render-watched-js');
@@ -31,7 +31,7 @@ export default function addToLockalS(filmUser) {
       btnWatchedEl.innerText = 'remove from watched';
       btnWatchedEl.classList.add('modal-button-color')
       if(renderLibraryEl.classList.contains('active')&& headerEl.classList.contains('not-active')){
-        onClickWatched();
+        onClickLibrary();
       }
     } else {
       const filmsStr = localStorage.getItem('watchedFilm');
@@ -49,7 +49,7 @@ export default function addToLockalS(filmUser) {
         btnWatchedEl.classList.add('modal-button-color')
         if(renderLibraryEl.classList.contains('active')&& headerEl.classList.contains('not-active')){
           filmLibrary.incrementPageLib()
-          onClickWatched();
+          onClickLibrary();
         }
       }
     }
@@ -66,7 +66,7 @@ export default function addToLockalS(filmUser) {
       btnWatchedEl.innerText = 'add to watched';
       btnWatchedEl.classList.remove('modal-button-color')
       if(renderLibraryEl.classList.contains('active')&& headerEl.classList.contains('not-active')){
-        onClickWatched();
+        onClickLibrary();
         renderContainer.innerHTML='';
       }
       
@@ -83,7 +83,7 @@ export default function addToLockalS(filmUser) {
           btnWatchedEl.removeEventListener('click', onClickBtnRemoveToWatched);
           if(renderLibraryEl.classList.contains('active') && headerEl.classList.contains('not-active')){
             filmLibrary.decrementPageLib();
-            onClickWatched();
+            onClickLibrary();
             renderContainer.innerHTML='';
           }
         }
@@ -96,7 +96,7 @@ export default function addToLockalS(filmUser) {
             filmsArr.splice(i, 1);
             localStorage.setItem(`watchedFilm`, JSON.stringify(filmsArr));
             if(renderLibraryEl.classList.contains('active')&& headerEl.classList.contains('not-active')){
-              onClickWatched();
+              onClickLibrary();
             }
             btnWatchedEl.innerText = 'add to watched';
             btnWatchedEl.classList.remove('modal-button-color')
