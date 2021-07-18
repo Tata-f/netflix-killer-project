@@ -2,7 +2,7 @@ import getRefs from './get-refs';
 import FilmApiService from './class-api-service';
 import movieCardTpl from '../templates/movie-card.hbs';
 import { loader, loaderStyles } from './spinner';
-import { errorMsg, errorUserMsgStyles, errorServerMsgStyles } from './notification';
+import { errorMsg, errorUserMsgStyles, errorUserEmptyQueryStyles, errorServerMsgStyles } from './notification';
 import { async } from 'fast-glob';
 
 import { onRenderPagination, onClickPagination } from './pagination';
@@ -72,26 +72,28 @@ async function onSearch(event) {
 
   loader.showLoading(loaderStyles);
 
-  try {
-    const movies = await filmApiService.fetchByQuery();
-    const { results, total_pages } = movies;
-    const genresList = await filmApiService.fetchGenres();
-    const { genres } = genresList;
-
-    if (filmApiService.query === '') {
-      errorMsg.showToast(errorUserMsgStyles);
+  if (filmApiService.query === '') {
+    errorMsg.showToast(errorUserEmptyQueryStyles);
+  } else {
+    try {
+      const movies = await filmApiService.fetchByQuery();
+      const { results, total_pages } = movies;
+      const genresList = await filmApiService.fetchGenres();
+      const { genres } = genresList;
+  
+      
+      if (movies.total_results === 0) {
+        errorMsg.showToast(errorUserMsgStyles);
+      }
+  
+      const moviesWithYearAndGenre = getUpdatedMovieInfo(results, genres);
+  
+      createCardMarkup(moviesWithYearAndGenre);
+  
+      onRenderPagination(total_pages, pageNumber);
+    } catch (error) {
+      errorMsg.showToast(errorServerMsgStyles);
     }
-
-    if (movies.total_results === 0) {
-      errorMsg.showToast(errorUserMsgStyles);
-    }
-
-    const moviesWithYearAndGenre = getUpdatedMovieInfo(results, genres);
-
-    createCardMarkup(moviesWithYearAndGenre);
-
-    onRenderPagination(total_pages, pageNumber);
-  } catch (error) {
   }
   form.reset();
   loader.hideLoading();

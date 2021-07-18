@@ -6,6 +6,11 @@ const errorUserMsgStyles = {
       text: 'Search result not successful. Enter the correct movie name!',
     type: 'warning',
 };
+
+const errorUserEmptyQueryStyles = {
+  text: 'Search field is empty. Enter the correct movie name or its part!',
+type: 'warning',
+};
   
 
 const errorServerMsgStyles = {
@@ -13,4 +18,4 @@ const errorServerMsgStyles = {
     type: 'info',
   };
 
-  export { errorMsg, errorUserMsgStyles, errorServerMsgStyles};
+  export { errorMsg, errorUserMsgStyles, errorUserEmptyQueryStyles, errorServerMsgStyles};

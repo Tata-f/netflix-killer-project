@@ -16,12 +16,12 @@ function onRenderPagination(totalPages, pageNumber) {
   let nextPage = pageNumber + 1;
 
   if (pageNumber > 1) {
-    //если значение страницы больше 1, добавьте новый li, который является предыдущей кнопкой (onclick="onPagesSwitcher(totalPages, ${pageNumber - 1})")
+    //если значение страницы больше 1, добавьте новый li, который является предыдущей кнопкой 
     paginationItem += `<li class="pagination-item pagination-back"><span class="pagination-arrow-back">&#8701</span></li>`;
   }
 
   if (pageNumber > 3) {
-    //если значение страницы больше 2, добавьте новый тег li (onclick="onPagesSwitcher(totalPages, 1)")
+    //если значение страницы больше 2, добавьте новый тег li 
     paginationItem += `<li class="mobile-hidden pagination-item pagination-numb "><span>1</span></li>`;
     if (pageNumber > 4) {
       //если значение страницы больше 3, добавьте новый тег ...
@@ -58,7 +58,7 @@ function onRenderPagination(totalPages, pageNumber) {
       // иначе оставьте пустым для переменной activeLi
       activePage = '';
     }
-    paginationItem += `<li class="pagination-item pagination-numb ${activePage}"><span>${pageLength}</span></li>`; //onclick="onPagesSwitcher(totalPages, ${pageLength})"
+    paginationItem += `<li class="pagination-item pagination-numb ${activePage}"><span>${pageLength}</span></li>`; 
   }
 
   if (pageNumber < totalPages - 2) {
@@ -68,11 +68,11 @@ function onRenderPagination(totalPages, pageNumber) {
       //если значение страницы меньше totalpages на 2, то показать последний (...) предпоследний
       paginationItem += `<li class="mobile-hidden pagination-item pagination-dots"><span><sup>...</sup></span></li>`;
     }
-    paginationItem += `<li class="mobile-hidden pagination-item pagination-numb"><span>${totalPages}</span></li>`; //(onclick="onPagesSwitcher(totalPages, ${totalPages}))
+    paginationItem += `<li class="mobile-hidden pagination-item pagination-numb"><span>${totalPages}</span></li>`; 
   }
 
   if (pageNumber < totalPages) {
-    //(onclick="onPagesSwitcher(totalPages, ${pageNumber + 1})")если значение страницы меньше, чем значение totalPages, тогда добавьте новый li, который будет следующей кнопкой
+    //если значение страницы меньше, чем значение totalPages, тогда добавьте новый li, который будет следующей кнопкой
     paginationItem += `<li class="pagination-item pagination-next"><span class="pagination-arrow-next">&#8702</span></li>`;
   }
 
