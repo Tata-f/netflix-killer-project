@@ -31,7 +31,6 @@ async function getMovieById(e) {
     await addToQueueLockalS(result);
   } catch {
     errorMsg.showToast(errorServerMsgStyles);
-      console.log('Оops! Something went wrong, please try again later.');
   }
   loader.hideLoading();
 }

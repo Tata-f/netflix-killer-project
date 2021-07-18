@@ -5,11 +5,6 @@ import FilmLibrary from './class-library';
 import { errorMsg, errorServerMsgStyles } from './notification';
 export const filmLibrary = new FilmLibrary();
 
-
-
-
-
-
 const renderLibraryEl = document.querySelector('.render-library-js');
 const renderWatchedEl = document.querySelector('.render-watched-js');
 const renderQueueEl = document.querySelector('.render-queue-js');
@@ -22,13 +17,8 @@ renderQueueEl.addEventListener('click', onClickQueue);
 let libraryPage;
 async function onClickLibrary() {
   libraryPage = filmLibrary.pageLibrary;
-  // console.log('Это значение из рендера LEO', libraryPage);
   let total_pages = 0;
-  // renderWatchedEl.classList.add('active');
-  // renderQueueEl.classList.remove('active');
-  // renderContainer.innerHTML = '';
   let width = document.body.clientWidth;
-  console.log('onClickLibrary ~ width', width);
 
   if (width > 1023) {
     try {
@@ -37,13 +27,11 @@ async function onClickLibrary() {
       const filmsArr = await JSON.parse(filmsStr);
       const pageArr = [];
       total_pages = await Math.ceil(filmsArr.length / 9);
-      console.log("onClickLibrary ~  total_pages ",  total_pages )
       
       for (let i = 0; i < total_pages - 1; i++) {
         pageArr.push(filmsArr.splice(0, 9));
       }
       pageArr.push(filmsArr);
-      console.log(pageArr);
       const moviesWithYearAndGenre = await getUpdatedLibraryMovieInfo(pageArr[libraryPage-1]);
       const result = await createCardMarkup(moviesWithYearAndGenre);
       await createCardMarkup(moviesWithYearAndGenre);
@@ -60,13 +48,11 @@ errorMsg.showToast(errorServerMsgStyles);
       const filmsStr = await localStorage.getItem('watchedFilm');
       const filmsArr = await JSON.parse(filmsStr);
       total_pages = await Math.ceil(filmsArr.length / 6);
-      console.log("onClickLibrary ~ total_pages", total_pages)
       const pageArr = [];
       for (let i = 0; i < total_pages - 1; i++) {
         pageArr.push(filmsArr.splice(0, 6));
       }
       pageArr.push(filmsArr);
-      console.log(pageArr);
       const moviesWithYearAndGenre = await getUpdatedLibraryMovieInfo(pageArr[libraryPage-1]);
       const result = await createCardMarkup(moviesWithYearAndGenre);
       await createCardMarkup(moviesWithYearAndGenre);
@@ -83,13 +69,11 @@ errorMsg.showToast(errorServerMsgStyles);
       const filmsStr = await localStorage.getItem('watchedFilm');
       const filmsArr = await JSON.parse(filmsStr);
       total_pages = await Math.ceil(filmsArr.length / 4);
-      console.log("onClickLibrary ~ total_pages", total_pages)
       const pageArr = [];
       for (let i = 0; i < total_pages - 1; i++) {
         pageArr.push(filmsArr.splice(0, 4));
       }
       pageArr.push(filmsArr);
-      console.log(pageArr);
       const moviesWithYearAndGenre = await getUpdatedLibraryMovieInfo(pageArr[libraryPage-1]);
       const result = await createCardMarkup(moviesWithYearAndGenre);
       await createCardMarkup(moviesWithYearAndGenre);
@@ -102,21 +86,10 @@ errorMsg.showToast(errorServerMsgStyles);
 }
 
 async function onClickWatched() {
-  // renderWatchedEl.classList.add('active');
-  // renderQueueEl.classList.remove('active');
-  // renderContainer.innerHTML = '';
-
-  // const filmsStr = localStorage.getItem('watchedFilm');
-  // const filmsArr = JSON.parse(filmsStr);
-  // const moviesWithYearAndGenre = getUpdatedLibraryMovieInfo(filmsArr);
-
-  // createCardMarkup(moviesWithYearAndGenre);
 
   libraryPage = filmLibrary.pageLibrary;
-  // console.log('Это значение из рендера LEO', libraryPage);
   let total_pages = 0;
   let width = document.body.clientWidth;
-  console.log('onClickLibrary ~ width', width);
 
   if (width > 1023) {
     try {
@@ -125,13 +98,11 @@ async function onClickWatched() {
       const filmsArr = await JSON.parse(filmsStr);
       const pageArr = [];
       total_pages = await Math.ceil(filmsArr.length / 9);
-      console.log("onClickLibrary ~  total_pages ",  total_pages )
       
       for (let i = 0; i < total_pages - 1; i++) {
         pageArr.push(filmsArr.splice(0, 9));
       }
       pageArr.push(filmsArr);
-      console.log(pageArr);
       const moviesWithYearAndGenre = await getUpdatedLibraryMovieInfo(pageArr[libraryPage-1]);
       const result = await createCardMarkup(moviesWithYearAndGenre);
       await createCardMarkup(moviesWithYearAndGenre);
@@ -148,13 +119,11 @@ async function onClickWatched() {
       const filmsStr = await localStorage.getItem('watchedFilm');
       const filmsArr = await JSON.parse(filmsStr);
       total_pages = await Math.ceil(filmsArr.length / 6);
-      console.log("onClickLibrary ~ total_pages", total_pages)
       const pageArr = [];
       for (let i = 0; i < total_pages - 1; i++) {
         pageArr.push(filmsArr.splice(0, 6));
       }
       pageArr.push(filmsArr);
-      console.log(pageArr);
       const moviesWithYearAndGenre = await getUpdatedLibraryMovieInfo(pageArr[libraryPage-1]);
       const result = await createCardMarkup(moviesWithYearAndGenre);
       await createCardMarkup(moviesWithYearAndGenre);
@@ -171,13 +140,11 @@ async function onClickWatched() {
       const filmsStr = await localStorage.getItem('watchedFilm');
       const filmsArr = await JSON.parse(filmsStr);
       total_pages = await Math.ceil(filmsArr.length / 4);
-      console.log("onClickLibrary ~ total_pages", total_pages)
       const pageArr = [];
       for (let i = 0; i < total_pages - 1; i++) {
         pageArr.push(filmsArr.splice(0, 4));
       }
       pageArr.push(filmsArr);
-      console.log(pageArr);
       const moviesWithYearAndGenre = await getUpdatedLibraryMovieInfo(pageArr[libraryPage-1]);
       const result = await createCardMarkup(moviesWithYearAndGenre);
       await createCardMarkup(moviesWithYearAndGenre);
@@ -190,21 +157,10 @@ async function onClickWatched() {
 
 }
 async function onClickQueue() {
-  // renderWatchedEl.classList.remove('active');
-  // renderQueueEl.classList.add('active');
-  // renderContainer.innerHTML = '';
-
-  // const filmsStr = localStorage.getItem('queueFilm');
-  // const filmsArr = JSON.parse(filmsStr);
-  // const moviesWithYearAndGenre = getUpdatedLibraryMovieInfo(filmsArr);
-
-  // createCardMarkup(moviesWithYearAndGenre);
 
   libraryPage = filmLibrary.pageLibrary;
-  console.log('Это значение из рендера LEO', libraryPage);
   let total_pages = 0;
   let width = document.body.clientWidth;
-  console.log('onClickLibrary ~ width', width);
 
   if (width > 1023) {
     try {
@@ -213,13 +169,11 @@ async function onClickQueue() {
       const filmsArr = await JSON.parse(filmsStr);
       const pageArr = [];
       total_pages = await Math.ceil(filmsArr.length / 9);
-      console.log("onClickLibrary ~  total_pages ",  total_pages )
       
       for (let i = 0; i < total_pages - 1; i++) {
         pageArr.push(filmsArr.splice(0, 9));
       }
       pageArr.push(filmsArr);
-      console.log(pageArr);
       const moviesWithYearAndGenre = await getUpdatedLibraryMovieInfo(pageArr[libraryPage-1]);
       const result = await createCardMarkup(moviesWithYearAndGenre);
       await createCardMarkup(moviesWithYearAndGenre);
@@ -236,13 +190,11 @@ async function onClickQueue() {
       const filmsStr = await localStorage.getItem('queueFilm');
       const filmsArr = await JSON.parse(filmsStr);
       total_pages = await Math.ceil(filmsArr.length / 6);
-      console.log("onClickLibrary ~ total_pages", total_pages)
       const pageArr = [];
       for (let i = 0; i < total_pages - 1; i++) {
         pageArr.push(filmsArr.splice(0, 6));
       }
       pageArr.push(filmsArr);
-      console.log(pageArr);
       const moviesWithYearAndGenre = await getUpdatedLibraryMovieInfo(pageArr[libraryPage-1]);
       const result = await createCardMarkup(moviesWithYearAndGenre);
       await createCardMarkup(moviesWithYearAndGenre);
@@ -259,13 +211,11 @@ async function onClickQueue() {
       const filmsStr = await localStorage.getItem('queueFilm');
       const filmsArr = await JSON.parse(filmsStr);
       total_pages = await Math.ceil(filmsArr.length / 4);
-      console.log("onClickLibrary ~ total_pages", total_pages)
       const pageArr = [];
       for (let i = 0; i < total_pages - 1; i++) {
         pageArr.push(filmsArr.splice(0, 4));
       }
       pageArr.push(filmsArr);
-      console.log(pageArr);
       const moviesWithYearAndGenre = await getUpdatedLibraryMovieInfo(pageArr[libraryPage-1]);
       const result = await createCardMarkup(moviesWithYearAndGenre);
       await createCardMarkup(moviesWithYearAndGenre);
