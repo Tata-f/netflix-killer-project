@@ -1,4 +1,4 @@
-import { onClickWatched, onClickQueue, onClickLibrary } from './render-library';
+import { onClickQueue, onClickLibrary } from './render-library';
 import { filmApiService, onPaginationWithQuery } from './render-movies-grid';
 import { renderDefaultMovies }from './render-movies-grid';
 import { renderDefaultMoviesPopularOnWeek } from './render-movies-grid';
