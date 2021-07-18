@@ -2,6 +2,7 @@ import movieCardTpl from '../templates/movie-card.hbs';
 import { filmApiService } from './render-movies-grid';
 import { onRenderPagination, onClickPagination } from './pagination';
 import FilmLibrary from './class-library';
+import { errorMsg, errorServerMsgStyles } from './notification';
 export const filmLibrary = new FilmLibrary();
 
 
@@ -49,7 +50,8 @@ async function onClickLibrary() {
       await onRenderPagination(total_pages, libraryPage);
       return result;
     } catch {
-      console.log('Oops!');
+errorMsg.showToast(errorServerMsgStyles);
+      console.log('Оops! Something went wrong, please try again later.');
     }
   }
 
@@ -72,7 +74,8 @@ async function onClickLibrary() {
       await onRenderPagination(total_pages, libraryPage);
       return result;
     } catch {
-      console.log('Oops!');
+      errorMsg.showToast(errorServerMsgStyles);
+      console.log('Оops! Something went wrong, please try again later.');
     }
   }
 
@@ -95,7 +98,8 @@ async function onClickLibrary() {
       await onRenderPagination(total_pages, libraryPage);
       return result;
     } catch {
-      console.log('Oops!');
+      errorMsg.showToast(errorServerMsgStyles);
+      console.log('Оops! Something went wrong, please try again later.');
     }
   }
 }
@@ -137,7 +141,8 @@ async function onClickWatched() {
       await onRenderPagination(total_pages, libraryPage);
       return result;
     } catch {
-      console.log('Oops!');
+      errorMsg.showToast(errorServerMsgStyles);
+      console.log('Оops! Something went wrong, please try again later.');
     }
   }
 
@@ -160,7 +165,8 @@ async function onClickWatched() {
       await onRenderPagination(total_pages, libraryPage);
       return result;
     } catch {
-      console.log('Oops!');
+      errorMsg.showToast(errorServerMsgStyles);
+      console.log('Оops! Something went wrong, please try again later.');
     }
   }
 
@@ -183,7 +189,8 @@ async function onClickWatched() {
       await onRenderPagination(total_pages, libraryPage);
       return result;
     } catch {
-      console.log('Oops!');
+      errorMsg.showToast(errorServerMsgStyles);
+      console.log('Оops! Something went wrong, please try again later.');
     }
   }
 
@@ -225,7 +232,8 @@ async function onClickQueue() {
       await onRenderPagination(total_pages, libraryPage);
       return result;
     } catch {
-      console.log('Oops!');
+      errorMsg.showToast(errorServerMsgStyles);
+      console.log('Оops! Something went wrong, please try again later.');
     }
   }
 
@@ -248,7 +256,8 @@ async function onClickQueue() {
       await onRenderPagination(total_pages, libraryPage);
       return result;
     } catch {
-      console.log('Oops!');
+      errorMsg.showToast(errorServerMsgStyles);
+      console.log('Оops! Something went wrong, please try again later.');
     }
   }
 
@@ -271,7 +280,8 @@ async function onClickQueue() {
       await onRenderPagination(total_pages, libraryPage);
       return result;
     } catch {
-      console.log('Oops!');
+      errorMsg.showToast(errorServerMsgStyles);
+      console.log('Оops! Something went wrong, please try again later.');
     }
   }
 
@@ -281,7 +291,7 @@ function getUpdatedLibraryMovieInfo(movies) {
   return movies.map(movie => ({
     ...movie,
     genres: movie.genres.map(({ name }) => name).join(', '),
-    releaseYear: movie.release_date ? movie.release_date.slice(0, 4) : 'n/a',
+    releaseYear: movie.release_date ? movie.release_date.slice(0, 4) : '',
     voteAverage: movie.vote_average.toFixed(1),
   }));
 }

@@ -1,7 +1,8 @@
 import movieVideoTpl from '../templates/movie-video-card.hbs';
 import FilmApiService from './class-api-service';
 import getRefs from './get-refs';
-import {onEscKeyDown} from './modal-open';
+import { onEscKeyDown } from './modal-open';
+import { errorMsg, errorServerMsgStyles } from './notification';
 
 const refs = getRefs();
 const filmApiService = new FilmApiService();
@@ -41,7 +42,8 @@ async function fetchVideoMovieID(event) {
   } 
       
   } catch {
-     
+     errorMsg.showToast(errorServerMsgStyles);
+      console.log('Оops! Something went wrong, please try again later.');
     }
 }
 

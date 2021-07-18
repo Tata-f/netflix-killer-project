@@ -5,6 +5,7 @@ import addToWatchedLockalS from './ls-add-to-watched';
 import addToQueueLockalS from './ls-add-to-queue';
 import FilmApiService from './class-api-service';
 import { loader, loaderStyles } from './spinner';
+import { errorMsg, errorServerMsgStyles } from './notification';
 
 const refs = getRefs();
 
@@ -29,7 +30,8 @@ async function getMovieById(e) {
     await addToWatchedLockalS(result);
     await addToQueueLockalS(result);
   } catch {
-    console.log('Oops!');
+    errorMsg.showToast(errorServerMsgStyles);
+      console.log('Оops! Something went wrong, please try again later.');
   }
   loader.hideLoading();
 }
