@@ -2,7 +2,7 @@ import { filmApiService } from './render-movies-grid';
 import { filmLibrary }from './render-library';
 import{ renderDefaultMovies, renderDefaultMoviesPopularOnWeek, onPaginationWithQuery} from './render-movies-grid'
 import {  onClickQueue, onClickLibrary } from './render-library';
-import{onClickPagination, onRenderPagination } from './pagination'
+import{ onRenderPagination } from './pagination'
 
 //сброс стилей к главной странице
 const btnHome = document.querySelector('.nav-header__home');

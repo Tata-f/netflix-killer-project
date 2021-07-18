@@ -1,19 +1,19 @@
 import movieCardTpl from '../templates/movie-card.hbs';
 import { filmApiService } from './render-movies-grid';
-import { onRenderPagination, onClickPagination } from './pagination';
+import { onRenderPagination } from './pagination';
 import FilmLibrary from './class-library';
 import { errorMsg, errorServerMsgStyles } from './notification';
 export const filmLibrary = new FilmLibrary();
 
-const renderLibraryEl = document.querySelector('.render-library-js');
-const renderWatchedEl = document.querySelector('.render-watched-js');
-const renderQueueEl = document.querySelector('.render-queue-js');
+// const renderLibraryEl = document.querySelector('.render-library-js');
+// const renderWatchedEl = document.querySelector('.render-watched-js');
+// const renderQueueEl = document.querySelector('.render-queue-js');
 const renderContainer = document.querySelector('.gallery-section > .container');
 
 
 // renderLibraryEl.addEventListener('click', onClickLibrary);
-renderWatchedEl.addEventListener('click', onClickWatched);
-renderQueueEl.addEventListener('click', onClickQueue);
+// renderWatchedEl.addEventListener('click', onClickWatched);
+// renderQueueEl.addEventListener('click', onClickQueue);
 let libraryPage;
 async function onClickLibrary() {
   libraryPage = filmLibrary.pageLibrary;
@@ -38,7 +38,7 @@ async function onClickLibrary() {
       await onRenderPagination(total_pages, libraryPage);
       return result;
     } catch {
-errorMsg.showToast(errorServerMsgStyles);
+        errorMsg.showToast(errorServerMsgStyles);
     }
   }
 
@@ -180,7 +180,7 @@ async function onClickQueue() {
       await onRenderPagination(total_pages, libraryPage);
       return result;
     } catch {
-      errorMsg.showToast(errorServerMsgStyles);
+       errorMsg.showToast(errorServerMsgStyles);
     }
   }
 
