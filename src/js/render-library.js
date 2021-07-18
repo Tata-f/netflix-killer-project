@@ -51,7 +51,6 @@ async function onClickLibrary() {
       return result;
     } catch {
 errorMsg.showToast(errorServerMsgStyles);
-      console.log('Оops! Something went wrong, please try again later.');
     }
   }
 
@@ -75,7 +74,6 @@ errorMsg.showToast(errorServerMsgStyles);
       return result;
     } catch {
       errorMsg.showToast(errorServerMsgStyles);
-      console.log('Оops! Something went wrong, please try again later.');
     }
   }
 
@@ -99,7 +97,6 @@ errorMsg.showToast(errorServerMsgStyles);
       return result;
     } catch {
       errorMsg.showToast(errorServerMsgStyles);
-      console.log('Оops! Something went wrong, please try again later.');
     }
   }
 }
@@ -142,7 +139,6 @@ async function onClickWatched() {
       return result;
     } catch {
       errorMsg.showToast(errorServerMsgStyles);
-      console.log('Оops! Something went wrong, please try again later.');
     }
   }
 
@@ -166,7 +162,6 @@ async function onClickWatched() {
       return result;
     } catch {
       errorMsg.showToast(errorServerMsgStyles);
-      console.log('Оops! Something went wrong, please try again later.');
     }
   }
 
@@ -190,7 +185,6 @@ async function onClickWatched() {
       return result;
     } catch {
       errorMsg.showToast(errorServerMsgStyles);
-      console.log('Оops! Something went wrong, please try again later.');
     }
   }
 
@@ -233,7 +227,6 @@ async function onClickQueue() {
       return result;
     } catch {
       errorMsg.showToast(errorServerMsgStyles);
-      console.log('Оops! Something went wrong, please try again later.');
     }
   }
 
@@ -257,7 +250,6 @@ async function onClickQueue() {
       return result;
     } catch {
       errorMsg.showToast(errorServerMsgStyles);
-      console.log('Оops! Something went wrong, please try again later.');
     }
   }
 
@@ -281,7 +273,6 @@ async function onClickQueue() {
       return result;
     } catch {
       errorMsg.showToast(errorServerMsgStyles);
-      console.log('Оops! Something went wrong, please try again later.');
     }
   }
 
