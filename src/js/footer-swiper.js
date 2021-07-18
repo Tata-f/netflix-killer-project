@@ -14,16 +14,6 @@ function onClickOpen() {
   document.body.classList.add('scroll-hidden');
 
   const swiper = new Swiper('.image-slider', {
-    navigation: {
-      nextEl: '.swiper-button-next',
-      prevEl: '.swiper-button-prev',
-    },
-  
-    pagination: {
-      el: '.swiper-pogination',
-      clickable: true,
-    },
-
     keyboard: {
       enabled: true,
       onlyInViewport: true,
@@ -48,20 +38,7 @@ function onClickOpen() {
       shadowScale: 0.94,
     },
 
-    autoplay: {
-      delay: 1000,
-      stopOnLastSlide: true,
-      disableOnInteraction: false,
-    },
-
-    speed: 800,
-
-    thumbs: {
-      swiper: {
-        el: '.image-mini-slider',
-        slidesPerView: 3,
-      }
-    }
+    loop: true,
  });
 }
 
