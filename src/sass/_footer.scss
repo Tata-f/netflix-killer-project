@@ -57,7 +57,7 @@
   left: 50%;
   transform: translate(-50%, -50%);
 
-  margin-top: 30px;
+  margin-top: 15px;
   padding: 30px;
   width: 390px;
   height: 400px;
@@ -125,3 +125,28 @@
   font-size: 14px;
   background-color: $bright-color-orange;
 }*/
+
+.image-mini-slider__slide {
+  opacity: 0.2;
+  transition: opacity 0.3s ease 0s;
+}
+
+.image-mini-slider__slide.swiper-slide-thumb-active {
+  opacity: 1;
+}
+
+.image-mini-slider__image {
+  position: relative;
+  padding: 0 0 30% 0;
+  cursor: pointer;
+}
+
+.image-mini-slider__image img {
+  object-fit: cover;
+  position: absolute;
+  width: 100%;
+  height: 100%;
+
+  top: 0;
+  left: 0;
+}

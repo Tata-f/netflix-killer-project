@@ -40,6 +40,28 @@ function onClickOpen() {
     },
 
     effect: 'cube',
+
+    cubeEffect: {
+      slideShadows: true,
+      shadow: true,
+      shadowOffset: 29,
+      shadowScale: 0.94,
+    },
+
+    autoplay: {
+      delay: 1000,
+      stopOnLastSlide: true,
+      disableOnInteraction: false,
+    },
+
+    speed: 800,
+
+    thumbs: {
+      swiper: {
+        el: '.image-mini-slider',
+        slidesPerView: 3,
+      }
+    }
  });
 }
 
