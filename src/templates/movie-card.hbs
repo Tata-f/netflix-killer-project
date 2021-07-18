@@ -2,23 +2,35 @@
   {{#each this}}
     <li class='list-item'>
         {{!-- <a href='' class="test"> --}}
-            {{#if poster_path}}
-            <img
-                srcset='https://image.tmdb.org/t/p/w300{{poster_path}} 1x, https://image.tmdb.org/t/p/w500{{poster_path}} 2x'
-                src='https://image.tmdb.org/t/p/w300{{poster_path}}' 
-                alt='{{title}}'
-                class="card-image-js"
-                data-id={{id}} />
+            <div class="poster-wrapper">
+                {{#if poster_path}}
+                <img srcset='https://image.tmdb.org/t/p/w300{{poster_path}} 1x, https://image.tmdb.org/t/p/w500{{poster_path}} 2x'
+                    src='https://image.tmdb.org/t/p/w300{{poster_path}}' alt='{{title}}' class="card-image-js" data-id={{id}} />
                 {{else}}
                 <img srcset='https://image.tmdb.org/t/p/w342/AvgrHw6YEehlNxVZNVDoVz2Huht.jpg 1x, https://image.tmdb.org/t/p/w500/AvgrHw6YEehlNxVZNVDoVz2Huht.jpg 2x'
                     src='https://image.tmdb.org/t/p/w342/AvgrHw6YEehlNxVZNVDoVz2Huht.jpg' alt='Poster not available'
                     class='card-image-js' data-id={{id}} />
                 {{/if}}
+
+                <div class="vote-average">
+                    {{#if vote_average}}
+                    <p>
+                        {{voteAverage}}
+                    </p>
+                    {{else}}
+                    <p class="no-vote-average">&#8212;</p>
+                    {{/if}}
+                </div>
+            </div>
             <div class='card-title'>
                 <h2 class='title'>{{title}}</h2>
-                <p class='desc'>{{genres}} | <span class='release-date'>{{releaseYear}}</span></p>
+                <p class='desc'>{{genres}} | <span class='release-date'>{{releaseYear}}</span>
+               
+                
+                </p>
                 {{!-- добавить год и жанры --}}
             </div>
+           
         {{!-- </a> --}}
     </li>
   {{/each}}

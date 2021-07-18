@@ -1,34 +1,45 @@
-{{#if poster_path}}
-<img class="modal-img"
-    srcset='https://image.tmdb.org/t/p/w300{{poster_path}} 1x, https://image.tmdb.org/t/p/w500{{poster_path}} 2x'
-    src='https://image.tmdb.org/t/p/w300{{poster_path}}' alt='{{title}}' />
-{{else}}
-<img class="modal-img" srcset='https://image.tmdb.org/t/p/w342/AvgrHw6YEehlNxVZNVDoVz2Huht.jpg 1x, https://image.tmdb.org/t/p/w500/AvgrHw6YEehlNxVZNVDoVz2Huht.jpg 2x'
-    src='https://image.tmdb.org/t/p/w342/AvgrHw6YEehlNxVZNVDoVz2Huht.jpg' alt='Poster not available' />
-{{/if}}
-            <div>
+<div>
+    {{#if poster_path}}
+    <img class="modal-img"
+        srcset='https://image.tmdb.org/t/p/w300{{poster_path}} 1x, https://image.tmdb.org/t/p/w500{{poster_path}} 2x'
+        src='https://image.tmdb.org/t/p/w300{{poster_path}}' alt='{{title}}' />
+    {{else}}
+    <img class="modal-img"
+        srcset='https://image.tmdb.org/t/p/w342/AvgrHw6YEehlNxVZNVDoVz2Huht.jpg 1x, https://image.tmdb.org/t/p/w500/AvgrHw6YEehlNxVZNVDoVz2Huht.jpg 2x'
+        src='https://image.tmdb.org/t/p/w342/AvgrHw6YEehlNxVZNVDoVz2Huht.jpg' alt='Poster not available' />
+    {{/if}}
+</div>
+            <div class="modal-container">
+
                 <h2 class="modal-film-title">{{title}}</h2>
-                <ul class="modal-items">
-                    <li class="modal-item-name">
-                        Vote / Votes
-                        <p class="modal-item-average">{{vote_average}}</p>
-                        /
-                        <p class="modal-item-count">{{vote_count}}</p>
-                    </li>
-                    <li class="modal-item-name">
-                        Popularity
-                        <p class="modal-item-description modal-item-popularity">{{popularity}}</p>
-                    </li>
-                    <li class="modal-item-name">
-                        Original Title
-                        <p class="modal-item-description modal-item-title">{{original_title}}</p>
-                    </li>
-                    <li class="modal-item-name modal-item-genre">
+                <div class="modal-items-container">
+                    <ul class="modal-items">
+                        <li class="modal-item-name">Vote / Votes</li>
+                        <li class="modal-item-name">Popularity</li>
+                        <li class="modal-item-name">Original Title</li>
+                    </ul>
+                
+                    <ul>
+                        <li class="modal-item-common">
+                            {{#if vote_average}}
+                            <p class="modal-item-average">{{vote_average}}</p>
+                            {{else}}
+                            <p class="modal-item-average">&#8212;</p>
+                            {{/if}}
+                            /
+                            <p class="modal-item-count">{{vote_count}}</p>
+                        </li>
+                        <li class="modal-item-common">{{popularity}}</li>
+                        <li class="modal-item-common">{{original_title}}</li>
+                    </ul>
+                </div>
+                <ul class="modal-genre-container">
+                    <li class="modal-item-name mogal-item-genre">
                         Genre
-                        <ul class="modal-item-genre-container">
-                        {{#each genres}}
-                          <li>{{this.name}}</li>
-                        {{/each}}
+                        <ul class="modal-genre-name">
+                            {{#each genres}}
+                            <li>{{this.name}}</li>
+                            {{/each}}
                         </ul>
                     </li>
                 </ul>
@@ -37,7 +48,10 @@
                     {{overview}}
                 </p>
                 <div class="modal-button-container">
-                    <button class="modal-button modal-button-color" type="button">Add to watched</button>
-                    <button class="modal-button" type="button">Add to queue</button>
+                    <button class="modal-button btn-watched-js" type="button">Add to watched</button>
+                    <button class="modal-button btn-queue-js" type="button">Add to queue</button>
+                    {{#if trailers}}
+                    <button class="modal-button teaser-button btn-teaser-js" type="button">Watch teaser</button>
+                    {{/if}}
                 </div>
             </div>

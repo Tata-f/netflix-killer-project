@@ -7,7 +7,6 @@
 
 @import './utils/variables';
 @import './base/base-styles';
-
 @import './modules/header';
 @import './modules/gallery';
 @import './footer';
@@ -16,3 +15,6 @@
 @import './modules/modal-open';
 @import './modules/pagination';
 @import './utils/swipe-up';
+@import './modules/render-popular-to-week';
+@import './modules/modal-video';
+@import './utils/notification';

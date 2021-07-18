@@ -1,0 +1,35 @@
+.notice-toast {
+  top: 150px;
+}
+
+.notice-toast-main .notice-toast-icon {
+  margin-bottom: 0;
+  font-size: 14px;
+  margin-right: 5px;
+}
+
+.notice-toast-container {
+  align-items: normal;
+  flex-direction: row;
+}
+
+.notice-toast-main {
+  background-color: transparent !important;
+  .notice-toast-text,
+  .notice-toast-icon {
+    color: $bright-color-red !important;
+    font-size: 14px;
+  }
+  .notice-toast-text {
+    width: auto;
+    overflow: visible;
+    text-overflow: unset;
+    white-space: break-spaces;
+  }
+}
+
+@media screen and (min-width: $tablet) {
+  .notice-toast-main {
+    justify-content: center;
+  }
+}

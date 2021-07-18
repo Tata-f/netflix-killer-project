@@ -15,175 +15,152 @@ button {
 header {
   height: 230px;
   position: relative;
-  background-color:rgb(0, 0, 0);
-  
+  background-color: rgb(0, 0, 0);
 }
 
-
-
 .header-main {
-  top: 0;
   position: absolute;
   top: 0;
-	bottom: 0;
-	left: 0;
-	right: 0;
-	margin: auto;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  margin: auto;
 
   width: 100%;
   height: 100%;
   background-position: center, center;
-	background-size: cover;
-	background-repeat: no-repeat;  
+  background-size: cover;
+  background-repeat: no-repeat;
 
   -webkit-transition: opacity 1.2s ease-in-out;
   -moz-transition: opacity 1.2s ease-in-out;
   -o-transition: opacity 1.2s ease-in-out;
   transition: opacity 1.2s ease-in-out;
 
-
-  padding: 46px 20px 0px;
-	@media screen and (min-width: $tablet) {
-    padding: 41px 76px 0px 71px;	
+  padding: 0 20px;
+  @media screen and (min-width: $tablet) {
+    padding: 0 76px 0 71px;
   }
 }
-.header-main.not-active {  
+.header-main.not-active {
   opacity: 0;
-  z-index: 10;
-
+  z-index: 0;
 }
 
+.header-home {
+  z-index: 2;
 
-.header-home {  
-  z-index: 30; 
-     
-  background-image: linear-gradient(
-					rgba(0, 0, 0, 0.36),
-					rgba(0, 0, 0, 0.36)
-				),
-				url("../images/mobile/main-header-bg.jpg");
+  padding-top: 113px;
+
+  background-image: linear-gradient(rgba(0, 0, 0, 0.36), rgba(0, 0, 0, 0.36)),
+    url('../images/mobile/main-header-bg.jpg');
 
   @media screen and (min-device-pixel-ratio: 2),
     screen and (-webkit-min-device-pixel-ratio: 2),
     screen and (-o-min-device-pixel-ratio: 2/1),
     screen and (min-resolution: 192dpi),
     screen and (min-resolution: 2dppx) {
-    background-image:linear-gradient(
-      rgba(0, 0, 0, 0.36),
-      rgba(0, 0, 0, 0.36)
-    ), url("../images/mobile/main-header-bg@2x.jpg");
+    background-image: linear-gradient(rgba(0, 0, 0, 0.36), rgba(0, 0, 0, 0.36)),
+      url('../images/mobile/main-header-bg@2x.jpg');
   }
 
-	@media screen and (min-width: $tablet) {
-   	
-		background-image:linear-gradient(
-      rgba(0, 0, 0, 0.36),
-      rgba(0, 0, 0, 0.36)
-    ), url("../images/tablet/main-header-bg.jpg");
+  @media screen and (min-width: $tablet) {
+    background-image: linear-gradient(rgba(0, 0, 0, 0.36), rgba(0, 0, 0, 0.36)),
+      url('../images/tablet/main-header-bg.jpg');
 
-		@media screen and (min-device-pixel-ratio: 2),
-			screen and (-webkit-min-device-pixel-ratio: 2),
-			screen and (-o-min-device-pixel-ratio: 2/1),
-			screen and (min-resolution: 192dpi),
-			screen and (min-resolution: 2dppx) {
-			background-image:linear-gradient(
-        rgba(0, 0, 0, 0.36),
-        rgba(0, 0, 0, 0.36)
-      ), url("../images/tablet/main-header-bg@2x.jpg");
-		}
+    @media screen and (min-device-pixel-ratio: 2),
+      screen and (-webkit-min-device-pixel-ratio: 2),
+      screen and (-o-min-device-pixel-ratio: 2/1),
+      screen and (min-resolution: 192dpi),
+      screen and (min-resolution: 2dppx) {
+      background-image: linear-gradient(rgba(0, 0, 0, 0.36), rgba(0, 0, 0, 0.36)),
+        url('../images/tablet/main-header-bg@2x.jpg');
+    }
   }
 
-	@media screen and (min-width: $desktop) {
+  @media screen and (min-width: $desktop) {
     max-width: $desktop;
-    
-		background-image:linear-gradient(
-      rgba(0, 0, 0, 0.36),
-      rgba(0, 0, 0, 0.36)
-    ), url("../images/desktop/main-header-bg.jpg");
 
-		@media screen and (min-device-pixel-ratio: 2),
-			screen and (-webkit-min-device-pixel-ratio: 2),
-			screen and (-o-min-device-pixel-ratio: 2/1),
-			screen and (min-resolution: 192dpi),
-			screen and (min-resolution: 2dppx) {
-			background-image:linear-gradient(
-        rgba(0, 0, 0, 0.36),
-        rgba(0, 0, 0, 0.36)
-      ), url("../images/desktop/main-header-bg@2x.jpg");
-		}
-	}
+    background-image: linear-gradient(rgba(0, 0, 0, 0.36), rgba(0, 0, 0, 0.36)),
+      url('../images/desktop/main-header-bg.jpg');
+
+    @media screen and (min-device-pixel-ratio: 2),
+      screen and (-webkit-min-device-pixel-ratio: 2),
+      screen and (-o-min-device-pixel-ratio: 2/1),
+      screen and (min-resolution: 192dpi),
+      screen and (min-resolution: 2dppx) {
+      background-image: linear-gradient(rgba(0, 0, 0, 0.36), rgba(0, 0, 0, 0.36)),
+        url('../images/desktop/main-header-bg@2x.jpg');
+    }
+  }
 }
 
-.header-my-library {	
-  z-index: 20;
- 
-  background-image:linear-gradient(
-    rgba(0, 0, 0, 0.36),
-    rgba(0, 0, 0, 0.36)
-  ), url("../images/mobile/favorites-header-bg.jpg");
- 
+.header-my-library {
+  z-index: 1;
+
+  padding-top: 121px;
+
+  background-image: linear-gradient(rgba(0, 0, 0, 0.36), rgba(0, 0, 0, 0.36)),
+    url('../images/mobile/favorites-header-bg.jpg');
+
   @media screen and (min-device-pixel-ratio: 2),
     screen and (-webkit-min-device-pixel-ratio: 2),
     screen and (-o-min-device-pixel-ratio: 2/1),
     screen and (min-resolution: 192dpi),
     screen and (min-resolution: 2dppx) {
-    background-image:linear-gradient(
-      rgba(0, 0, 0, 0.36),
-      rgba(0, 0, 0, 0.36)
-    ), url("../images/mobile/favorites-header-bg.jpg");
+    background-image: linear-gradient(rgba(0, 0, 0, 0.36), rgba(0, 0, 0, 0.36)),
+      url('../images/mobile/favorites-header-bg.jpg');
   }
 
-	@media screen and (min-width: $tablet) {  	
-		background-image:linear-gradient(
-      rgba(0, 0, 0, 0.36),
-      rgba(0, 0, 0, 0.36)
-    ), url("../images/tablet/favorites-header-bg.jpg");
+  @media screen and (min-width: $tablet) {
+    background-image: linear-gradient(rgba(0, 0, 0, 0.36), rgba(0, 0, 0, 0.36)),
+      url('../images/tablet/favorites-header-bg.jpg');
 
-		@media screen and (min-device-pixel-ratio: 2),
-			screen and (-webkit-min-device-pixel-ratio: 2),
-			screen and (-o-min-device-pixel-ratio: 2/1),
-			screen and (min-resolution: 192dpi),
-			screen and (min-resolution: 2dppx) {
-			background-image:linear-gradient(
-        rgba(0, 0, 0, 0.36),
-        rgba(0, 0, 0, 0.36)
-      ), url("../images/tablet/favorites-header-bg@2x.jpg");
-		}
+    @media screen and (min-device-pixel-ratio: 2),
+      screen and (-webkit-min-device-pixel-ratio: 2),
+      screen and (-o-min-device-pixel-ratio: 2/1),
+      screen and (min-resolution: 192dpi),
+      screen and (min-resolution: 2dppx) {
+      background-image: linear-gradient(rgba(0, 0, 0, 0.36), rgba(0, 0, 0, 0.36)),
+        url('../images/tablet/favorites-header-bg@2x.jpg');
+    }
   }
 
-	@media screen and (min-width: $desktop) {  
+  @media screen and (min-width: $desktop) {
     max-width: $desktop;
 
-		background-image:linear-gradient(
-      rgba(0, 0, 0, 0.36),
-      rgba(0, 0, 0, 0.36)
-    ), url("../images/desktop/favorites-header-bg.jpg");
+    background-image: linear-gradient(rgba(0, 0, 0, 0.36), rgba(0, 0, 0, 0.36)),
+      url('../images/desktop/favorites-header-bg.jpg');
 
-		@media screen and (min-device-pixel-ratio: 2),
-			screen and (-webkit-min-device-pixel-ratio: 2),
-			screen and (-o-min-device-pixel-ratio: 2/1),
-			screen and (min-resolution: 192dpi),
-			screen and (min-resolution: 2dppx) {
-			background-image:linear-gradient(
-        rgba(0, 0, 0, 0.36),
-        rgba(0, 0, 0, 0.36)
-      ), url("../images/desktop/favorites-header-bg@2x.jpg");
-		}
-	}
+    @media screen and (min-device-pixel-ratio: 2),
+      screen and (-webkit-min-device-pixel-ratio: 2),
+      screen and (-o-min-device-pixel-ratio: 2/1),
+      screen and (min-resolution: 192dpi),
+      screen and (min-resolution: 2dppx) {
+      background-image: linear-gradient(rgba(0, 0, 0, 0.36), rgba(0, 0, 0, 0.36)),
+        url('../images/desktop/favorites-header-bg@2x.jpg');
+    }
+  }
 }
 
-header {	
+header {
   .header-container {
-    display: flex;	
-    justify-content: space-between;	
-    align-items: baseline;	
+    display: flex;
+    justify-content: space-between;
+    align-items: baseline;
+
+    position: absolute;
+    top: 40px;
+    left: 0;
+    right: 0;
+    z-index: 3;
   }
 
   .header-form {
     display: flex;
     justify-content: center;
     align-items: center;
-    margin-top: 38px;
+    
     margin-right: auto;
     margin-left: auto;
   }
@@ -193,14 +170,14 @@ header {
     display: flex;
     justify-content: center;
     align-items: center;
-    margin-top: 46px;
+    
   }
 }
 
 .logo-header-home,
 .logo-header-library {
   cursor: pointer;
-	display: flex;
+  display: flex;
   align-items: baseline;
 
   .logo-header__svg {
@@ -219,10 +196,8 @@ header {
       line-height: 35px;
       color: $light-color-white;
     }
-    
   }
 }
-
 
 .nav-header-home,
 .nav-header-library {
@@ -234,7 +209,7 @@ header {
     font-size: 12px;
     line-height: 16px;
   }
- 
+
   button:hover,
   button:focus {
     border-bottom: 3px solid $bright-color-orange;
@@ -245,12 +220,11 @@ header {
     margin-right: 39px;
   }
 
-  .nav-header__home.active, 
+  .nav-header__home.active,
   .nav-header__library.active {
     border-bottom: 3px solid $bright-color-orange;
   }
 }
-
 
 .header-form {
   position: relative;
@@ -272,7 +246,7 @@ header {
     position: absolute;
     right: 0;
   }
-  
+
   .header-form__btn:hover {
     cursor: pointer;
 
@@ -280,8 +254,10 @@ header {
       stroke: $bright-color-orange;
     }
   }
-    
-  .header-form__input::-webkit-input-placeholder {color:$light-color-white}
+
+  .header-form__input::-webkit-input-placeholder {
+    color: $light-color-white;
+  }
 
   .header-form__input {
     font-family: Roboto;
@@ -297,13 +273,11 @@ header {
     border-bottom: 2px solid $light-color-white;
     outline: none;
 
-    
-
     &:-webkit-autofill {
       border-bottom: 2px solid $bright-color-orange;
       -webkit-text-fill-color: $light-color-white;
       transition: background-color 5000s ease-in-out 0s;
-    } 
+    }
 
     &:target,
     &:focus {
@@ -321,7 +295,6 @@ header {
 }
 
 .librari-nav {
-
   button {
     text-transform: uppercase;
     font-family: Roboto;
@@ -332,11 +305,11 @@ header {
     width: 136px;
     height: 44px;
     border: 2px solid $light-color-white;
-    border-radius: 5px;    
+    border-radius: 5px;
   }
 
   .librari-nav__wach.active,
-  .librari-nav__queue.active {    
+  .librari-nav__queue.active {
     border: 0;
     background: $bright-color-orange;
   }
@@ -351,8 +324,3 @@ header {
     margin-right: 15px;
   }
 }
-
-
-
-
-
