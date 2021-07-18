@@ -6,7 +6,8 @@
   "homepage": "https://paulpugovkin.github.io/netflix-killer-project",
   "scripts": {
     "dev": "parcel src/*.html",
-    "build": "parcel build src/*.html --public-url /netflix-killer-project/"
+    "build": "parcel build src/*.html --public-url /netflix-killer-project/",
+    "bb": "parcel build src/*.html"
   },
   "repository": {
     "type": "git",
