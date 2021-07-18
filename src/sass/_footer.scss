@@ -88,6 +88,12 @@
   justify-content: center;
 }
 
+.swiper-pogination-container {
+  margin-top: 15px;
+  display: flex;
+  justify-content: center;
+}
+
 .swiper-slide__image img {
   margin-bottom: 15px;
   width: 250px;
@@ -107,12 +113,12 @@
   font-size: 60px;
 }
 
-.image-slider .swiper-scrollbar {
+/*.image-slider .swiper-scrollbar {
   cursor: pointer;
   background-color: $bright-color-orange;
 }
 
-/*.swiper-pogination-container {
+.swiper-pogination-container {
   margin-top: 15px;
   display: flex;
   justify-content: center;
