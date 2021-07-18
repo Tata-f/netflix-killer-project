@@ -22,9 +22,19 @@ async function getMovieById(e) {
     if (e.target.className !== 'card-image-js') return;
     refs.modal.innerHTML = '';
 
-    filmApiService.query = e.target.dataset.id;
+    filmApiService.movie = e.target.dataset.id;
     const result = await filmApiService.fetchOnClickMovie();
-    await renderOpenedMovie(result);
+    const movies = await filmApiService.fetchVideoMovie();
+    
+    if (movies.results.length > 0) {
+      const resultForRender = {
+        ...result,
+        trailers: movies.results
+      };
+      await renderOpenedMovie(resultForRender);
+    } else {
+      await renderOpenedMovie(result);
+    }
     
     onOpenModal();
     await addToWatchedLockalS(result);

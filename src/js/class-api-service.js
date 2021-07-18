@@ -12,7 +12,7 @@ export default class FilmApiService {
 
   async fetchOnClickMovie() {
     const response = await fetch(
-      `${options.BASE_URL}movie/${this.searchQuery}?api_key=${options.API_KEY}`,
+      `${options.BASE_URL}movie/${this.movieID}?api_key=${options.API_KEY}`,
     );
     return response.json();
   }
