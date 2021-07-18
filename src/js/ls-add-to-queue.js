@@ -46,6 +46,7 @@ export default function addToLockalS(filmUser) {
         btnQueueEl.innerText = 'remove from queue';
         btnQueueEl.classList.add('modal-button-color')
         if(renderLibraryEl.classList.contains('active')){
+          filmLibrary.incrementPageLib()
           onClickQueue();
         }
       }

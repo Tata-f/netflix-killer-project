@@ -48,6 +48,7 @@ export default function addToLockalS(filmUser) {
         btnWatchedEl.innerText = 'remove from watched';
         btnWatchedEl.classList.add('modal-button-color')
         if(renderLibraryEl.classList.contains('active')&& headerEl.classList.contains('not-active')){
+          filmLibrary.incrementPageLib()
           onClickWatched();
         }
       }
