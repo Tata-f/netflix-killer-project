@@ -20,10 +20,10 @@ function onRenderPagination(totalPages, pageNumber) {
     paginationItem += `<li class="pagination-item pagination-back"><span class="pagination-arrow-back">&#8701</span></li>`;
   }
 
-  if (pageNumber > 3) {
+  if (pageNumber > 3 && totalPages > 5) {
     //если значение страницы больше 2, добавьте новый тег li 
     paginationItem += `<li class="mobile-hidden pagination-item pagination-numb "><span>1</span></li>`;
-    if (pageNumber > 4) {
+    if (pageNumber > 4 && totalPages > 6) {
       //если значение страницы больше 3, добавьте новый тег ...
       paginationItem += `<li class="mobile-hidden pagination-item pagination-dots"><span><sup>...</sup></span></li>`;
     }
@@ -61,10 +61,10 @@ function onRenderPagination(totalPages, pageNumber) {
     paginationItem += `<li class="pagination-item pagination-numb ${activePage}"><span>${pageLength}</span></li>`; 
   }
 
-  if (pageNumber < totalPages - 2) {
+  if (pageNumber < totalPages - 2 && totalPages > 5) {
     //если значение страницы меньше totalpages на 1, то показать последний li или страницу, которая является 176 новым тегом li
 
-    if (pageNumber < totalPages - 3) {
+    if (pageNumber < totalPages - 3 && totalPages > 6) {
       //если значение страницы меньше totalpages на 2, то показать последний (...) предпоследний
       paginationItem += `<li class="mobile-hidden pagination-item pagination-dots"><span><sup>...</sup></span></li>`;
     }
