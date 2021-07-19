@@ -50,7 +50,6 @@ async function onClickLibrary() {
       }
     } catch {
         errorMsg.showToast(errorServerMsgStyles);
-        console.log('Ошибка в onClickLibrary');
     }
   }
 
@@ -111,77 +110,7 @@ async function onClickLibrary() {
   }
 }
 
-// async function onClickWatched() {
 
-//   libraryPage = filmLibrary.pageLibrary;
-//   let total_pages = 0;
-//   let width = document.body.clientWidth;
-
-//   if (width > 1023) {
-//     try {
-//       filmApiService.query = '';
-//       const filmsStr = await localStorage.getItem('watchedFilm');
-//       const filmsArr = await JSON.parse(filmsStr);
-//       const pageArr = [];
-//       total_pages = await Math.ceil(filmsArr.length / 9);
-      
-//       for (let i = 0; i < total_pages - 1; i++) {
-//         pageArr.push(filmsArr.splice(0, 9));
-//       }
-//       pageArr.push(filmsArr);
-//       const moviesWithYearAndGenre = await getUpdatedLibraryMovieInfo(pageArr[libraryPage-1]);
-//       const result = await createCardMarkup(moviesWithYearAndGenre);
-//       await createCardMarkup(moviesWithYearAndGenre);
-//       await onRenderPagination(total_pages, libraryPage);
-//       return result;
-//     } catch {
-//       errorMsg.showToast(errorServerMsgStyles);
-//     }
-//   }
-
-//   if (width > 767 && width < 1024) {
-//     try {
-//       filmApiService.query = '';
-//       const filmsStr = await localStorage.getItem('watchedFilm');
-//       const filmsArr = await JSON.parse(filmsStr);
-//       total_pages = await Math.ceil(filmsArr.length / 6);
-//       const pageArr = [];
-//       for (let i = 0; i < total_pages - 1; i++) {
-//         pageArr.push(filmsArr.splice(0, 6));
-//       }
-//       pageArr.push(filmsArr);
-//       const moviesWithYearAndGenre = await getUpdatedLibraryMovieInfo(pageArr[libraryPage-1]);
-//       const result = await createCardMarkup(moviesWithYearAndGenre);
-//       await createCardMarkup(moviesWithYearAndGenre);
-//       await onRenderPagination(total_pages, libraryPage);
-//       return result;
-//     } catch {
-//       errorMsg.showToast(errorServerMsgStyles);
-//     }
-//   }
-
-//   if (width > 200 && width < 768) {
-//     try {
-//       filmApiService.query = '';
-//       const filmsStr = await localStorage.getItem('watchedFilm');
-//       const filmsArr = await JSON.parse(filmsStr);
-//       total_pages = await Math.ceil(filmsArr.length / 4);
-//       const pageArr = [];
-//       for (let i = 0; i < total_pages - 1; i++) {
-//         pageArr.push(filmsArr.splice(0, 4));
-//       }
-//       pageArr.push(filmsArr);
-//       const moviesWithYearAndGenre = await getUpdatedLibraryMovieInfo(pageArr[libraryPage-1]);
-//       const result = await createCardMarkup(moviesWithYearAndGenre);
-//       await createCardMarkup(moviesWithYearAndGenre);
-//       await onRenderPagination(total_pages, libraryPage);
-//       return result;
-//     } catch {
-//       errorMsg.showToast(errorServerMsgStyles);
-//     }
-//   }
-
-// }
 async function onClickQueue() {
 
   libraryPage = filmLibrary.pageLibrary;
@@ -213,7 +142,6 @@ async function onClickQueue() {
       
     } catch {
        errorMsg.showToast(errorServerMsgStyles);
-       console.log('Ошибка в onClickQueue');
     }
   }
 
