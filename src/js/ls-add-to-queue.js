@@ -57,7 +57,6 @@ export default function addToLockalS(filmUser) {
 
   function onClickBtnRemoveToQueue() {
     let width = document.body.clientWidth;
-    
     const filmsStr = localStorage.getItem('queueFilm');
     const filmsArr = JSON.parse(filmsStr);
 
@@ -83,14 +82,16 @@ export default function addToLockalS(filmUser) {
       btnQueueEl.classList.remove('modal-button-color')
       btnQueueEl.removeEventListener('click', onClickBtnRemoveToQueue);
       if(renderLibraryEl.classList.contains('active') && headerEl.classList.contains('not-active')){
-        
         if (pages === filmLibrary.pageLib) {
           filmLibrary.decrementPageLib();
         }
         onClickQueue();
         renderContainer.innerHTML='';
       }
+      onClickQueue();
+      renderContainer.innerHTML='';
     }
+  }
 
     if(filmsArr.length%4===1 && width < 768){
       let pages = Math.ceil(filmsArr.length/4);

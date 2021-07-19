@@ -57,10 +57,9 @@ export default function addToLockalS(filmUser) {
 
   function onClickBtnRemoveToWatched() {
     let width = document.body.clientWidth;
-    
     const filmsStr = localStorage.getItem('watchedFilm');
     const filmsArr = JSON.parse(filmsStr);
-
+    
     if (filmsArr.length === 1) {
       localStorage.removeItem('watchedFilm');
       btnWatchedEl.innerText = 'add to watched';
@@ -74,7 +73,6 @@ export default function addToLockalS(filmUser) {
 
     if(filmsArr.length%9===1 && width > 1023){
       let pages = Math.ceil(filmsArr.length/9);
-
       const newArr = filmsArr.filter(film => {
         return film.id !== filmUser.id;
       })
