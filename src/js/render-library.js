@@ -189,8 +189,8 @@ async function onClickQueue() {
   let width = document.body.clientWidth;
 
   if (width > 1023) {
-    filmApiService.query = '';
     try {
+      filmApiService.query = '';
       if (localStorage.getItem('queueFilm')) {
         const filmsStr = await localStorage.getItem('queueFilm');
         const filmsArr = await JSON.parse(filmsStr);
@@ -213,12 +213,13 @@ async function onClickQueue() {
       
     } catch {
        errorMsg.showToast(errorServerMsgStyles);
+       console.log('Ошибка в onClickQueue');
     }
   }
 
   if (width > 767 && width < 1024) {
-    filmApiService.query = '';
     try {
+      filmApiService.query = '';
       if (localStorage.getItem('queueFilm')) {
         const filmsStr = await localStorage.getItem('queueFilm');
         const filmsArr = await JSON.parse(filmsStr);
@@ -244,8 +245,8 @@ async function onClickQueue() {
   }
 
   if (width > 200 && width < 768) {
-    filmApiService.query = '';
     try {
+      filmApiService.query = '';
       if (localStorage.getItem('queueFilm')) {
         const filmsStr = await localStorage.getItem('queueFilm');
         const filmsArr = await JSON.parse(filmsStr);
