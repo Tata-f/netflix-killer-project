@@ -3,6 +3,7 @@ import { filmLibrary } from './render-library';
 const renderLibraryEl = document.querySelector('.render-queue-js');
 const headerEl = document.querySelector('.header-main')
 const renderContainer = document.querySelector('.gallery-section > .container');
+
 export default function addToLockalS(filmUser) {
   const btnQueueEl = document.querySelector('.btn-queue-js');
   if (!localStorage.queueFilm) {
