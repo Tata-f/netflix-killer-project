@@ -24,6 +24,7 @@ export default function addToLockalS(filmUser) {
   function onClickBtnAddToWatched() {
 
     if (!localStorage.watchedFilm) {
+      console.log('в onClickBtnAddToWatched условие 1');
       const films = [];
 
       films.push(filmUser);
@@ -34,13 +35,18 @@ export default function addToLockalS(filmUser) {
         onClickLibrary();
       }
     } else {
+      console.log('в onClickBtnAddToWatched условие 1 else');
       const filmsStr = localStorage.getItem('watchedFilm');
+      
 
       if (filmsStr.indexOf(`${filmUser.id}`) && filmsStr.indexOf(`${filmUser.id}`) !== -1) {
+        console.log('в onClickBtnAddToWatched условие 2');
+
         btnWatchedEl.innerText = 'remove from watched';
         btnWatchedEl.classList.add('modal-button-color')
         onClickBtnRemoveToWatched();
       } else {
+        console.log('в onClickBtnAddToWatched условие 2 else');
         const filmsArr = JSON.parse(filmsStr);
 
         filmsArr.push(filmUser);
@@ -48,7 +54,11 @@ export default function addToLockalS(filmUser) {
         btnWatchedEl.innerText = 'remove from watched';
         btnWatchedEl.classList.add('modal-button-color')
         if(renderLibraryEl.classList.contains('active')&& headerEl.classList.contains('not-active')){
-          filmLibrary.incrementPageLib()
+          console.log('в onClickBtnAddToWatched условие 3');
+          if (filmsArr.length === filmLibrary.pageLib) {
+            
+            filmLibrary.incrementPageLib()
+          }
           onClickLibrary();
         }
       }
@@ -56,7 +66,7 @@ export default function addToLockalS(filmUser) {
   }
 
   function onClickBtnRemoveToWatched() {
-    btnWatchedEl.classList.remove('modal-button-color')
+    // btnWatchedEl.classList.remove('modal-button-color')
 
     const filmsStr = localStorage.getItem('watchedFilm');
     const filmsArr = JSON.parse(filmsStr);
@@ -69,23 +79,31 @@ export default function addToLockalS(filmUser) {
         onClickLibrary();
         renderContainer.innerHTML='';
       }
-      
       return;
     } 
 
     if(filmsArr.length%9===1||filmsArr.length%6===1||filmsArr.length%4===1){
+      let pages = Math.ceil(filmsArr.length/9);
       for (let i = 0; i <= filmsArr.length; i++) {
         if (filmsArr[i].id === filmUser.id) {
+          console.log(`${i} ID в Watched, условие с остатком от деления`);
           filmsArr.splice(i, 1);
           localStorage.setItem(`watchedFilm`, JSON.stringify(filmsArr));
           btnWatchedEl.innerText = 'add to watched';
           btnWatchedEl.classList.remove('modal-button-color')
           btnWatchedEl.removeEventListener('click', onClickBtnRemoveToWatched);
           if(renderLibraryEl.classList.contains('active') && headerEl.classList.contains('not-active')){
-            filmLibrary.decrementPageLib();
+            
+            if (pages === filmLibrary.pageLib) {
+              
+              
+              filmLibrary.decrementPageLib();
+            }
             onClickLibrary();
             renderContainer.innerHTML='';
           }
+        } else {
+          console.log('Нет такого ID в Watched, условие с остатком от деления');
         }
       }
     }
@@ -93,6 +111,8 @@ export default function addToLockalS(filmUser) {
     if (filmsArr.length > 1) {
         for (let i = 0; i <= filmsArr.length; i++) {
           if (filmsArr[i].id === filmUser.id) {
+            console.log(filmsArr[i].id);
+            console.log(`${i} ID в Watched, условие с длиной >1`);
             filmsArr.splice(i, 1);
             localStorage.setItem(`watchedFilm`, JSON.stringify(filmsArr));
             if(renderLibraryEl.classList.contains('active')&& headerEl.classList.contains('not-active')){
@@ -101,6 +121,9 @@ export default function addToLockalS(filmUser) {
             btnWatchedEl.innerText = 'add to watched';
             btnWatchedEl.classList.remove('modal-button-color')
             btnWatchedEl.removeEventListener('click', onClickBtnRemoveToWatched);
+          } else {
+            console.log('Нет такого ID в Watched, условие с длиной >1');
+            continue;
           }
         }
       

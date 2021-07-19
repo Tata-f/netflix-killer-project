@@ -2,6 +2,7 @@ import {onClickQueue} from './render-library'
 import { filmLibrary } from './render-library';
 
 const renderLibraryEl = document.querySelector('.render-queue-js');
+const headerEl = document.querySelector('.header-main')
 const renderContainer = document.querySelector('.gallery-section > .container');
 
 export default function addToLockalS(filmUser) {
@@ -29,7 +30,7 @@ export default function addToLockalS(filmUser) {
       localStorage.setItem(`queueFilm`, JSON.stringify(films));
       btnQueueEl.innerText = 'remove from queue';
       btnQueueEl.classList.add('modal-button-color')
-      if(renderLibraryEl.classList.contains('active')){
+      if(renderLibraryEl.classList.contains('active') && headerEl.classList.contains('not-active')){
         onClickQueue();
       }
     } else {
@@ -37,6 +38,7 @@ export default function addToLockalS(filmUser) {
 
       if (filmsStr.indexOf(`${filmUser.id}`) && filmsStr.indexOf(`${filmUser.id}`) !== -1) {
         btnQueueEl.innerText = 'remove from queue';
+        btnQueueEl.classList.add('modal-button-color')
         onClickBtnRemoveToQueue();
       } else {
         const filmsArr = JSON.parse(filmsStr);
@@ -45,7 +47,7 @@ export default function addToLockalS(filmUser) {
         localStorage.setItem(`queueFilm`, JSON.stringify(filmsArr));
         btnQueueEl.innerText = 'remove from queue';
         btnQueueEl.classList.add('modal-button-color')
-        if(renderLibraryEl.classList.contains('active')){
+        if(renderLibraryEl.classList.contains('active') && headerEl.classList.contains('not-active')){
           filmLibrary.incrementPageLib()
           onClickQueue();
         }
@@ -54,6 +56,8 @@ export default function addToLockalS(filmUser) {
   }
 
   function onClickBtnRemoveToQueue() {
+    // btnQueueEl.classList.remove('modal-button-color')
+
     const filmsStr = localStorage.getItem('queueFilm');
     const filmsArr = JSON.parse(filmsStr);
 
@@ -76,11 +80,13 @@ export default function addToLockalS(filmUser) {
           btnQueueEl.innerText = 'add to queue';
           btnQueueEl.classList.remove('modal-button-color')
           btnQueueEl.removeEventListener('click', onClickBtnRemoveToQueue);
-          if(renderLibraryEl.classList.contains('active')){
+          if(renderLibraryEl.classList.contains('active') && headerEl.classList.contains('not-active')){
             filmLibrary.decrementPageLib();
             onClickQueue();
             renderContainer.innerHTML='';
           }
+        } else {
+          console.log('Нет такого ID в Queue');
         }
       }
     }
@@ -90,13 +96,14 @@ export default function addToLockalS(filmUser) {
           if (filmsArr[i].id === filmUser.id) {
             filmsArr.splice(i, 1);
             localStorage.setItem(`queueFilm`, JSON.stringify(filmsArr));
+            if(renderLibraryEl.classList.contains('active') && headerEl.classList.contains('not-active')){
+              onClickQueue();
+            }
             btnQueueEl.innerText = 'add to queue';
             btnQueueEl.classList.remove('modal-button-color')
             btnQueueEl.removeEventListener('click', onClickBtnRemoveToQueue);
-            if(renderLibraryEl.classList.contains('active')){
-              onClickQueue();
-            }
-          }
+            
+          } 
         }
       }
     
