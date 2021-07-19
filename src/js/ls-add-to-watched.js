@@ -57,7 +57,6 @@ export default function addToLockalS(filmUser) {
 
   function onClickBtnRemoveToWatched() {
     let width = document.body.clientWidth;
-
     const filmsStr = localStorage.getItem('watchedFilm');
     const filmsArr = JSON.parse(filmsStr);
     
@@ -74,7 +73,6 @@ export default function addToLockalS(filmUser) {
 
     if(filmsArr.length%9===1 && width > 1023){
       let pages = Math.ceil(filmsArr.length/9);
-      
       const newArr = filmsArr.filter(film => {
         return film.id !== filmUser.id;
       })
@@ -89,46 +87,48 @@ export default function addToLockalS(filmUser) {
         }
         onClickLibrary();
         renderContainer.innerHTML='';
+      }
     }
-  } 
 
-  if (filmsArr.length%4===1 && width < 768) {
-    let pages = Math.ceil(filmsArr.length/4);
-    const newArr = filmsArr.filter(film => {
-      return film.id !== filmUser.id;
-    })
-    localStorage.setItem(`watchedFilm`, JSON.stringify(newArr));
-    btnWatchedEl.innerText = 'add to watched';
-    btnWatchedEl.classList.remove('modal-button-color')
-    btnWatchedEl.removeEventListener('click', onClickBtnRemoveToWatched);
-    if(renderLibraryEl.classList.contains('active') && headerEl.classList.contains('not-active')){
-          
-      if (pages === filmLibrary.pageLib) {
-        filmLibrary.decrementPageLib();
-      }
-      onClickLibrary();
-      renderContainer.innerHTML='';
-  } 
-}
+    if(filmsArr.length%4===1 && width < 768){
+      let pages = Math.ceil(filmsArr.length/4);
 
-  if (filmsArr.length%6===1 && width > 767 && width < 1024) {
-    let pages = Math.ceil(filmsArr.length/6);
-    const newArr = filmsArr.filter(film => {
-      return film.id !== filmUser.id;
-    })
-    localStorage.setItem(`watchedFilm`, JSON.stringify(newArr));
-    btnWatchedEl.innerText = 'add to watched';
-    btnWatchedEl.classList.remove('modal-button-color')
-    btnWatchedEl.removeEventListener('click', onClickBtnRemoveToWatched);
-    if(renderLibraryEl.classList.contains('active') && headerEl.classList.contains('not-active')){
-          
-      if (pages === filmLibrary.pageLib) {
-        filmLibrary.decrementPageLib();
+      const newArr = filmsArr.filter(film => {
+        return film.id !== filmUser.id;
+      })
+      localStorage.setItem(`watchedFilm`, JSON.stringify(newArr));
+      btnWatchedEl.innerText = 'add to watched';
+      btnWatchedEl.classList.remove('modal-button-color')
+      btnWatchedEl.removeEventListener('click', onClickBtnRemoveToWatched);
+      if(renderLibraryEl.classList.contains('active') && headerEl.classList.contains('not-active')){
+            
+        if (pages === filmLibrary.pageLib) {
+          filmLibrary.decrementPageLib();
+        }
+        onClickLibrary();
+        renderContainer.innerHTML='';
       }
-      onClickLibrary();
-      renderContainer.innerHTML='';
-  }
-}
+    }
+
+    if(filmsArr.length%6===1 && width > 767 && width < 1024){
+      let pages = Math.ceil(filmsArr.length/6);
+
+      const newArr = filmsArr.filter(film => {
+        return film.id !== filmUser.id;
+      })
+      localStorage.setItem(`watchedFilm`, JSON.stringify(newArr));
+      btnWatchedEl.innerText = 'add to watched';
+      btnWatchedEl.classList.remove('modal-button-color')
+      btnWatchedEl.removeEventListener('click', onClickBtnRemoveToWatched);
+      if(renderLibraryEl.classList.contains('active') && headerEl.classList.contains('not-active')){
+            
+        if (pages === filmLibrary.pageLib) {
+          filmLibrary.decrementPageLib();
+        }
+        onClickLibrary();
+        renderContainer.innerHTML='';
+      }
+    }
       
     if (filmsArr.length > 1) {
       const newArr = filmsArr.filter(film => {

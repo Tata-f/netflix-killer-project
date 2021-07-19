@@ -57,7 +57,6 @@ export default function addToLockalS(filmUser) {
 
   function onClickBtnRemoveToQueue() {
     let width = document.body.clientWidth;
-
     const filmsStr = localStorage.getItem('queueFilm');
     const filmsArr = JSON.parse(filmsStr);
 
@@ -65,7 +64,7 @@ export default function addToLockalS(filmUser) {
       localStorage.removeItem('queueFilm');
       btnQueueEl.innerText = 'add to queue';
       btnQueueEl.classList.remove('modal-button-color')
-      if(renderLibraryEl.classList.contains('active') && headerEl.classList.contains('not-active')){
+      if(renderLibraryEl.classList.contains('active')&& headerEl.classList.contains('not-active')){
         onClickQueue();
         renderContainer.innerHTML='';
       }
@@ -83,64 +82,68 @@ export default function addToLockalS(filmUser) {
       btnQueueEl.classList.remove('modal-button-color')
       btnQueueEl.removeEventListener('click', onClickBtnRemoveToQueue);
       if(renderLibraryEl.classList.contains('active') && headerEl.classList.contains('not-active')){
-            
         if (pages === filmLibrary.pageLib) {
           filmLibrary.decrementPageLib();
         }
         onClickQueue();
         renderContainer.innerHTML='';
-    }
-  }
-
-  if (filmsArr.length%4===1 && width < 768) {
-    let pages = Math.ceil(filmsArr.length/4);
-    const newArr = filmsArr.filter(film => {
-      return film.id !== filmUser.id;
-    })
-    localStorage.setItem(`queueFilm`, JSON.stringify(newArr));
-    btnQueueEl.innerText = 'add to queue';
-    btnQueueEl.classList.remove('modal-button-color')
-    btnQueueEl.removeEventListener('click', onClickBtnRemoveToQueue);
-    if(renderLibraryEl.classList.contains('active') && headerEl.classList.contains('not-active')){
-            
-      if (pages === filmLibrary.pageLib) {
-        filmLibrary.decrementPageLib();
       }
       onClickQueue();
       renderContainer.innerHTML='';
     }
   }
 
-  if (filmsArr.length%6===1 && width > 767 && width < 1024) {
-    let pages = Math.ceil(filmsArr.length/6);
-    const newArr = filmsArr.filter(film => {
-      return film.id !== filmUser.id;
-    })
-    localStorage.setItem(`queueFilm`, JSON.stringify(newArr));
-    btnQueueEl.innerText = 'add to queue';
-    btnQueueEl.classList.remove('modal-button-color')
-    btnQueueEl.removeEventListener('click', onClickBtnRemoveToQueue);
-    if(renderLibraryEl.classList.contains('active') && headerEl.classList.contains('not-active')){
-            
-      if (pages === filmLibrary.pageLib) {
-        filmLibrary.decrementPageLib();
+    if(filmsArr.length%4===1 && width < 768){
+      let pages = Math.ceil(filmsArr.length/4);
+
+      const newArr = filmsArr.filter(film => {
+        return film.id !== filmUser.id;
+      })
+      localStorage.setItem(`queueFilm`, JSON.stringify(newArr));
+      btnQueueEl.innerText = 'add to queue';
+      btnQueueEl.classList.remove('modal-button-color')
+      btnQueueEl.removeEventListener('click', onClickBtnRemoveToQueue);
+      if(renderLibraryEl.classList.contains('active') && headerEl.classList.contains('not-active')){
+        
+        if (pages === filmLibrary.pageLib) {
+          filmLibrary.decrementPageLib();
+        }
+        onClickQueue();
+        renderContainer.innerHTML='';
       }
-      onClickQueue();
-      renderContainer.innerHTML='';
     }
-  }
+
+    if(filmsArr.length%6===1 && width > 767 && width < 1024){
+      let pages = Math.ceil(filmsArr.length/6);
+
+      const newArr = filmsArr.filter(film => {
+        return film.id !== filmUser.id;
+      })
+      localStorage.setItem(`queueFilm`, JSON.stringify(newArr));
+      btnQueueEl.innerText = 'add to queue';
+      btnQueueEl.classList.remove('modal-button-color')
+      btnQueueEl.removeEventListener('click', onClickBtnRemoveToQueue);
+      if(renderLibraryEl.classList.contains('active') && headerEl.classList.contains('not-active')){
+        
+        if (pages === filmLibrary.pageLib) {
+          filmLibrary.decrementPageLib();
+        }
+        onClickQueue();
+        renderContainer.innerHTML='';
+      }
+    }
 
     if (filmsArr.length > 1) {
       const newArr = filmsArr.filter(film => {
         return film.id !== filmUser.id;
       })
       localStorage.setItem(`queueFilm`, JSON.stringify(newArr));
-        if(renderLibraryEl.classList.contains('active') && headerEl.classList.contains('not-active')){
-          onClickQueue();
-        }
-        btnQueueEl.innerText = 'add to queue';
-        btnQueueEl.classList.remove('modal-button-color')
-        btnQueueEl.removeEventListener('click', onClickBtnRemoveToQueue);
+      if(renderLibraryEl.classList.contains('active') && headerEl.classList.contains('not-active')){
+        onClickQueue();
+      }
+      btnQueueEl.innerText = 'add to queue';
+      btnQueueEl.classList.remove('modal-button-color')
+      btnQueueEl.removeEventListener('click', onClickBtnRemoveToQueue);
     }
   }
 }

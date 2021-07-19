@@ -179,6 +179,12 @@
       transform: translate(-50%, -50%) scale(1.1);
     }
   }
+
+  @media screen and (max-width: 1023px) {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
 }
 
 @media screen and (min-width: 1023px) {
