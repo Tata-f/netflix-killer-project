@@ -30,11 +30,12 @@ export default function addToLockalS(filmUser) {
       films.push(filmUser);
       localStorage.setItem(`queueFilm`, JSON.stringify(films));
       removeQueueBtnRender()
-      if(libraryIsActive && libraryIsNotActive()){
+      if(libraryIsActive() && libraryIsNotActive()){
         onClickQueue();
       }
     } else {
         const filmsStr = localStorage.getItem('queueFilm');
+        
         if (filmsStr.indexOf(`${filmUser.id}`) && filmsStr.indexOf(`${filmUser.id}`) !== -1) {
           removeQueueBtnRender()
           onClickBtnRemoveToQueue();
@@ -43,7 +44,7 @@ export default function addToLockalS(filmUser) {
             filmsArr.push(filmUser);
             localStorage.setItem(`queueFilm`, JSON.stringify(filmsArr));
             removeQueueBtnRender()
-            if(libraryIsActive && libraryIsNotActive()){
+            if(libraryIsActive() && libraryIsNotActive()){
               onClickQueue();
             }
           }
@@ -70,7 +71,7 @@ export default function addToLockalS(filmUser) {
       localStorage.removeItem('queueFilm');
       addQueueBtnRender()
 
-      if(libraryIsActive&& libraryIsNotActive()){
+      if(libraryIsActive() && libraryIsNotActive()){
         onClickQueue();
         resetContainer()
       }
@@ -80,7 +81,7 @@ export default function addToLockalS(filmUser) {
       let pages = Math.ceil(filmsArr.length/9);
       addFilmInCollection(libraryTest);
       addQueueBtnRender()
-      if(libraryIsActive && libraryIsNotActive()){
+      if(libraryIsActive() && libraryIsNotActive()){
 
         if (pages === filmLibrary.pageLib) {
           filmLibrary.decrementPageLib();
@@ -94,7 +95,7 @@ export default function addToLockalS(filmUser) {
 
           addFilmInCollection(libraryTest);
           addQueueBtnRender()
-          if(libraryIsActive && libraryIsNotActive()){
+          if(libraryIsActive() && libraryIsNotActive()){
 
             if (pages === filmLibrary.pageLib) {
               filmLibrary.decrementPageLib();
@@ -109,7 +110,7 @@ export default function addToLockalS(filmUser) {
 
       addFilmInCollection(libraryTest);
       addQueueBtnRender()
-      if(libraryIsActive && libraryIsNotActive()){
+      if(libraryIsActive() && libraryIsNotActive()){
         if (pages === filmLibrary.pageLib) {
           filmLibrary.decrementPageLib();
         }
@@ -120,7 +121,7 @@ export default function addToLockalS(filmUser) {
 
     if (filmsArr.length > 1) {
       addFilmInCollection(libraryTest);
-      if(libraryIsActive && libraryIsNotActive()){
+      if(libraryIsActive() && libraryIsNotActive()){
         onClickQueue();
       }
       addQueueBtnRender()
