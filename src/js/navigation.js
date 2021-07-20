@@ -8,11 +8,12 @@ import{ onRenderPagination } from './pagination'
 const btnHome = document.querySelector('.nav-header__home');
 const btnLogo = document.querySelector('.logo-header-home');
 const inputTogglePopular = document.querySelector('#toggle-input');
-btnHome.addEventListener('click', onReturnMainPage);
-btnLogo.addEventListener('click', onReturnMainPage);
 const headerMyLibrary = document.querySelector('.header-my-library ')
 const headerHome = document.querySelector('.header-home');
 const toggleRenderPopular = document.querySelector('.toggle-reander');
+
+btnHome.addEventListener('click', onReturnMainPage);
+btnLogo.addEventListener('click', onReturnMainPage);
 //сброс стилей к главной странице
 
 function onReturnMainPage() {
