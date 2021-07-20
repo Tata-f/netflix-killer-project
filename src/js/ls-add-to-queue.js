@@ -1,4 +1,4 @@
-import {onClickQueue} from './render-library'
+import {onClickQueue, renderPlaceholderImg} from './render-library'
 import { filmLibrary } from './render-library';
 
 const renderLibraryEl = document.querySelector('.render-queue-js');
@@ -65,7 +65,7 @@ export default function addToLockalS(filmUser) {
     const libraryTest = filmsArr.filter(film => {
         return film.id !== filmUser.id;
       });
-    const resetContainer = () => renderContainer.innerHTML='';
+    const resetContainer = () => renderContainer.innerHTML= renderPlaceholderImg();
     
     if (filmsArr.length === 1) {
       localStorage.removeItem('queueFilm');
