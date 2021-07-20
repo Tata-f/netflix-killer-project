@@ -1,4 +1,4 @@
-import {onClickLibrary} from './render-library'
+import {onClickLibrary, renderPlaceholderImg} from './render-library'
 import { filmLibrary } from './render-library';
 
 const renderLibraryEl = document.querySelector('.render-watched-js');
@@ -6,7 +6,7 @@ const headerEl = document.querySelector('.header-main')
 const renderContainer = document.querySelector('.gallery-section > .container');
 const libraryIsActive = () => renderLibraryEl.classList.contains('active');
 const libraryIsNotActive = () => headerEl.classList.contains('not-active');
-const resetContainer = () => renderContainer.innerHTML='';
+const resetContainer = () => renderContainer.innerHTML= renderPlaceholderImg();
 
 export default function addToLockalS(filmUser) {
   const btnWatchedEl = document.querySelector('.btn-watched-js');
