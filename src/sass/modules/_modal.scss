@@ -197,7 +197,9 @@
 
 .modal-button-color,
 .teaser-button:hover,
-.teaser-button:focus {
+.teaser-button:focus,
+.teaser-button:focus,
+.modal-button:hover {
   background-color: $bright-color-orange;
   border: 1px solid transparent;
   color: $light-color-white;
