@@ -3,9 +3,8 @@ import FilmApiService from './class-api-service';
 import movieCardTpl from '../templates/movie-card.hbs';
 import { loader, loaderStyles } from './spinner';
 import { errorMsg, errorUserMsgStyles, errorUserEmptyQueryStyles, errorServerMsgStyles } from './notification';
-import { async } from 'fast-glob';
 
-import { onRenderPagination, onClickPagination } from './pagination';
+import { onRenderPagination } from './pagination';
 
 const refs = getRefs();
 export const filmApiService = new FilmApiService();
