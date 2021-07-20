@@ -45,7 +45,7 @@ async function onClickLibrary() {
         
         return result;
       } else {
-        renderContainer.innerHTML = '';
+        renderContainer.innerHTML = renderPlaceholderImg();
         refs.paginationEl.innerHTML = '';
       }
     } catch {
@@ -72,7 +72,7 @@ async function onClickLibrary() {
         await onRenderPagination(total_pages, libraryPage);
        return result;
       } else {
-        renderContainer.innerHTML = '';
+        renderContainer.innerHTML = renderPlaceholderImg();
         refs.paginationEl.innerHTML = '';
       }
       
@@ -100,7 +100,7 @@ async function onClickLibrary() {
         await onRenderPagination(total_pages, libraryPage);
         return result;
       } else {
-        renderContainer.innerHTML = '';
+        renderContainer.innerHTML = renderPlaceholderImg();
         refs.paginationEl.innerHTML = '';
       }
       
@@ -136,7 +136,7 @@ async function onClickQueue() {
         await onRenderPagination(total_pages, libraryPage);
         return result;
       } else {
-        renderContainer.innerHTML = '';
+        renderContainer.innerHTML = renderPlaceholderImg();
         refs.paginationEl.innerHTML = '';
       }
       
@@ -163,7 +163,7 @@ async function onClickQueue() {
         await onRenderPagination(total_pages, libraryPage);
         return result;
       } else {
-        renderContainer.innerHTML = '';
+        renderContainer.innerHTML = renderPlaceholderImg();
         refs.paginationEl.innerHTML = '';
       }
       
@@ -190,7 +190,7 @@ async function onClickQueue() {
         await onRenderPagination(total_pages, libraryPage);
         return result;
       } else {
-        renderContainer.innerHTML = '';
+        renderContainer.innerHTML = renderPlaceholderImg();
         refs.paginationEl.innerHTML = '';
       }
       
@@ -218,4 +218,11 @@ function createCardMarkup(results) {
   voteAverageRef.forEach(el => el.classList.add('is-visible'));
 }
 
-export { onClickQueue, onClickLibrary };
+//Функция рендера заглушки при пустой Библиотеке
+function renderPlaceholderImg() {
+  return '<div class="empty-place-holder"><p>Oh! There is nothing here yet...</p></div>';
+}
+
+
+
+export { onClickQueue, onClickLibrary, renderPlaceholderImg };
